@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Mandirs - MSP Stone International</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --dim-gold: #C9A961;
+            --pure-black: #000000;
+            --pure-white: #FFFFFF;
+            --off-white: #F5F5F5;
+            --text-dark: #0A0A0A;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--off-white);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* HEADER SECTION */
+        .page-header {
+            background: var(--pure-black);
+            padding: 4rem 0 3rem;
+            border-bottom: 3px solid var(--dim-gold);
+            position: relative;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            position: relative;
+        }
+
+        /* BACK BUTTON */
+        .back-btn {
+            position: absolute;
+            top: -1rem;
+            left: 3rem;
+            background: var(--dim-gold);
+            color: var(--pure-black);
+            padding: 0.9rem 2rem;
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            z-index: 10;
+        }
+
+        .back-btn:hover {
+            background: var(--pure-white);
+            transform: translateX(-5px);
+        }
+
+        .header-content {
+            text-align: center;
+        }
+
+        .header-subtitle {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--dim-gold);
+            margin-bottom: 1rem;
+        }
+
+        .header-title {
+            font-size: 4.5rem;
+            font-weight: 900;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--pure-white);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .header-description {
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* PRODUCTS SECTION */
+        .products-section {
+            padding: 5rem 0;
+            background: var(--pure-white);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        /* PRODUCT CARD */
+        .product-card {
+            background: var(--pure-black);
+            border: 3px solid var(--pure-black);
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            cursor: pointer;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--dim-gold);
+            z-index: 2;
+        }
+
+        .product-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
+            border-color: var(--dim-gold);
+        }
+
+        .product-card * {
+            pointer-events: none;
+        }
+
+        .product-card .btn-whatsapp {
+            pointer-events: auto;
+        }
+
+        /* IMAGE CONTAINER */
+        .product-image {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            background: var(--pure-black);
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.85);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .product-card:hover .product-image img {
+            filter: brightness(1);
+            transform: scale(1.08);
+        }
+
+        .premium-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--dim-gold);
+            color: var(--pure-black);
+            padding: 0.5rem 1rem;
+            font-size: 0.65rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            z-index: 3;
+            box-shadow: 0 4px 15px rgba(201, 169, 97, 0.5);
+        }
+
+        /* PRODUCT INFO */
+        .product-info {
+            padding: 2.5rem 2rem 2rem;
+            background: var(--pure-black);
+        }
+
+        .product-title {
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--dim-gold);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .product-description {
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        /* BUTTONS */
+        .product-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 1.1rem 1.5rem;
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            font-family: 'Montserrat', sans-serif;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: var(--pure-white);
+        }
+
+        .btn-whatsapp::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: #128C7E;
+            transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: -1;
+        }
+
+        .btn-whatsapp:hover::before {
+            left: 0;
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+        }
+
+        .btn-view {
+            background: var(--pure-white);
+            color: var(--pure-black);
+            pointer-events: auto;
+        }
+
+        .btn-view::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--dim-gold);
+            transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: -1;
+        }
+
+        .btn-view:hover::before {
+            left: 0;
+        }
+
+        .btn-view:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(201, 169, 97, 0.4);
+        }
+
+        /* MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 9999;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: var(--pure-black);
+            max-width: 1200px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 30px 90px rgba(0, 0, 0, 0.9);
+        }
+
+        .modal.active .modal-content {
+            transform: scale(1);
+        }
+
+        /* IMAGE ZOOM MODAL */
+        .image-zoom-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.98);
+            z-index: 10000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .image-zoom-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+        }
+
+        .zoom-image-container {
+            position: relative;
+            max-width: 95%;
+            max-height: 95vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .zoom-image {
+            max-width: 100%;
+            max-height: 95vh;
+            object-fit: contain;
+            border: 2px solid var(--dim-gold);
+        }
+
+        .zoom-back-btn {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            background: var(--dim-gold);
+            color: var(--pure-black);
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 0.85rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            z-index: 10001;
+        }
+
+        .zoom-back-btn:hover {
+            background: var(--pure-white);
+            transform: translateX(-5px);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: var(--dim-gold);
+            color: var(--pure-black);
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            z-index: 10;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            background: var(--pure-white);
+            transform: rotate(90deg);
+        }
+
+        .modal-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 600px;
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 100%;
+            min-height: 600px;
+            object-fit: cover;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-image:hover {
+            filter: brightness(1.1);
+        }
+
+        .modal-info {
+            padding: 4rem 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .modal-badge {
+            display: inline-block;
+            background: var(--dim-gold);
+            color: var(--pure-black);
+            padding: 0.5rem 1.2rem;
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+            width: fit-content;
+        }
+
+        .modal-title {
+            font-size: 3rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--pure-white);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .modal-description {
+            font-size: 1.05rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .modal-features {
+            list-style: none;
+            margin-bottom: 3rem;
+        }
+
+        .modal-features li {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(201, 169, 97, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .modal-features li i {
+            color: var(--dim-gold);
+            font-size: 0.8rem;
+        }
+
+        .modal-whatsapp {
+            background: #25D366;
+            color: var(--pure-white);
+            padding: 1.3rem 2.5rem;
+            font-size: 0.9rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-family: 'Montserrat', sans-serif;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            justify-content: center;
+        }
+
+        .modal-whatsapp:hover {
+            background: #128C7E;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+        }
+
+        /* SCROLLBAR */
+        .modal-content::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .modal-content::-webkit-scrollbar-track {
+            background: var(--pure-black);
+        }
+
+        .modal-content::-webkit-scrollbar-thumb {
+            background: var(--dim-gold);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1200px) {
+            .header-title {
+                font-size: 3.8rem;
+            }
+
+            .products-grid {
+                gap: 2.5rem;
+            }
+
+            .back-btn {
+                left: 2rem;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .container {
+                padding: 0 2rem;
+            }
+
+            .back-btn {
+                left: 2rem;
+                padding: 0.8rem 1.8rem;
+                font-size: 0.75rem;
+            }
+
+            .header-title {
+                font-size: 3.2rem;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+
+            .modal-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-image {
+                min-height: 400px;
+            }
+
+            .modal-info {
+                padding: 3rem 2rem;
+            }
+
+            .modal-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 5rem 0 2rem;
+            }
+
+            .back-btn {
+                top: 1rem;
+                left: 1.5rem;
+                padding: 0.75rem 1.5rem;
+                font-size: 0.7rem;
+                letter-spacing: 1.5px;
+            }
+
+            .header-title {
+                font-size: 2.8rem;
+                letter-spacing: 2px;
+            }
+
+            .header-subtitle {
+                font-size: 0.7rem;
+                letter-spacing: 4px;
+            }
+
+            .header-description {
+                font-size: 1rem;
+            }
+
+            .products-section {
+                padding: 3rem 0;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+                margin-top: 2rem;
+            }
+
+            .product-card {
+                border-radius: 0;
+            }
+
+            .product-image {
+                height: 380px;
+            }
+
+            .product-info {
+                padding: 2rem 1.8rem;
+            }
+
+            .product-title {
+                font-size: 1.6rem;
+            }
+
+            .product-description {
+                font-size: 0.92rem;
+                line-height: 1.65;
+            }
+
+            .product-buttons {
+                gap: 0.8rem;
+            }
+
+            .btn {
+                padding: 1rem 1.3rem;
+                font-size: 0.75rem;
+                letter-spacing: 1.5px;
+            }
+
+            .modal-content {
+                width: 95%;
+            }
+
+            .modal-close {
+                width: 45px;
+                height: 45px;
+                top: 15px;
+                right: 15px;
+                font-size: 1.3rem;
+            }
+
+            .modal-image {
+                min-height: 300px;
+            }
+
+            .modal-info {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .modal-title {
+                font-size: 2rem;
+            }
+
+            .modal-description {
+                font-size: 0.95rem;
+            }
+
+            .modal-features li {
+                font-size: 0.9rem;
+                padding: 0.7rem 0;
+            }
+
+            .modal-whatsapp {
+                padding: 1.1rem 2rem;
+                font-size: 0.8rem;
+            }
+
+            .zoom-back-btn {
+                top: 20px;
+                left: 20px;
+                padding: 0.9rem 1.8rem;
+                font-size: 0.75rem;
+            }
+
+            .zoom-image {
+                max-height: 85vh;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+
+            .page-header {
+                padding: 4.5rem 0 1.5rem;
+            }
+
+            .back-btn {
+                top: 1rem;
+                left: 1.5rem;
+                padding: 0.7rem 1.3rem;
+                font-size: 0.65rem;
+                letter-spacing: 1px;
+                gap: 0.5rem;
+            }
+
+            .header-title {
+                font-size: 2rem;
+                letter-spacing: 1px;
+            }
+
+            .header-description {
+                font-size: 0.9rem;
+                line-height: 1.6;
+            }
+
+            .products-grid {
+                gap: 2rem;
+            }
+
+            .product-image {
+                height: 320px;
+            }
+
+            .product-card {
+                border-width: 2px;
+            }
+
+            .product-info {
+                padding: 1.8rem 1.5rem;
+            }
+
+            .product-title {
+                font-size: 1.4rem;
+                letter-spacing: 0.5px;
+            }
+
+            .product-description {
+                font-size: 0.88rem;
+                line-height: 1.6;
+                margin-bottom: 1.5rem;
+            }
+
+            .product-buttons {
+                flex-direction: column;
+                gap: 0.7rem;
+            }
+
+            .btn {
+                padding: 0.95rem 1.2rem;
+                font-size: 0.72rem;
+                letter-spacing: 1.2px;
+            }
+
+            .premium-badge {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.6rem;
+                top: 15px;
+                right: 15px;
+            }
+
+            .modal-title {
+                font-size: 1.7rem;
+            }
+
+            .zoom-back-btn {
+                top: 15px;
+                left: 15px;
+                padding: 0.8rem 1.5rem;
+                font-size: 0.7rem;
+                letter-spacing: 1.5px;
+            }
+
+            .zoom-image {
+                border-width: 1px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="page-header">
+        <div class="container">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+                Back to Home
+            </a>
+            <div class="header-content">
+                <p class="header-subtitle">Sacred Spaces</p>
+                <h1 class="header-title">Premium Home Mandirs</h1>
+                <p class="header-description">
+                    Handcrafted marble temples designed to bring divine elegance to your home. 
+                    Each piece is a masterpiece of traditional artistry and spiritual devotion.
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <!-- PRODUCTS -->
+    <section class="products-section">
+        <div class="container">
+            <div class="products-grid">
+                <!-- PRODUCT 1 -->
+                <div class="product-card" onclick="openModal('product1', event)">
+                    <div class="product-image">
+                        <img src="homemandir/homemandir1.jpg" alt="Royal Makrana Mandir">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Royal Makrana Mandir</h3>
+                        <p class="product-description">
+                            Exquisite white Makrana marble temple with intricate hand-carved pillars and dome. 
+                            Perfect for homes seeking traditional grandeur.
+                        </p>
+                        <div class="product-buttons">
+                            <a href="https://wa.me/917300008825?text=I'm%20interested%20in%20the%20Royal%20Makrana%20Mandir" class="btn btn-whatsapp" target="_blank" onclick="event.stopPropagation()">
+                                <i class="fab fa-whatsapp"></i>
+                                WhatsApp
+                            </a>
+                            <button class="btn btn-view">
+                                <i class="fas fa-eye"></i>
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCT 2 -->
+                <div class="product-card" onclick="openModal('product2', event)">
+                    <div class="product-image">
+                        <span class="premium-badge">Premium</span>
+                        <img src="homemandir/homemandir10.png" alt="Divine Heritage Mandir">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Divine Heritage Mandir</h3>
+                        <p class="product-description">
+                            Ornately carved temple featuring traditional Jaali work and brass accents. A masterpiece of spiritual architecture.
+                        </p>
+                        <div class="product-buttons">
+                            <a href="https://wa.me/917300008825?text=I'm%20interested%20in%20the%20Divine%20Heritage%20Mandir" class="btn btn-whatsapp" target="_blank" onclick="event.stopPropagation()">
+                                <i class="fab fa-whatsapp"></i>
+                                WhatsApp
+                            </a>
+                            <button class="btn btn-view">
+                                <i class="fas fa-eye"></i>
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCT 3 -->
+                <div class="product-card" onclick="openModal('product3', event)">
+                    <div class="product-image">
+                        <span class="premium-badge">Premium</span>
+                        <img src="categories/sculpture.jpg" alt="Compact Elegance Mandir">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Compact Elegance Mandir</h3>
+                        <p class="product-description">
+                            Space-efficient design without compromising on beauty. 
+                            Ideal for modern apartments seeking divine presence.
+                        </p>
+                        <div class="product-buttons">
+                            <a href="https://wa.me/917300008825?text=I'm%20interested%20in%20the%20Compact%20Elegance%20Mandir" class="btn btn-whatsapp" target="_blank" onclick="event.stopPropagation()">
+                                <i class="fab fa-whatsapp"></i>
+                                WhatsApp
+                            </a>
+                            <button class="btn btn-view">
+                                <i class="fas fa-eye"></i>
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCT 4 -->
+                <div class="product-card" onclick="openModal('product4', event)">
+                    <div class="product-image">
+                        <span class="premium-badge">Premium</span>
+                        <img src="categories/inlay.jpg" alt="Mughal Inlay Mandir">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Mughal Inlay Mandir</h3>
+                        <p class="product-description">
+                            Stunning pietra dura inlay work inspired by royal heritage. 
+                            Semi-precious stones embedded in pristine marble.
+                        </p>
+                        <div class="product-buttons">
+                            <a href="https://wa.me/917300008825?text=I'm%20interested%20in%20the%20Mughal%20Inlay%20Mandir" class="btn btn-whatsapp" target="_blank" onclick="event.stopPropagation()">
+                                <i class="fab fa-whatsapp"></i>
+                                WhatsApp
+                            </a>
+                            <button class="btn btn-view">
+                                <i class="fas fa-eye"></i>
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCT 5 -->
+                <div class="product-card" onclick="openModal('product5', event)">
+                    <div class="product-image">
+                        <img src="categories/jaali.jpg" alt="Jaali Masterpiece Mandir">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Jaali Masterpiece Mandir</h3>
+                        <p class="product-description">
+                            Intricate lattice screens that play with light and shadow. 
+                            A testament to generations of master craftsmanship.
+                        </p>
+                        <div class="product-buttons">
+                            <a href="https://wa.me/917300008825?text=I'm%20interested%20in%20the%20Jaali%20Masterpiece%20Mandir" class="btn btn-whatsapp" target="_blank" onclick="event.stopPropagation()">
+                                <i class="fab fa-whatsapp"></i>
+                                WhatsApp
+                            </a>
+                            <button class="btn btn-view">
+                                <i class="fas fa-eye"></i>
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCT 6 -->
+                <div class="product-card" onclick="openModal('product6', event)">
+                    <div class="product-image">
+                        <img src="categories/flooring.jpg" alt="Contemporary Sacred Space">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Contemporary Sacred Space</h3>
+                        <p class="product-description">
+                            Modern minimalist design meeting traditional spirituality. 
+                            Clean lines with subtle carvings for contemporary homes.
+                        </p>
+                        <div class="product-buttons">
+                            <a href="https://wa.me/917300008825?text=I'm%20interested%20in%20the%20Contemporary%20Sacred%20Space" class="btn btn-whatsapp" target="_blank" onclick="event.stopPropagation()">
+                                <i class="fab fa-whatsapp"></i>
+                                WhatsApp
+                            </a>
+                            <button class="btn btn-view">
+                                <i class="fas fa-eye"></i>
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-grid">
+                <img src="" alt="Product" class="modal-image" id="modalImage" onclick="openImageZoom()">
+                <div class="modal-info">
+                    <span class="modal-badge" id="modalBadge">Premium Collection</span>
+                    <h2 class="modal-title" id="modalTitle">Product Name</h2>
+                    <p class="modal-description" id="modalDescription">
+                        Product description goes here...
+                    </p>
+                    <ul class="modal-features" id="modalFeatures">
+                        <li><i class="fas fa-check-circle"></i> Feature 1</li>
+                        <li><i class="fas fa-check-circle"></i> Feature 2</li>
+                        <li><i class="fas fa-check-circle"></i> Feature 3</li>
+                        <li><i class="fas fa-check-circle"></i> Feature 4</li>
+                    </ul>
+                    <a href="" class="modal-whatsapp" id="modalWhatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        Inquire on WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- IMAGE ZOOM MODAL -->
+    <div class="image-zoom-modal" id="imageZoomModal">
+        <button class="zoom-back-btn" onclick="closeImageZoom()">
+            <i class="fas fa-arrow-left"></i>
+            Back
+        </button>
+        <div class="zoom-image-container">
+            <img src="" alt="Product Zoom" class="zoom-image" id="zoomImage">
+        </div>
+    </div>
+
+    <script>
+        const products = {
+            product1: {
+                title: 'Royal Makrana Mandir',
+                badge: 'Premium Collection',
+                image: 'homemandir/homemandir1.jpg',
+                description: 'The Royal Makrana Mandir represents the pinnacle of traditional marble craftsmanship. Carved from the finest white Makrana marble - the same stone used in the Taj Mahal - this temple brings centuries of heritage into your home. Each pillar is meticulously hand-carved by master artisans, featuring intricate floral patterns and divine motifs that have been passed down through generations.',
+                features: [
+                    'Authentic Makrana white marble',
+                    'Hand-carved pillars with traditional motifs',
+                    'Includes brass bells and lighting fixtures',
+                    'Customizable size: 4ft to 7ft height',
+                    '70+ years craftsmanship legacy'
+                ],
+                whatsapp: 'https://wa.me/917300008825?text=I%20want%20detailed%20information%20about%20the%20Royal%20Makrana%20Mandir'
+            },
+            product2: {
+                title: 'Divine Heritage Mandir',
+                badge: 'Master Crafted',
+                image: 'homemandir/homemandir10.png',
+                description: 'The Divine Heritage Mandir showcases the art of Jaali work at its finest. This temple features ornately carved lattice screens that create mesmerizing patterns of light and shadow, transforming your prayer space into a divine sanctuary. The brass accents complement the pristine marble, adding warmth and spiritual radiance to the design.',
+                features: [
+                    'Intricate Jaali lattice work',
+                    'Premium brass detailing and accents',
+                    'Multi-level design with storage',
+                    'LED backlighting compatible',
+                    'Custom size options available'
+                ],
+                whatsapp: 'https://wa.me/917300008825?text=I%20want%20detailed%20information%20about%20the%20Divine%20Heritage%20Mandir'
+            },
+            product3: {
+                title: 'Compact Elegance Mandir',
+                badge: 'Space Saver',
+                image: 'categories/sculpture.jpg',
+                description: 'Designed for modern apartments without compromising on spiritual aesthetics, the Compact Elegance Mandir proves that size does not limit devotion. This space-efficient design incorporates traditional elements in a contemporary format, making it perfect for urban homes where every inch matters.',
+                features: [
+                    'Space-efficient design (2.5ft - 4ft)',
+                    'Wall-mounted or free-standing options',
+                    'Built-in storage for prayer items',
+                    'Easy installation and maintenance',
+                    'Perfect for apartments and small spaces'
+                ],
+                whatsapp: 'https://wa.me/917300008825?text=I%20want%20detailed%20information%20about%20the%20Compact%20Elegance%20Mandir'
+            },
+            product4: {
+                title: 'Mughal Inlay Mandir',
+                badge: 'Luxury Heritage',
+                image: 'categories/inlay.jpg',
+                description: 'Experience the royal artistry of Mughal-era craftsmanship with this magnificent temple. The Mughal Inlay Mandir features authentic pietra dura work, where semi-precious stones like lapis lazuli, turquoise, and mother of pearl are meticulously inlaid into pure white marble, creating eternal floral patterns that never fade.',
+                features: [
+                    'Authentic pietra dura inlay work',
+                    'Semi-precious stone embellishments',
+                    'Inspired by Mughal architecture',
+                    'Museum-quality craftsmanship',
+                    'Certificate of authenticity included'
+                ],
+                whatsapp: 'https://wa.me/917300008825?text=I%20want%20detailed%20information%20about%20the%20Mughal%20Inlay%20Mandir'
+            },
+            product5: {
+                title: 'Jaali Masterpiece Mandir',
+                badge: 'Artisan Elite',
+                image: 'categories/jaali.jpg',
+                description: 'The Jaali Masterpiece Mandir is a celebration of traditional marble carving techniques. Each lattice screen is carved with precision from a single piece of marble, creating geometric and floral patterns that filter natural light into ethereal patterns. This temple is not just a prayer space - it is a living work of art.',
+                features: [
+                    'Hand-carved from single marble blocks',
+                    'Complex geometric patterns',
+                    'Natural light diffusion design',
+                    'Multiple Jaali screen variations',
+                    '6-8 months crafting time'
+                ],
+                whatsapp: 'https://wa.me/917300008825?text=I%20want%20detailed%20information%20about%20the%20Jaali%20Masterpiece%20Mandir'
+            },
+            product6: {
+                title: 'Contemporary Sacred Space',
+                badge: 'Modern Design',
+                image: 'categories/flooring.jpg',
+                description: 'For those who appreciate minimalist aesthetics without sacrificing spiritual devotion, the Contemporary Sacred Space offers clean lines and subtle elegance. This modern interpretation of traditional mandirs features understated carvings and a focus on form and function, perfect for contemporary homes and offices.',
+                features: [
+                    'Minimalist contemporary design',
+                    'Subtle traditional motifs',
+                    'Integrated LED lighting system',
+                    'Modular components',
+                    'Suitable for homes and offices'
+                ],
+                whatsapp: 'https://wa.me/917300008825?text=I%20want%20detailed%20information%20about%20the%20Contemporary%20Sacred%20Space'
+            }
+        };
+
+        function openModal(productId) {
+            const product = products[productId];
+            const modal = document.getElementById('productModal');
+            
+            document.getElementById('modalTitle').textContent = product.title;
+            document.getElementById('modalBadge').textContent = product.badge;
+            document.getElementById('modalImage').src = product.image;
+            document.getElementById('modalDescription').textContent = product.description;
+            document.getElementById('modalWhatsapp').href = product.whatsapp;
+            
+            const featuresList = document.getElementById('modalFeatures');
+            featuresList.innerHTML = '';
+            product.features.forEach(feature => {
+                const li = document.createElement('li');
+                li.innerHTML = `<i class="fas fa-check-circle"></i> ${feature}`;
+                featuresList.appendChild(li);
+            });
+            
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('productModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function openImageZoom() {
+            const modalImage = document.getElementById('modalImage');
+            const zoomModal = document.getElementById('imageZoomModal');
+            const zoomImage = document.getElementById('zoomImage');
+            
+            zoomImage.src = modalImage.src;
+            zoomModal.classList.add('active');
+        }
+
+        function closeImageZoom() {
+            const zoomModal = document.getElementById('imageZoomModal');
+            zoomModal.classList.remove('active');
+        }
+
+        // Close modal on outside click
+        document.getElementById('productModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Close image zoom on outside click
+        document.getElementById('imageZoomModal').addEventListener('click', function(e) {
+            if (e.target === this || e.target.classList.contains('zoom-image-container')) {
+                closeImageZoom();
+            }
+        });
+
+        // Close modal on ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+                closeImageZoom();
+            }
+        });
+
+        console.log('✅ Home Mandir Products Page Loaded');
+    </script>
+</body>
+</html>
