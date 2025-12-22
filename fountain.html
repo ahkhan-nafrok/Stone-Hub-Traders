@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fountains - MSP Stone International</title>
+    
+    <!-- Optimized Font Loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"></noscript>
+    
+    <!-- Preconnect for FontAwesome -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"></noscript>
+    
+    <style>
+        :root {
+            --dim-gold: #C9A961;
+            --pure-black: #000000;
+            --pure-white: #FFFFFF;
+            --off-white: #F5F5F5;
+            --text-dark: #0A0A0A;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--off-white);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* HEADER SECTION */
+        .page-header {
+            background: var(--pure-black);
+            padding: 4rem 0 3rem;
+            border-bottom: 3px solid var(--dim-gold);
+            position: relative;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            position: relative;
+        }
+
+        /* BACK BUTTON */
+        .back-btn {
+            position: absolute;
+            top: -1rem;
+            left: 3rem;
+            background: var(--dim-gold);
+            color: var(--pure-black);
+            padding: 0.9rem 2rem;
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            z-index: 10;
+            will-change: transform;
+        }
+
+        .back-btn:hover {
+            background: var(--pure-white);
+            transform: translateX(-5px);
+        }
+
+        .header-content {
+            text-align: center;
+        }
+
+        .header-subtitle {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--dim-gold);
+            margin-bottom: 1rem;
+        }
+
+        .header-title {
+            font-size: 4.5rem;
+            font-weight: 900;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--pure-white);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .header-description {
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* PRODUCTS SECTION */
+        .products-section {
+            padding: 5rem 0;
+            background: var(--pure-white);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        /* PRODUCT CARD */
+        .product-card {
+            background: var(--pure-black);
+            border: 3px solid var(--pure-black);
+            overflow: hidden;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            cursor: pointer;
+            will-change: transform;
+            content-visibility: auto;
+            contain-intrinsic-size: 0 650px;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--dim-gold);
+            z-index: 2;
+        }
+
+        .product-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
+            border-color: var(--dim-gold);
+        }
+
+        .product-card * {
+            pointer-events: none;
+        }
+
+        .product-card .btn-whatsapp {
+            pointer-events: auto;
+        }
+
+        /* IMAGE CONTAINER */
+        .product-image {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            background: var(--pure-black);
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.85);
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), filter 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform;
+        }
+
+        .product-card:hover .product-image img {
+            filter: brightness(1);
+            transform: scale(1.08);
+        }
+
+        .premium-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--dim-gold);
+            color: var(--pure-black);
+            padding: 0.5rem 1rem;
+            font-size: 0.65rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            z-index: 3;
+            box-shadow: 0 4px 15px rgba(201, 169, 97, 0.5);
+        }
+
+        /* PRODUCT INFO */
+        .product-info {
+            padding: 2.5rem 2rem 2rem;
+            background: var(--pure-black);
+        }
+
+        .product-title {
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--dim-gold);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .product-description {
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        /* BUTTONS */
+        .product-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 1.1rem 1.5rem;
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            font-family: inherit;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            will-change: transform;
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: var(--pure-white);
+        }
+
+        .btn-whatsapp::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: #128C7E;
+            transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: -1;
+        }
+
+        .btn-whatsapp:hover::before {
+            left: 0;
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+        }
+
+        .btn-view {
+            background: var(--pure-white);
+            color: var(--pure-black);
+            pointer-events: auto;
+        }
+
+        .btn-view::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--dim-gold);
+            transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: -1;
+        }
+
+        .btn-view:hover::before {
+            left: 0;
+        }
+
+        .btn-view:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(201, 169, 97, 0.4);
+        }
+
+        /* MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 9999;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: var(--pure-black);
+            max-width: 1200px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 30px 90px rgba(0, 0, 0, 0.9);
+        }
+
+        .modal.active .modal-content {
+            transform: scale(1);
+        }
+
+        /* IMAGE ZOOM MODAL */
+        .image-zoom-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.98);
+            z-index: 10000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .image-zoom-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+        }
+
+        .zoom-image-container {
+            position: relative;
+            max-width: 95%;
+            max-height: 95vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .zoom-image {
+            max-width: 100%;
+            max-height: 95vh;
+            object-fit: contain;
+            border: 2px solid var(--dim-gold);
+        }
+
+        .zoom-back-btn {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            background: var(--dim-gold);
+            color: var(--pure-black);
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 0.85rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            z-index: 10001;
+        }
+
+        .zoom-back-btn:hover {
+            background: var(--pure-white);
+            transform: translateX(-5px);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: var(--dim-gold);
+            color: var(--pure-black);
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            z-index: 10;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            background: var(--pure-white);
+            transform: rotate(90deg);
+        }
+
+        .modal-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 600px;
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 100%;
+            min-height: 600px;
+            object-fit: cover;
+            cursor: pointer;
+            transition: filter 0.3s ease;
+        }
+
+        .modal-image:hover {
+            filter: brightness(1.1);
+        }
+
+        .modal-info {
+            padding: 4rem 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .modal-badge {
+            display: inline-block;
+            background: var(--dim-gold);
+            color: var(--pure-black);
+            padding: 0.5rem 1.2rem;
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+            width: fit-content;
+        }
+
+        .modal-title {
+            font-size: 3rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--pure-white);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .modal-description {
+            font-size: 1.05rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .modal-features {
+            list-style: none;
+            margin-bottom: 3rem;
+        }
+
+        .modal-features li {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(201, 169, 97, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .modal-features li i {
+            color: var(--dim-gold);
+            font-size: 0.8rem;
+        }
+
+        .modal-whatsapp {
+            background: #25D366;
+            color: var(--pure-white);
+            padding: 1.3rem 2.5rem;
+            font-size: 0.9rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-family: inherit;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            justify-content: center;
+        }
+
+        .modal-whatsapp:hover {
+            background: #128C7E;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+        }
+
+        /* SCROLLBAR */
+        .modal-content::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .modal-content::-webkit-scrollbar-track {
+            background: var(--pure-black);
+        }
+
+        .modal-content::-webkit-scrollbar-thumb {
+            background: var(--dim-gold);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1200px) {
+            .header-title {
+                font-size: 3.8rem;
+            }
+
+            .products-grid {
+                gap: 2.5rem;
+            }
+
+            .back-btn {
+                left: 2rem;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .container {
+                padding: 0 2rem;
+            }
+
+            .back-btn {
+                left: 2rem;
+                padding: 0.8rem 1.8rem;
+                font-size: 0.75rem;
+            }
+
+            .header-title {
+                font-size: 3.2rem;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+
+            .modal-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-image {
+                min-height: 400px;
+            }
+
+            .modal-info {
+                padding: 3rem 2rem;
+            }
+
+            .modal-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 5rem 0 2rem;
+            }
+
+            .back-btn {
+                top: 1rem;
+                left: 1.5rem;
+                padding: 0.75rem 1.5rem;
+                font-size: 0.7rem;
+                letter-spacing: 1.5px;
+            }
+
+            .header-title {
+                font-size: 2.8rem;
+                letter-spacing: 2px;
+            }
+
+            .header-subtitle {
+                font-size: 0.7rem;
+                letter-spacing: 4px;
+            }
+
+            .header-description {
+                font-size: 1rem;
+            }
+
+            .products-section {
+                padding: 3rem 0;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+                margin-top: 2rem;
+            }
+
+            .product-image {
+                height: 380px;
+            }
+
+            .product-info {
+                padding: 2rem 1.8rem;
+            }
+
+            .product-title {
+                font-size: 1.6rem;
+            }
+
+            .product-description {
+                font-size: 0.92rem;
+                line-height: 1.65;
+            }
+
+            .product-buttons {
+                gap: 0.8rem;
+            }
+
+            .btn {
+                padding: 1rem 1.3rem;
+                font-size: 0.75rem;
+                letter-spacing: 1.5px;
+            }
+
+            .modal-content {
+                width: 95%;
+            }
+
+            .modal-close {
+                width: 45px;
+                height: 45px;
+                top: 15px;
+                right: 15px;
+                font-size: 1.3rem;
+            }
+
+            .modal-image {
+                min-height: 300px;
+            }
+
+            .modal-info {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .modal-title {
+                font-size: 2rem;
+            }
+
+            .modal-description {
+                font-size: 0.95rem;
+            }
+
+            .modal-features li {
+                font-size: 0.9rem;
+                padding: 0.7rem 0;
+            }
+
+            .modal-whatsapp {
+                padding: 1.1rem 2rem;
+                font-size: 0.8rem;
+            }
+
+            .zoom-back-btn {
+                top: 20px;
+                left: 20px;
+                padding: 0.9rem 1.8rem;
+                font-size: 0.75rem;
+            }
+
+            .zoom-image {
+                max-height: 85vh;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+
+            .page-header {
+                padding: 4.5rem 0 1.5rem;
+            }
+
+            .back-btn {
+                top: 1rem;
+                left: 1.5rem;
+                padding: 0.7rem 1.3rem;
+                font-size: 0.65rem;
+                letter-spacing: 1px;
+                gap: 0.5rem;
+            }
+
+            .header-title {
+                font-size: 2rem;
+                letter-spacing: 1px;
+            }
+
+            .header-description {
+                font-size: 0.9rem;
+                line-height: 1.6;
+            }
+
+            .products-grid {
+                gap: 2rem;
+            }
+
+            .product-image {
+                height: 320px;
+            }
+
+            .product-card {
+                border-width: 2px;
+            }
+
+            .product-info {
+                padding: 1.8rem 1.5rem;
+            }
+
+            .product-title {
+                font-size: 1.4rem;
+                letter-spacing: 0.5px;
+            }
+
+            .product-description {
+                font-size: 0.88rem;
+                line-height: 1.6;
+                margin-bottom: 1.5rem;
+            }
+
+            .product-buttons {
+                flex-direction: column;
+                gap: 0.7rem;
+            }
+
+            .btn {
+                padding: 0.95rem 1.2rem;
+                font-size: 0.72rem;
+                letter-spacing: 1.2px;
+            }
+
+            .premium-badge {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.6rem;
+                top: 15px;
+                right: 15px;
+            }
+
+            .modal-title {
+                font-size: 1.7rem;
+            }
+
+            .zoom-back-btn {
+                top: 15px;
+                left: 15px;
+                padding: 0.8rem 1.5rem;
+                font-size: 0.7rem;
+                letter-spacing: 1.5px;
+            }
+
+            .zoom-image {
+                border-width: 1px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="page-header">
+        <div class="container">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+                Back to Home
+            </a>
+            <div class="header-content">
+                <p class="header-subtitle">Sacred Spaces</p>
+                <h1 class="header-title">Premium Fountains</h1>
+                <p class="header-description">
+                    Handcrafted marble fountains designed to bring divine elegance to your space. 
+                    Each piece is a masterpiece of traditional artistry and spiritual devotion.
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <!-- PRODUCTS (Dynamically Generated) -->
+    <section class="products-section">
+        <div class="container">
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be dynamically inserted here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-grid">
+                <img src="" alt="Product" class="modal-image" id="modalImage" onclick="openImageZoom()" loading="lazy">
+                <div class="modal-info">
+                    <span class="modal-badge" id="modalBadge">Premium Collection</span>
+                    <h2 class="modal-title" id="modalTitle">Product Name</h2>
+                    <p class="modal-description" id="modalDescription">
+                        Product description goes here...
+                    </p>
+                    <ul class="modal-features" id="modalFeatures">
+                        <!-- Features will be inserted here -->
+                    </ul>
+                    <a href="" class="modal-whatsapp" id="modalWhatsapp" target="_blank" rel="noopener">
+                        <i class="fab fa-whatsapp"></i>
+                        Inquire on WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- IMAGE ZOOM MODAL -->
+    <div class="image-zoom-modal" id="imageZoomModal">
+        <button class="zoom-back-btn" onclick="closeImageZoom()">
+            <i class="fas fa-arrow-left"></i>
+            Back
+        </button>
+        <div class="zoom-image-container">
+            <img src="" alt="Product Zoom" class="zoom-image" id="zoomImage" loading="lazy">
+        </div>
+    </div>
+
+    <script>
+        // ==========================================
+        // 🎯 CENTRALIZED CONFIGURATION
+        // ==========================================
+        
+        const WHATSAPP_NUMBER = '917300008825';
+        
+        const PRODUCTS = [
+            {
+                id: 'fountain-1',
+                title: 'Classic Marble Fountain',
+                shortDescription: 'Hand-carved marble fountain with elegant design and smooth finish.',
+                badge: 'Premium Collection',
+                isPremium: true,
+                image: 'fountain/fountain(2).webp',
+                fullDescription: 'This Classic Marble Fountain brings timeless elegance to any space. Expertly crafted from premium marble, it features traditional artistry combined with modern functionality. The smooth finish and graceful design create a serene atmosphere perfect for homes, gardens, or commercial spaces.',
+                features: [
+                    'Premium quality marble construction',
+                    'Hand-carved traditional design',
+                    'Includes water pump system',
+                    'Customizable size options',
+                    'Weather-resistant finish'
+                ]
+            },
+            {
+                id: 'fountain-2',
+                title: 'Heritage Stone Fountain',
+                shortDescription: 'Traditional stone fountain with intricate carvings and detailing.',
+                badge: 'Best Seller',
+                isPremium: false,
+                image: 'fountain/fountain(3).webp',
+                fullDescription: 'The Heritage Stone Fountain showcases traditional craftsmanship at its finest. Each piece is carefully carved with intricate patterns and details that reflect our rich cultural heritage. Perfect for creating a peaceful and spiritual atmosphere in your space.',
+                features: [
+                    'Intricate hand-carved patterns',
+                    'Durable stone construction',
+                    'Multi-tier water flow design',
+                    'Easy maintenance',
+                    'Custom finishes available'
+                ]
+            },
+            {
+                id: 'fountain-3',
+                title: 'Royal Garden Fountain',
+                shortDescription: 'Majestic fountain design perfect for outdoor garden spaces.',
+                badge: 'Premium Collection',
+                isPremium: true,
+                image: 'fountain/fountain(4).webp',
+                fullDescription: 'The Royal Garden Fountain combines grandeur with functionality. Designed specifically for outdoor spaces, this fountain adds a touch of royalty to gardens, patios, and courtyards. Its robust construction ensures long-lasting beauty in all weather conditions.',
+                features: [
+                    'Weather-resistant materials',
+                    'Grand architectural design',
+                    'Energy-efficient pump included',
+                    'Multiple size options',
+                    'Professional installation support'
+                ]
+            },
+            {
+                id: 'fountain-4',
+                title: 'Divine Grace Fountain',
+                shortDescription: 'Spiritual fountain design with sacred motifs and patterns.',
+                badge: 'Master Crafted',
+                isPremium: false,
+                image: 'fountain/fountain(5).webp',
+                fullDescription: 'The Divine Grace Fountain is designed to bring spiritual tranquility to your space. Adorned with sacred motifs and divine patterns, this fountain creates a serene environment perfect for meditation and prayer areas. Each detail is crafted with devotion and precision.',
+                features: [
+                    'Sacred motifs and patterns',
+                    'Premium marble quality',
+                    'Smooth water flow system',
+                    'Customizable height options',
+                    'Traditional craftsmanship'
+                ]
+            },
+            {
+                id: 'fountain-5',
+                title: 'Elegant Cascade Fountain',
+                shortDescription: 'Multi-level cascade design with beautiful water flow.',
+                badge: 'Premium Collection',
+                isPremium: true,
+                image: 'fountain/fountain(6).webp',
+                fullDescription: 'The Elegant Cascade Fountain features a stunning multi-level design that creates mesmerizing water patterns. The cascading effect adds both visual appeal and soothing sounds to your environment. Perfect for creating a luxurious ambiance in any setting.',
+                features: [
+                    'Multi-tier cascading design',
+                    'Premium stone construction',
+                    'LED lighting compatible',
+                    'Adjustable water flow',
+                    'Low maintenance design'
+                ]
+            },
+            {
+                id: 'fountain-6',
+                title: 'Traditional Temple Fountain',
+                shortDescription: 'Authentic temple-style fountain with ornate detailing.',
+                badge: 'Master Crafted',
+                isPremium: false,
+                image: 'fountain/fountain(7).webp',
+                fullDescription: 'The Traditional Temple Fountain brings authentic temple architecture to your space. Featuring ornate carvings and traditional design elements, this fountain is perfect for creating a sacred atmosphere. Hand-crafted by skilled artisans using time-honored techniques.',
+                features: [
+                    'Authentic temple design',
+                    'Ornate hand-carved details',
+                    'Premium marble material',
+                    'Custom sizing available',
+                    'Traditional craftsmanship methods'
+                ]
+            },
+            {
+                id: 'fountain-7',
+                title: 'Grand Plaza Fountain',
+                shortDescription: 'Large-scale fountain ideal for spacious areas.',
+                badge: 'Premium Collection',
+                isPremium: true,
+                image: 'fountain/fountain(8).webp',
+                fullDescription: 'The Grand Plaza Fountain is designed for impressive spaces. This large-scale masterpiece creates a stunning focal point perfect for hotels, resorts, or expansive gardens. Its commanding presence and elegant design make a powerful statement.',
+                features: [
+                    'Large-scale design',
+                    'Robust construction',
+                    'High-capacity pump system',
+                    'Professional installation included',
+                    'Multiple finish options'
+                ]
+            },
+            {
+                id: 'fountain-8',
+                title: 'Serene Water Fountain',
+                shortDescription: 'Peaceful fountain design with gentle water flow.',
+                badge: 'Best Seller',
+                isPremium: false,
+                image: 'fountain/fountain(9).webp',
+                fullDescription: 'The Serene Water Fountain is designed to create a peaceful atmosphere with its gentle water flow and calming presence. Perfect for meditation areas, prayer spaces, or any environment where tranquility is desired. Its simple yet elegant design fits seamlessly into any décor.',
+                features: [
+                    'Gentle water flow design',
+                    'Premium quality materials',
+                    'Easy installation',
+                    'Low noise operation',
+                    'Minimal maintenance required'
+                ]
+            },
+            {
+                id: 'fountain-9',
+                title: 'Artistic Stone Fountain',
+                shortDescription: 'Uniquely carved fountain with artistic patterns.',
+                badge: 'Master Crafted',
+                isPremium: true,
+                image: 'fountain/fountain(10).webp',
+                fullDescription: 'The Artistic Stone Fountain is a true work of art. Each piece features unique carvings and artistic patterns that showcase exceptional craftsmanship. This fountain is perfect for those who appreciate fine artistry and want a distinctive centerpiece for their space.',
+                features: [
+                    'Unique artistic carvings',
+                    'Premium stone selection',
+                    'One-of-a-kind designs',
+                    'Master artisan crafted',
+                    'Custom design options'
+                ]
+            },
+            {
+                id: 'fountain-10',
+                title: 'Luxury Palace Fountain',
+                shortDescription: 'Opulent fountain with luxurious design elements.',
+                badge: 'Premium Collection',
+                isPremium: true,
+                image: 'fountain/fountain(11).webp',
+                fullDescription: 'The Luxury Palace Fountain epitomizes opulence and grandeur. Featuring intricate details and luxurious design elements, this fountain is crafted for those with refined tastes. Perfect for palatial homes, luxury hotels, or upscale commercial spaces.',
+                features: [
+                    'Luxurious design elements',
+                    'Premium marble quality',
+                    'Intricate detailing',
+                    'Custom sizing options',
+                    'Professional installation'
+                ]
+            },
+            {
+                id: 'fountain-11',
+                title: 'Modern Classic Fountain',
+                shortDescription: 'Contemporary design with classic fountain elements.',
+                badge: 'Best Seller',
+                isPremium: false,
+                image: 'fountain/fountain(12).webp',
+                fullDescription: 'The Modern Classic Fountain bridges traditional craftsmanship with contemporary aesthetics. This versatile design works beautifully in both modern and traditional settings. Its balanced proportions and clean lines make it a popular choice for various applications.',
+                features: [
+                    'Contemporary classic design',
+                    'Versatile styling',
+                    'Premium materials',
+                    'Energy-efficient system',
+                    'Multiple finish options'
+                ]
+            },
+            {
+                id: 'fountain-12',
+                title: 'Sacred Space Fountain',
+                shortDescription: 'Spiritual fountain for temples and prayer areas.',
+                badge: 'Master Crafted',
+                isPremium: true,
+                image: 'fountain/fountain(2).webp',
+                fullDescription: 'The Sacred Space Fountain is specially designed for temples and prayer areas. Its spiritual design and sacred symbolism create an atmosphere of devotion and peace. Hand-carved with traditional techniques passed down through generations of master craftsmen.',
+                features: [
+                    'Sacred design elements',
+                    'Traditional hand-carving',
+                    'Premium marble construction',
+                    'Spiritual motifs',
+                    'Custom sacred symbols available'
+                ]
+            }
+        ];
+
+        // ==========================================
+        // 🔧 OPTIMIZED FUNCTIONS
+        // ==========================================
+
+        const getWhatsAppURL = (title) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`I'm interested in the ${title}`)}`;
+
+        function renderProducts() {
+            const grid = document.getElementById('productsGrid');
+            const fragment = document.createDocumentFragment();
+
+            PRODUCTS.forEach(product => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.onclick = (e) => openModal(product.id, e);
+
+                card.innerHTML = `
+                    <div class="product-image">
+                        ${product.isPremium ? '<span class="premium-badge">Premium</span>' : ''}
+                        <img src="${product.image}" alt="${product.title}" loading="lazy" decoding="async">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">${product.title}</h3>
+                        <p class="product-description">${product.shortDescription}</p>
+                        <div class="product-buttons">
+                            <a href="${getWhatsAppURL(product.title)}" 
+                               class="btn btn-whatsapp" 
+                               target="_blank" 
+                               rel="noopener"
+                               onclick="event.stopPropagation()">
+                                <i class="fab fa-whatsapp"></i>
+                                WhatsApp
+                            </a>
+                            <button class="btn btn-view">
+                                <i class="fas fa-eye"></i>
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                `;
+
+                fragment.appendChild(card);
+            });
+
+            grid.appendChild(fragment);
+        }
+
+        function openModal(productId, event) {
+            event?.stopPropagation();
+            
+            const product = PRODUCTS.find(p => p.id === productId);
+            if (!product) return;
+
+            const modal = document.getElementById('productModal');
+            
+            document.getElementById('modalTitle').textContent = product.title;
+            document.getElementById('modalBadge').textContent = product.badge;
+            document.getElementById('modalImage').src = product.image;
+            document.getElementById('modalDescription').textContent = product.fullDescription;
+            document.getElementById('modalWhatsapp').href = getWhatsAppURL(product.title);
+            
+            const featuresList = document.getElementById('modalFeatures');
+            featuresList.innerHTML = product.features.map(f => 
+                `<li><i class="fas fa-check-circle"></i> ${f}</li>`
+            ).join('');
+            
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('productModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function openImageZoom() {
+            const zoomModal = document.getElementById('imageZoomModal');
+            document.getElementById('zoomImage').src = document.getElementById('modalImage').src;
+            zoomModal.classList.add('active');
+        }
+
+        function closeImageZoom() {
+            document.getElementById('imageZoomModal').classList.remove('active');
+        }
+
+        // ==========================================
+        // 🎬 EVENT LISTENERS
+        // ==========================================
+
+        document.getElementById('productModal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+
+        document.getElementById('imageZoomModal').addEventListener('click', function(e) {
+            if (e.target === this || e.target.classList.contains('zoom-image-container')) {
+                closeImageZoom();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+                closeImageZoom();
+            }
+        });
+
+        // ==========================================
+        // 🚀 INITIALIZE
+        // ==========================================
+        
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', renderProducts);
+        } else {
+            renderProducts();
+        }
+    </script>
+</body>
+</html>
