@@ -5,10 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Mandirs - MSP Stone International</title>
     
+    <!-- Optimized Font Loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"></noscript>
+    
+    <!-- Preconnect for FontAwesome -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"></noscript>
     
     <style>
         :root {
@@ -19,6 +25,10 @@
             --text-dark: #0A0A0A;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -26,16 +36,18 @@
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background: var(--off-white);
             color: var(--text-dark);
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         /* HEADER SECTION */
         .page-header {
             background: var(--pure-black);
-            padding: 4rem 0 3rem;
+            padding: 6rem 0 3rem;
             border-bottom: 3px solid var(--dim-gold);
             position: relative;
         }
@@ -50,7 +62,7 @@
         /* BACK BUTTON */
         .back-btn {
             position: absolute;
-            top: -1rem;
+            top: 2rem;
             left: 3rem;
             background: var(--dim-gold);
             color: var(--pure-black);
@@ -62,12 +74,13 @@
             border: none;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-family: 'Montserrat', sans-serif;
+            font-family: inherit;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 0.8rem;
             z-index: 10;
+            transform: translateZ(0);
         }
 
         .back-btn:hover {
@@ -77,6 +90,7 @@
 
         .header-content {
             text-align: center;
+            padding-top: 1rem;
         }
 
         .header-subtitle {
@@ -112,6 +126,7 @@
         .products-section {
             padding: 5rem 0;
             background: var(--pure-white);
+            contain: layout style paint;
         }
 
         .products-grid {
@@ -126,9 +141,13 @@
             background: var(--pure-black);
             border: 3px solid var(--pure-black);
             overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
             position: relative;
             cursor: pointer;
+            transform: translateZ(0);
+            backface-visibility: hidden;
+            perspective: 1000px;
+            contain: layout style paint;
         }
 
         .product-card::before {
@@ -143,8 +162,8 @@
         }
 
         .product-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
+            transform: translateY(-8px) translateZ(0);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
             border-color: var(--dim-gold);
         }
 
@@ -163,6 +182,7 @@
             height: 400px;
             overflow: hidden;
             background: var(--pure-black);
+            transform: translateZ(0);
         }
 
         .product-image img {
@@ -170,12 +190,14 @@
             height: 100%;
             object-fit: cover;
             filter: brightness(0.85);
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.4s ease, filter 0.4s ease;
+            transform: translateZ(0);
+            backface-visibility: hidden;
         }
 
         .product-card:hover .product-image img {
             filter: brightness(1);
-            transform: scale(1.08);
+            transform: scale(1.05) translateZ(0);
         }
 
         .premium-badge {
@@ -191,6 +213,7 @@
             letter-spacing: 2px;
             z-index: 3;
             box-shadow: 0 4px 15px rgba(201, 169, 97, 0.5);
+            transform: translateZ(0);
         }
 
         /* PRODUCT INFO */
@@ -233,8 +256,8 @@
             text-transform: uppercase;
             border: none;
             cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            font-family: 'Montserrat', sans-serif;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            font-family: inherit;
             position: relative;
             overflow: hidden;
             text-decoration: none;
@@ -242,6 +265,7 @@
             align-items: center;
             justify-content: center;
             gap: 0.8rem;
+            transform: translateZ(0);
         }
 
         .btn-whatsapp {
@@ -253,16 +277,17 @@
             content: '';
             position: absolute;
             top: 0;
-            left: -100%;
+            left: 0;
             width: 100%;
             height: 100%;
             background: #128C7E;
-            transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
             z-index: -1;
         }
 
         .btn-whatsapp:hover::before {
-            left: 0;
+            transform: translateX(0);
         }
 
         .btn-whatsapp:hover {
@@ -280,16 +305,17 @@
             content: '';
             position: absolute;
             top: 0;
-            left: -100%;
+            left: 0;
             width: 100%;
             height: 100%;
             background: var(--dim-gold);
-            transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
             z-index: -1;
         }
 
         .btn-view:hover::before {
-            left: 0;
+            transform: translateX(0);
         }
 
         .btn-view:hover {
@@ -308,7 +334,7 @@
             background: rgba(0, 0, 0, 0.95);
             z-index: 9999;
             opacity: 0;
-            transition: opacity 0.4s ease;
+            transition: opacity 0.3s ease;
         }
 
         .modal.active {
@@ -325,13 +351,17 @@
             max-height: 90vh;
             overflow-y: auto;
             position: relative;
-            transform: scale(0.9);
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: scale(0.95) translateZ(0);
+            transition: transform 0.3s ease;
             box-shadow: 0 30px 90px rgba(0, 0, 0, 0.9);
+            backface-visibility: hidden;
+            scrollbar-width: thin;
+            scrollbar-color: var(--dim-gold) var(--pure-black);
+            -webkit-overflow-scrolling: touch;
         }
 
         .modal.active .modal-content {
-            transform: scale(1);
+            transform: scale(1) translateZ(0);
         }
 
         /* IMAGE ZOOM MODAL */
@@ -384,7 +414,7 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             cursor: pointer;
-            font-family: 'Montserrat', sans-serif;
+            font-family: inherit;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
@@ -432,7 +462,8 @@
             min-height: 600px;
             object-fit: cover;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: filter 0.3s ease;
+            transform: translateZ(0);
         }
 
         .modal-image:hover {
@@ -509,24 +540,25 @@
             text-transform: uppercase;
             border: none;
             cursor: pointer;
-            transition: all 0.4s ease;
-            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s ease;
+            font-family: inherit;
             display: inline-flex;
             align-items: center;
             gap: 1rem;
             text-decoration: none;
             justify-content: center;
+            transform: translateZ(0);
         }
 
         .modal-whatsapp:hover {
             background: #128C7E;
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+            transform: translateY(-3px) translateZ(0);
+            box-shadow: 0 12px 30px rgba(37, 211, 102, 0.4);
         }
 
         /* SCROLLBAR */
         .modal-content::-webkit-scrollbar {
-            width: 8px;
+            width: 10px;
         }
 
         .modal-content::-webkit-scrollbar-track {
@@ -535,9 +567,118 @@
 
         .modal-content::-webkit-scrollbar-thumb {
             background: var(--dim-gold);
+            border-radius: 5px;
+        }
+
+        .modal-content::-webkit-scrollbar-thumb:hover {
+            background: var(--pure-white);
         }
 
         /* RESPONSIVE */
+        
+        /* ULTRA-WIDE DESKTOP (4K and above) */
+        @media (min-width: 2560px) {
+            .container {
+                max-width: 2200px;
+                padding: 0 5rem;
+            }
+
+            .header-title {
+                font-size: 4.5rem;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 3rem;
+                max-width: 2000px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .product-image {
+                height: 400px;
+            }
+
+            .product-card {
+                max-width: 500px;
+            }
+        }
+
+        /* DESKTOP OPTIMIZATIONS FOR LARGE SCREENS */
+        @media (min-width: 1921px) and (max-width: 2559px) {
+            .container {
+                max-width: 1800px;
+                padding: 0 4rem;
+            }
+
+            .header-title {
+                font-size: 4.2rem;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 2.5rem;
+            }
+
+            .product-image {
+                height: 380px;
+            }
+        }
+
+        @media (min-width: 1601px) and (max-width: 1920px) {
+            .container {
+                max-width: 1500px;
+            }
+
+            .header-title {
+                font-size: 4rem;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2.5rem;
+            }
+
+            .product-image {
+                height: 360px;
+            }
+        }
+
+        @media (min-width: 1401px) and (max-width: 1600px) {
+            .container {
+                max-width: 1300px;
+            }
+
+            .header-title {
+                font-size: 3.8rem;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2.5rem;
+            }
+
+            .product-image {
+                height: 350px;
+            }
+
+            .product-title {
+                font-size: 1.7rem;
+            }
+
+            .product-description {
+                font-size: 0.93rem;
+            }
+
+            .modal-content {
+                max-width: 1100px;
+            }
+
+            .modal-title {
+                font-size: 2.7rem;
+            }
+        }
+
         @media (max-width: 1200px) {
             .header-title {
                 font-size: 3.8rem;
@@ -548,6 +689,7 @@
             }
 
             .back-btn {
+                top: 1.5rem;
                 left: 2rem;
             }
         }
@@ -557,10 +699,19 @@
                 padding: 0 2rem;
             }
 
+            .page-header {
+                padding: 5.5rem 0 3rem;
+            }
+
             .back-btn {
+                top: 1.5rem;
                 left: 2rem;
                 padding: 0.8rem 1.8rem;
                 font-size: 0.75rem;
+            }
+
+            .header-content {
+                padding-top: 0.5rem;
             }
 
             .header-title {
@@ -591,15 +742,19 @@
 
         @media (max-width: 768px) {
             .page-header {
-                padding: 5rem 0 2rem;
+                padding: 5.5rem 0 2rem;
             }
 
             .back-btn {
-                top: 1rem;
+                top: 1.5rem;
                 left: 1.5rem;
                 padding: 0.75rem 1.5rem;
                 font-size: 0.7rem;
                 letter-spacing: 1.5px;
+            }
+
+            .header-content {
+                padding-top: 0;
             }
 
             .header-title {
@@ -624,10 +779,6 @@
                 grid-template-columns: 1fr;
                 gap: 2.5rem;
                 margin-top: 2rem;
-            }
-
-            .product-card {
-                border-radius: 0;
             }
 
             .product-image {
@@ -713,11 +864,11 @@
             }
 
             .page-header {
-                padding: 4.5rem 0 1.5rem;
+                padding: 5rem 0 1.5rem;
             }
 
             .back-btn {
-                top: 1rem;
+                top: 1.2rem;
                 left: 1.5rem;
                 padding: 0.7rem 1.3rem;
                 font-size: 0.65rem;
@@ -817,155 +968,11 @@
         </div>
     </header>
 
-    <!-- PRODUCTS -->
+    <!-- PRODUCTS (Dynamically Generated) -->
     <section class="products-section">
         <div class="container">
-            <div class="products-grid">
-                <!-- PRODUCT 1 -->
-                <div class="product-card" onclick="openModal('product1', event)">
-                    <div class="product-image">
-                        <img src="homemandir/homemandir1.jpg" alt="Royal Makrana Mandir">
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-title">Royal Makrana Mandir</h3>
-                        <p class="product-description">
-                            Exquisite white Makrana marble temple with intricate hand-carved pillars and dome. 
-                            Perfect for homes seeking traditional grandeur.
-                        </p>
-                        <div class="product-buttons">
-                            <a href="https://wa.me/917300008825?text=I'm%20interested%20in%20the%20Royal%20Makrana%20Mandir" class="btn btn-whatsapp" target="_blank" onclick="event.stopPropagation()">
-                                <i class="fab fa-whatsapp"></i>
-                                WhatsApp
-                            </a>
-                            <button class="btn btn-view">
-                                <i class="fas fa-eye"></i>
-                                View Details
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- PRODUCT 2 -->
-                <div class="product-card" onclick="openModal('product2', event)">
-                    <div class="product-image">
-                        <span class="premium-badge">Premium</span>
-                        <img src="homemandir/homemandir10.png" alt="Divine Heritage Mandir">
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-title">Divine Heritage Mandir</h3>
-                        <p class="product-description">
-                            Ornately carved temple featuring traditional Jaali work and brass accents. A masterpiece of spiritual architecture.
-                        </p>
-                        <div class="product-buttons">
-                            <a href="https://wa.me/917300008825?text=I'm%20interested%20in%20the%20Divine%20Heritage%20Mandir" class="btn btn-whatsapp" target="_blank" onclick="event.stopPropagation()">
-                                <i class="fab fa-whatsapp"></i>
-                                WhatsApp
-                            </a>
-                            <button class="btn btn-view">
-                                <i class="fas fa-eye"></i>
-                                View Details
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- PRODUCT 3 -->
-                <div class="product-card" onclick="openModal('product3', event)">
-                    <div class="product-image">
-                        <span class="premium-badge">Premium</span>
-                        <img src="categories/sculpture.jpg" alt="Compact Elegance Mandir">
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-title">Compact Elegance Mandir</h3>
-                        <p class="product-description">
-                            Space-efficient design without compromising on beauty. 
-                            Ideal for modern apartments seeking divine presence.
-                        </p>
-                        <div class="product-buttons">
-                            <a href="https://wa.me/917300008825?text=I'm%20interested%20in%20the%20Compact%20Elegance%20Mandir" class="btn btn-whatsapp" target="_blank" onclick="event.stopPropagation()">
-                                <i class="fab fa-whatsapp"></i>
-                                WhatsApp
-                            </a>
-                            <button class="btn btn-view">
-                                <i class="fas fa-eye"></i>
-                                View Details
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- PRODUCT 4 -->
-                <div class="product-card" onclick="openModal('product4', event)">
-                    <div class="product-image">
-                        <span class="premium-badge">Premium</span>
-                        <img src="categories/inlay.jpg" alt="Mughal Inlay Mandir">
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-title">Mughal Inlay Mandir</h3>
-                        <p class="product-description">
-                            Stunning pietra dura inlay work inspired by royal heritage. 
-                            Semi-precious stones embedded in pristine marble.
-                        </p>
-                        <div class="product-buttons">
-                            <a href="https://wa.me/917300008825?text=I'm%20interested%20in%20the%20Mughal%20Inlay%20Mandir" class="btn btn-whatsapp" target="_blank" onclick="event.stopPropagation()">
-                                <i class="fab fa-whatsapp"></i>
-                                WhatsApp
-                            </a>
-                            <button class="btn btn-view">
-                                <i class="fas fa-eye"></i>
-                                View Details
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- PRODUCT 5 -->
-                <div class="product-card" onclick="openModal('product5', event)">
-                    <div class="product-image">
-                        <img src="categories/jaali.jpg" alt="Jaali Masterpiece Mandir">
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-title">Jaali Masterpiece Mandir</h3>
-                        <p class="product-description">
-                            Intricate lattice screens that play with light and shadow. 
-                            A testament to generations of master craftsmanship.
-                        </p>
-                        <div class="product-buttons">
-                            <a href="https://wa.me/917300008825?text=I'm%20interested%20in%20the%20Jaali%20Masterpiece%20Mandir" class="btn btn-whatsapp" target="_blank" onclick="event.stopPropagation()">
-                                <i class="fab fa-whatsapp"></i>
-                                WhatsApp
-                            </a>
-                            <button class="btn btn-view">
-                                <i class="fas fa-eye"></i>
-                                View Details
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- PRODUCT 6 -->
-                <div class="product-card" onclick="openModal('product6', event)">
-                    <div class="product-image">
-                        <img src="categories/flooring.jpg" alt="Contemporary Sacred Space">
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-title">Contemporary Sacred Space</h3>
-                        <p class="product-description">
-                            Modern minimalist design meeting traditional spirituality. 
-                            Clean lines with subtle carvings for contemporary homes.
-                        </p>
-                        <div class="product-buttons">
-                            <a href="https://wa.me/917300008825?text=I'm%20interested%20in%20the%20Contemporary%20Sacred%20Space" class="btn btn-whatsapp" target="_blank" onclick="event.stopPropagation()">
-                                <i class="fab fa-whatsapp"></i>
-                                WhatsApp
-                            </a>
-                            <button class="btn btn-view">
-                                <i class="fas fa-eye"></i>
-                                View Details
-                            </button>
-                        </div>
-                    </div>
-                </div>
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be dynamically inserted here -->
             </div>
         </div>
     </section>
@@ -977,7 +984,7 @@
                 <i class="fas fa-times"></i>
             </button>
             <div class="modal-grid">
-                <img src="" alt="Product" class="modal-image" id="modalImage" onclick="openImageZoom()">
+                <img src="" alt="Product" class="modal-image" id="modalImage" onclick="openImageZoom()" loading="lazy">
                 <div class="modal-info">
                     <span class="modal-badge" id="modalBadge">Premium Collection</span>
                     <h2 class="modal-title" id="modalTitle">Product Name</h2>
@@ -985,12 +992,9 @@
                         Product description goes here...
                     </p>
                     <ul class="modal-features" id="modalFeatures">
-                        <li><i class="fas fa-check-circle"></i> Feature 1</li>
-                        <li><i class="fas fa-check-circle"></i> Feature 2</li>
-                        <li><i class="fas fa-check-circle"></i> Feature 3</li>
-                        <li><i class="fas fa-check-circle"></i> Feature 4</li>
+                        <!-- Features will be inserted here -->
                     </ul>
-                    <a href="" class="modal-whatsapp" id="modalWhatsapp" target="_blank">
+                    <a href="" class="modal-whatsapp" id="modalWhatsapp" target="_blank" rel="noopener">
                         <i class="fab fa-whatsapp"></i>
                         Inquire on WhatsApp
                     </a>
@@ -1006,155 +1010,555 @@
             Back
         </button>
         <div class="zoom-image-container">
-            <img src="" alt="Product Zoom" class="zoom-image" id="zoomImage">
+            <img src="" alt="Product Zoom" class="zoom-image" id="zoomImage" loading="lazy">
         </div>
     </div>
 
     <script>
-        const products = {
-            product1: {
-                title: 'Royal Makrana Mandir',
+        // ==========================================
+        // 🎯 CENTRALIZED CONFIGURATION
+        // ==========================================
+        
+        const WHATSAPP_NUMBER = '917300008825';
+        
+        const PRODUCTS = [
+            {
+                id: 'mandir-1',
+                title: 'Royal Makrana Temple',
+                shortDescription: 'Exquisite white Makrana marble temple with intricate hand-carved pillars and traditional dome design.',
                 badge: 'Premium Collection',
-                image: 'homemandir/homemandir1.jpg',
-                description: 'The Royal Makrana Mandir represents the pinnacle of traditional marble craftsmanship. Carved from the finest white Makrana marble - the same stone used in the Taj Mahal - this temple brings centuries of heritage into your home. Each pillar is meticulously hand-carved by master artisans, featuring intricate floral patterns and divine motifs that have been passed down through generations.',
+                isPremium: true,
+                image: 'homemandir/homemandir(2).webp',
+                fullDescription: 'The Royal Makrana Temple represents the pinnacle of traditional marble craftsmanship. Carved from the finest white Makrana marble - the same stone used in the Taj Mahal - this temple brings centuries of heritage into your home. Each pillar is meticulously hand-carved by master artisans, featuring intricate floral patterns and divine motifs.',
                 features: [
                     'Authentic Makrana white marble',
-                    'Hand-carved pillars with traditional motifs',
-                    'Includes brass bells and lighting fixtures',
+                    'Hand-carved traditional pillars',
+                    'Includes brass bells and lighting',
                     'Customizable size: 4ft to 7ft height',
                     '70+ years craftsmanship legacy'
-                ],
-                whatsapp: 'https://wa.me/917300008825?text=I%20want%20detailed%20information%20about%20the%20Royal%20Makrana%20Mandir'
+                ]
             },
-            product2: {
+            {
+                id: 'mandir-2',
                 title: 'Divine Heritage Mandir',
+                shortDescription: 'Ornately carved temple featuring exquisite Jaali lattice work and brass accent detailing.',
                 badge: 'Master Crafted',
-                image: 'homemandir/homemandir10.png',
-                description: 'The Divine Heritage Mandir showcases the art of Jaali work at its finest. This temple features ornately carved lattice screens that create mesmerizing patterns of light and shadow, transforming your prayer space into a divine sanctuary. The brass accents complement the pristine marble, adding warmth and spiritual radiance to the design.',
+                isPremium: true,
+                image: 'homemandir/homemandir(3).webp',
+                fullDescription: 'The Divine Heritage Mandir showcases the art of Jaali work at its finest. This temple features ornately carved lattice screens that create mesmerizing patterns of light and shadow, transforming your prayer space into a divine sanctuary. The brass accents complement the pristine marble beautifully.',
                 features: [
                     'Intricate Jaali lattice work',
-                    'Premium brass detailing and accents',
+                    'Premium brass detailing',
                     'Multi-level design with storage',
                     'LED backlighting compatible',
                     'Custom size options available'
-                ],
-                whatsapp: 'https://wa.me/917300008825?text=I%20want%20detailed%20information%20about%20the%20Divine%20Heritage%20Mandir'
+                ]
             },
-            product3: {
-                title: 'Compact Elegance Mandir',
+            {
+                id: 'mandir-3',
+                title: 'Compact Sacred Space',
+                shortDescription: 'Space-efficient design perfect for modern apartments without compromising spiritual aesthetics.',
                 badge: 'Space Saver',
-                image: 'categories/sculpture.jpg',
-                description: 'Designed for modern apartments without compromising on spiritual aesthetics, the Compact Elegance Mandir proves that size does not limit devotion. This space-efficient design incorporates traditional elements in a contemporary format, making it perfect for urban homes where every inch matters.',
+                isPremium: false,
+                image: 'homemandir/homemandir(4).webp',
+                fullDescription: 'Designed for modern apartments without compromising on spiritual aesthetics, the Compact Sacred Space proves that size does not limit devotion. This space-efficient design incorporates traditional elements in a contemporary format, making it perfect for urban homes.',
                 features: [
                     'Space-efficient design (2.5ft - 4ft)',
-                    'Wall-mounted or free-standing options',
-                    'Built-in storage for prayer items',
+                    'Wall-mounted or free-standing',
+                    'Built-in storage compartments',
                     'Easy installation and maintenance',
-                    'Perfect for apartments and small spaces'
-                ],
-                whatsapp: 'https://wa.me/917300008825?text=I%20want%20detailed%20information%20about%20the%20Compact%20Elegance%20Mandir'
+                    'Perfect for small spaces'
+                ]
             },
-            product4: {
-                title: 'Mughal Inlay Mandir',
+            {
+                id: 'mandir-4',
+                title: 'Mughal Inlay Sanctuary',
+                shortDescription: 'Stunning pietra dura inlay work with semi-precious stones embedded in pristine white marble.',
                 badge: 'Luxury Heritage',
-                image: 'categories/inlay.jpg',
-                description: 'Experience the royal artistry of Mughal-era craftsmanship with this magnificent temple. The Mughal Inlay Mandir features authentic pietra dura work, where semi-precious stones like lapis lazuli, turquoise, and mother of pearl are meticulously inlaid into pure white marble, creating eternal floral patterns that never fade.',
+                isPremium: true,
+                image: 'homemandir/homemandir(5).webp',
+                fullDescription: 'Experience the royal artistry of Mughal-era craftsmanship with this magnificent temple. The Mughal Inlay Sanctuary features authentic pietra dura work, where semi-precious stones like lapis lazuli, turquoise, and mother of pearl are meticulously inlaid into pure white marble.',
                 features: [
                     'Authentic pietra dura inlay work',
                     'Semi-precious stone embellishments',
                     'Inspired by Mughal architecture',
                     'Museum-quality craftsmanship',
-                    'Certificate of authenticity included'
-                ],
-                whatsapp: 'https://wa.me/917300008825?text=I%20want%20detailed%20information%20about%20the%20Mughal%20Inlay%20Mandir'
+                    'Certificate of authenticity'
+                ]
             },
-            product5: {
-                title: 'Jaali Masterpiece Mandir',
-                badge: 'Artisan Elite',
-                image: 'categories/jaali.jpg',
-                description: 'The Jaali Masterpiece Mandir is a celebration of traditional marble carving techniques. Each lattice screen is carved with precision from a single piece of marble, creating geometric and floral patterns that filter natural light into ethereal patterns. This temple is not just a prayer space - it is a living work of art.',
+            {
+                id: 'mandir-5',
+                title: 'Traditional Pillar Temple',
+                shortDescription: 'Classic design with beautifully carved pillars and traditional architectural elements.',
+                badge: 'Best Seller',
+                isPremium: false,
+                image: 'homemandir/homemandir(6).webp',
+                fullDescription: 'The Traditional Pillar Temple embodies timeless spiritual architecture. Featuring beautifully carved pillars with traditional motifs, this temple creates an atmosphere of devotion and peace. Each element is crafted with precision by skilled artisans.',
                 features: [
-                    'Hand-carved from single marble blocks',
-                    'Complex geometric patterns',
-                    'Natural light diffusion design',
-                    'Multiple Jaali screen variations',
-                    '6-8 months crafting time'
-                ],
-                whatsapp: 'https://wa.me/917300008825?text=I%20want%20detailed%20information%20about%20the%20Jaali%20Masterpiece%20Mandir'
+                    'Hand-carved marble pillars',
+                    'Traditional dome structure',
+                    'Natural stone texture finish',
+                    'Multiple deity placement options',
+                    'Durable construction'
+                ]
             },
-            product6: {
-                title: 'Contemporary Sacred Space',
+            {
+                id: 'mandir-6',
+                title: 'Grand Palace Mandir',
+                shortDescription: 'Majestic multi-tier temple with ornate carvings and regal architectural presence.',
+                badge: 'Premium Collection',
+                isPremium: true,
+                image: 'homemandir/homemandir(7).webp',
+                fullDescription: 'The Grand Palace Mandir is designed for those who seek spiritual grandeur. This multi-tier masterpiece features elaborate carvings, multiple deity placements, and a commanding presence that transforms any room into a sacred palace of worship.',
+                features: [
+                    'Multi-tier architectural design',
+                    'Elaborate hand-carved details',
+                    'Multiple deity placement levels',
+                    'Integrated lighting system',
+                    'Premium marble quality'
+                ]
+            },
+            {
+                id: 'mandir-7',
+                title: 'Artisan Elite Temple',
+                shortDescription: 'Showcase of master craftsmanship with complex geometric patterns and artistic excellence.',
+                badge: 'Artisan Elite',
+                isPremium: true,
+                image: 'homemandir/homemandir(8).webp',
+                fullDescription: 'The Artisan Elite Temple is a celebration of traditional marble carving techniques. Each element is carved with precision from premium marble, creating geometric and floral patterns that showcase generations of artisan expertise. This temple is not just a prayer space - it is a living work of art.',
+                features: [
+                    'Complex geometric carvings',
+                    'Master artisan crafted',
+                    'Unique artistic patterns',
+                    'Premium stone selection',
+                    '6-8 months crafting time'
+                ]
+            },
+            {
+                id: 'mandir-8',
+                title: 'Contemporary Devotion',
+                shortDescription: 'Modern minimalist design meeting traditional spirituality with clean lines and subtle carvings.',
                 badge: 'Modern Design',
-                image: 'categories/flooring.jpg',
-                description: 'For those who appreciate minimalist aesthetics without sacrificing spiritual devotion, the Contemporary Sacred Space offers clean lines and subtle elegance. This modern interpretation of traditional mandirs features understated carvings and a focus on form and function, perfect for contemporary homes and offices.',
+                isPremium: false,
+                image: 'homemandir/homemandir(9).webp',
+                fullDescription: 'For those who appreciate minimalist aesthetics without sacrificing spiritual devotion, the Contemporary Devotion offers clean lines and subtle elegance. This modern interpretation of traditional mandirs features understated carvings and a focus on form and function.',
                 features: [
                     'Minimalist contemporary design',
                     'Subtle traditional motifs',
-                    'Integrated LED lighting system',
+                    'Integrated LED lighting',
                     'Modular components',
-                    'Suitable for homes and offices'
-                ],
-                whatsapp: 'https://wa.me/917300008825?text=I%20want%20detailed%20information%20about%20the%20Contemporary%20Sacred%20Space'
+                    'Suitable for modern homes'
+                ]
+            },
+            {
+                id: 'mandir-9',
+                title: 'Sacred Arch Temple',
+                shortDescription: 'Elegant arched design with traditional carvings and spiritual architectural elements.',
+                badge: 'Traditional',
+                isPremium: false,
+                image: 'homemandir/homemandir(10).webp',
+                fullDescription: 'The Sacred Arch Temple features elegant arched structures that create a divine atmosphere. Traditional carvings adorn every surface, while the architectural design ensures proper placement of deities and prayer items. Perfect for creating a dedicated prayer corner.',
+                features: [
+                    'Elegant arched architecture',
+                    'Traditional carved motifs',
+                    'Proper deity placement design',
+                    'Natural marble finish',
+                    'Easy to clean and maintain'
+                ]
+            },
+            {
+                id: 'mandir-10',
+                title: 'Heritage Dome Sanctuary',
+                shortDescription: 'Classic dome temple with intricate ceiling work and traditional spiritual architecture.',
+                badge: 'Heritage',
+                isPremium: true,
+                image: 'homemandir/homemandir(11).webp',
+                fullDescription: 'The Heritage Dome Sanctuary brings traditional temple architecture into your home. The beautifully carved dome ceiling features intricate patterns that represent cosmic symbolism, while the overall design creates a powerful spiritual presence.',
+                features: [
+                    'Traditional dome architecture',
+                    'Intricate ceiling carvings',
+                    'Cosmic pattern designs',
+                    'Premium marble construction',
+                    'Timeless aesthetic appeal'
+                ]
+            },
+            {
+                id: 'mandir-11',
+                title: 'Ornate Prayer Chamber',
+                shortDescription: 'Richly decorated temple with elaborate carvings and multiple decorative elements.',
+                badge: 'Premium Collection',
+                isPremium: true,
+                image: 'homemandir/homemandir(12).webp',
+                fullDescription: 'The Ornate Prayer Chamber is a testament to elaborate craftsmanship. Every inch is adorned with intricate carvings, from floral patterns to divine symbols. This temple transforms your prayer space into an ornate chamber worthy of the divine.',
+                features: [
+                    'Elaborate decorative carvings',
+                    'Multiple ornamental elements',
+                    'Rich artistic detailing',
+                    'Premium finishing work',
+                    'Statement piece design'
+                ]
+            },
+            {
+                id: 'mandir-12',
+                title: 'Classic Wall Temple',
+                shortDescription: 'Wall-mounted design perfect for space optimization with traditional carved aesthetics.',
+                badge: 'Space Saver',
+                isPremium: false,
+                image: 'homemandir/homemandir(13).webp',
+                fullDescription: 'The Classic Wall Temple offers traditional aesthetics in a space-saving wall-mounted format. Perfect for homes where floor space is limited, this design maintains spiritual elegance while being practical for modern living.',
+                features: [
+                    'Wall-mounted space-saving design',
+                    'Traditional carved patterns',
+                    'Easy installation system',
+                    'Compact yet elegant',
+                    'Ideal for apartments'
+                ]
+            },
+            {
+                id: 'mandir-13',
+                title: 'Regal Court Temple',
+                shortDescription: 'Royal architectural style with commanding presence and elaborate structural details.',
+                badge: 'Royal Collection',
+                isPremium: true,
+                image: 'homemandir/homemandir(14).webp',
+                fullDescription: 'The Regal Court Temple brings palace-like grandeur to your prayer space. Inspired by royal temple architecture, this piece features commanding pillars, elaborate arches, and regal design elements that create an atmosphere of divine majesty.',
+                features: [
+                    'Royal palace-inspired design',
+                    'Commanding architectural presence',
+                    'Elaborate structural details',
+                    'Multiple prayer levels',
+                    'Premium craftsmanship'
+                ]
+            },
+            {
+                id: 'mandir-14',
+                title: 'Jaali Lattice Shrine',
+                shortDescription: 'Intricate lattice screens creating beautiful light patterns and traditional aesthetics.',
+                badge: 'Artisan Elite',
+                isPremium: true,
+                image: 'homemandir/homemandir(15).webp',
+                fullDescription: 'The Jaali Lattice Shrine celebrates the ancient art of stone lattice work. Hand-carved geometric patterns create mesmerizing effects as light filters through, transforming your prayer space into a sanctuary of divine illumination.',
+                features: [
+                    'Hand-carved Jaali lattice work',
+                    'Geometric pattern designs',
+                    'Natural light diffusion',
+                    'Single-block carving technique',
+                    'Traditional artisan methods'
+                ]
+            },
+            {
+                id: 'mandir-15',
+                title: 'Spiritual Alcove',
+                shortDescription: 'Intimate prayer niche design with focused spiritual ambiance and carved details.',
+                badge: 'Meditation',
+                isPremium: false,
+                image: 'homemandir/homemandir(16).webp',
+                fullDescription: 'The Spiritual Alcove creates an intimate prayer environment. Designed as a focused meditation space, this temple features carved details that draw attention inward, promoting deep spiritual connection and peaceful contemplation.',
+                features: [
+                    'Intimate alcove design',
+                    'Meditation-focused space',
+                    'Carved spiritual motifs',
+                    'Peaceful ambiance creation',
+                    'Personal prayer sanctuary'
+                ]
+            },
+            {
+                id: 'mandir-16',
+                title: 'Temple of Light',
+                shortDescription: 'Design optimized for natural and artificial lighting with translucent marble elements.',
+                badge: 'Illuminated',
+                isPremium: true,
+                image: 'homemandir/homemandir(17).webp',
+                fullDescription: 'The Temple of Light is specially designed to interact beautifully with lighting. Featuring translucent marble sections and strategic carving placements, this temple glows with divine radiance when illuminated, creating an ethereal prayer atmosphere.',
+                features: [
+                    'Translucent marble elements',
+                    'Lighting-optimized design',
+                    'LED backlighting compatible',
+                    'Creates ethereal glow effect',
+                    'Day and night beauty'
+                ]
+            },
+            {
+                id: 'mandir-17',
+                title: 'Devotional Tower',
+                shortDescription: 'Vertical multi-level design maximizing deity placement in compact footprint.',
+                badge: 'Space Efficient',
+                isPremium: false,
+                image: 'homemandir/homemandir(18).webp',
+                fullDescription: 'The Devotional Tower takes vertical space optimization to new heights. This multi-level design allows for multiple deity placements while maintaining a compact floor footprint, perfect for homes with limited space but unlimited devotion.',
+                features: [
+                    'Vertical tower design',
+                    'Multiple deity levels',
+                    'Compact floor footprint',
+                    'Efficient space utilization',
+                    'Stable structural design'
+                ]
+            },
+            {
+                id: 'mandir-18',
+                title: 'Sacred Pavilion',
+                shortDescription: 'Open pavilion-style architecture with carved pillars and traditional roof structure.',
+                badge: 'Traditional',
+                isPremium: false,
+                image: 'homemandir/homemandir(19).webp',
+                fullDescription: 'The Sacred Pavilion brings outdoor temple architecture indoors. Featuring carved pillars and an open pavilion design, this temple creates an airy, welcoming prayer space that feels connected to traditional temple courtyards.',
+                features: [
+                    'Open pavilion architecture',
+                    'Carved support pillars',
+                    'Traditional roof structure',
+                    'Airy design aesthetic',
+                    'Temple courtyard feel'
+                ]
+            },
+            {
+                id: 'mandir-19',
+                title: 'Eternal Flame Temple',
+                shortDescription: 'Central flame holder design with protective carved screens and spiritual symbolism.',
+                badge: 'Ceremonial',
+                isPremium: true,
+                image: 'homemandir/homemandir(20).webp',
+                fullDescription: 'The Eternal Flame Temple is designed around the sacred concept of the eternal flame. With a central space for a diya or lamp, surrounded by protective carved screens, this temple keeps the divine light burning bright in your home.',
+                features: [
+                    'Central flame holder design',
+                    'Protective carved screens',
+                    'Ventilation considerations',
+                    'Ceremonial functionality',
+                    'Symbolic spiritual design'
+                ]
+            },
+            {
+                id: 'mandir-20',
+                title: 'Garden Sanctuary',
+                shortDescription: 'Weather-resistant design suitable for outdoor installation with traditional temple aesthetics.',
+                badge: 'Outdoor',
+                isPremium: true,
+                image: 'homemandir/homemandir(21).webp',
+                fullDescription: 'The Garden Sanctuary brings divine presence to your outdoor spaces. Crafted from weather-resistant marble with sealed finishes, this temple can grace your garden, terrace, or courtyard while maintaining its beauty through seasons.',
+                features: [
+                    'Weather-resistant construction',
+                    'Sealed marble finish',
+                    'Outdoor installation suitable',
+                    'Rain and sun resistant',
+                    'Garden-friendly design'
+                ]
+            },
+            {
+                id: 'mandir-21',
+                title: 'Minimalist Shrine',
+                shortDescription: 'Clean contemporary lines with essential spiritual elements and modern aesthetic.',
+                badge: 'Contemporary',
+                isPremium: false,
+                image: 'homemandir/homemandir(22).webp',
+                fullDescription: 'The Minimalist Shrine proves that spirituality needs no excess. With clean lines, essential design elements, and a modern aesthetic, this temple fits seamlessly into contemporary homes while maintaining spiritual significance.',
+                features: [
+                    'Minimalist design philosophy',
+                    'Clean contemporary lines',
+                    'Essential spiritual elements',
+                    'Modern home compatible',
+                    'Understated elegance'
+                ]
+            },
+            {
+                id: 'mandir-22',
+                title: 'Heritage Archway',
+                shortDescription: 'Traditional arched entrance design with ornate carvings and classical proportions.',
+                badge: 'Heritage',
+                isPremium: true,
+                image: 'homemandir/homemandir(23).webp',
+                fullDescription: 'The Heritage Archway celebrates traditional temple entrance architecture. The ornately carved arch creates a threshold between worldly and divine spaces, while classical proportions ensure timeless beauty.',
+                features: [
+                    'Traditional arched entrance',
+                    'Ornate arch carvings',
+                    'Classical proportions',
+                    'Threshold symbolism',
+                    'Timeless design'
+                ]
+            },
+            {
+                id: 'mandir-23',
+                title: 'Divine Dome Palace',
+                shortDescription: 'Multi-dome structure with royal palace aesthetics and elaborate carved details.',
+                badge: 'Royal Collection',
+                isPremium: true,
+                image: 'homemandir/homemandir(24).webp',
+                fullDescription: 'The Divine Dome Palace is a masterpiece of temple architecture. Multiple domes create a skyline reminiscent of royal palaces, while elaborate carvings throughout speak to the highest levels of artisan skill.',
+                features: [
+                    'Multi-dome structure',
+                    'Royal palace aesthetics',
+                    'Elaborate carved details',
+                    'Grand architectural scale',
+                    'Premium marble throughout'
+                ]
+            },
+            {
+                id: 'mandir-24',
+                title: 'Peaceful Prayer Corner',
+                shortDescription: 'Compact corner-fit design with serene aesthetics and space-efficient placement.',
+                badge: 'Space Saver',
+                isPremium: false,
+                image: 'homemandir/homemandir(25).webp',
+                fullDescription: 'The Peaceful Prayer Corner is designed specifically for corner installations. This space-efficient design maximizes unused corner space while creating a serene prayer environment perfect for daily worship.',
+                features: [
+                    'Corner-fit design',
+                    'Space optimization',
+                    'Serene aesthetics',
+                    'Daily worship focused',
+                    'Easy corner installation'
+                ]
+            },
+            {
+                id: 'mandir-25',
+                title: 'Celestial Temple',
+                shortDescription: 'Inspired by cosmic architecture with star patterns and celestial carved motifs.',
+                badge: 'Cosmic Design',
+                isPremium: true,
+                image: 'homemandir/homemandir(26).webp',
+                fullDescription: 'The Celestial Temple draws inspiration from cosmic architecture. Star patterns, celestial motifs, and astronomical symbols are carved throughout, connecting earthly devotion with cosmic divinity.',
+                features: [
+                    'Cosmic-inspired design',
+                    'Star pattern carvings',
+                    'Celestial motifs throughout',
+                    'Astronomical symbolism',
+                    'Spiritual-cosmic connection'
+                ]
+            },
+            {
+                id: 'mandir-26',
+                title: 'Classic Heritage Shrine',
+                shortDescription: 'Time-honored traditional design with authentic craftsmanship and cultural significance.',
+                badge: 'Heritage',
+                isPremium: false,
+                image: 'homemandir/homemandir(27).webp',
+                fullDescription: 'The Classic Heritage Shrine embodies generations of traditional temple design. Every element follows time-honored patterns that have spiritual and cultural significance, creating an authentic connection to devotional heritage.',
+                features: [
+                    'Time-honored traditional design',
+                    'Cultural authenticity',
+                    'Heritage pattern following',
+                    'Generational design wisdom',
+                    'Spiritual significance'
+                ]
+            },
+            {
+                id: 'mandir-27',
+                title: 'Master Temple Collection',
+                shortDescription: 'Premium showcase piece combining multiple traditional elements and master craftsmanship.',
+                badge: 'Master Collection',
+                isPremium: true,
+                image: 'homemandir/homemandir.webp',
+                fullDescription: 'The Master Temple Collection represents the culmination of traditional temple artistry. Combining elements from various classical styles, this piece showcases master craftsmanship at its absolute finest, making it a centerpiece of spiritual devotion.',
+                features: [
+                    'Multiple traditional elements',
+                    'Master craftsmanship showcase',
+                    'Classical style fusion',
+                    'Premium artistic execution',
+                    'Centerpiece-worthy design'
+                ]
             }
-        };
+        ];
 
-        function openModal(productId) {
-            const product = products[productId];
+        // ==========================================
+        // 🔧 OPTIMIZED FUNCTIONS
+        // ==========================================
+
+        const getWhatsAppURL = (title) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`I'm interested in the ${title}`)}`;
+
+        function renderProducts() {
+            const grid = document.getElementById('productsGrid');
+            const fragment = document.createDocumentFragment();
+
+            PRODUCTS.forEach(product => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.onclick = (e) => openModal(product.id, e);
+
+                card.innerHTML = `
+                    <div class="product-image">
+                        ${product.isPremium ? '<span class="premium-badge">Premium</span>' : ''}
+                        <img src="${product.image}" alt="${product.title}" loading="lazy" decoding="async">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">${product.title}</h3>
+                        <p class="product-description">${product.shortDescription}</p>
+                        <div class="product-buttons">
+                            <a href="${getWhatsAppURL(product.title)}" 
+                               class="btn btn-whatsapp" 
+                               target="_blank" 
+                               rel="noopener"
+                               onclick="event.stopPropagation()">
+                                <i class="fab fa-whatsapp"></i>
+                                WhatsApp
+                            </a>
+                            <button class="btn btn-view">
+                                <i class="fas fa-eye"></i>
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                `;
+
+                fragment.appendChild(card);
+            });
+
+            grid.appendChild(fragment);
+        }
+
+        function openModal(productId, event) {
+            event?.stopPropagation();
+            
+            const product = PRODUCTS.find(p => p.id === productId);
+            if (!product) return;
+
             const modal = document.getElementById('productModal');
             
             document.getElementById('modalTitle').textContent = product.title;
             document.getElementById('modalBadge').textContent = product.badge;
             document.getElementById('modalImage').src = product.image;
-            document.getElementById('modalDescription').textContent = product.description;
-            document.getElementById('modalWhatsapp').href = product.whatsapp;
+            document.getElementById('modalDescription').textContent = product.fullDescription;
+            document.getElementById('modalWhatsapp').href = getWhatsAppURL(product.title);
             
             const featuresList = document.getElementById('modalFeatures');
-            featuresList.innerHTML = '';
-            product.features.forEach(feature => {
-                const li = document.createElement('li');
-                li.innerHTML = `<i class="fas fa-check-circle"></i> ${feature}`;
-                featuresList.appendChild(li);
-            });
+            featuresList.innerHTML = product.features.map(f => 
+                `<li><i class="fas fa-check-circle"></i> ${f}</li>`
+            ).join('');
             
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
+            // Use requestAnimationFrame for smooth animation
+            requestAnimationFrame(() => {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
         }
 
         function closeModal() {
-            const modal = document.getElementById('productModal');
-            modal.classList.remove('active');
+            document.getElementById('productModal').classList.remove('active');
             document.body.style.overflow = 'auto';
         }
 
         function openImageZoom() {
-            const modalImage = document.getElementById('modalImage');
             const zoomModal = document.getElementById('imageZoomModal');
-            const zoomImage = document.getElementById('zoomImage');
-            
-            zoomImage.src = modalImage.src;
-            zoomModal.classList.add('active');
+            document.getElementById('zoomImage').src = document.getElementById('modalImage').src;
+            requestAnimationFrame(() => {
+                zoomModal.classList.add('active');
+            });
         }
 
         function closeImageZoom() {
-            const zoomModal = document.getElementById('imageZoomModal');
-            zoomModal.classList.remove('active');
+            document.getElementById('imageZoomModal').classList.remove('active');
         }
 
-        // Close modal on outside click
-        document.getElementById('productModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeModal();
-            }
-        });
+        // ==========================================
+        // 🎬 EVENT LISTENERS
+        // ==========================================
 
-        // Close image zoom on outside click
+        document.getElementById('productModal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        }, { passive: true });
+
         document.getElementById('imageZoomModal').addEventListener('click', function(e) {
             if (e.target === this || e.target.classList.contains('zoom-image-container')) {
                 closeImageZoom();
             }
-        });
+        }, { passive: true });
 
-        // Close modal on ESC key
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 closeModal();
@@ -1162,7 +1566,17 @@
             }
         });
 
-        console.log('✅ Home Mandir Products Page Loaded');
+        // ==========================================
+        // 🚀 INITIALIZE
+        // ==========================================
+        
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', renderProducts);
+        } else {
+            renderProducts();
+        }
+
+        console.log('✅ Premium Home Mandirs Page Loaded - 27 Products');
     </script>
 </body>
 </html>
