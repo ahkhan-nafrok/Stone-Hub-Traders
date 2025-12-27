@@ -15,7 +15,6 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"></noscript>
-    
     <style>
         :root {
             --dim-gold: #C9A961;
@@ -47,7 +46,7 @@
         /* HEADER SECTION */
         .page-header {
             background: var(--pure-black);
-            padding: 6rem 0 3rem;
+            padding: 0;
             border-bottom: 3px solid var(--dim-gold);
             position: relative;
         }
@@ -61,12 +60,9 @@
 
         /* BACK BUTTON */
         .back-btn {
-            position: absolute;
-            top: 2rem;
-            left: 3rem;
             background: var(--dim-gold);
             color: var(--pure-black);
-            padding: 0.9rem 2rem;
+            padding: 1rem 2rem;
             font-size: 0.8rem;
             font-weight: 800;
             letter-spacing: 2px;
@@ -79,7 +75,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.8rem;
-            z-index: 10;
+            margin: 2rem 0 0 0;
             transform: translateZ(0);
         }
 
@@ -90,7 +86,7 @@
 
         .header-content {
             text-align: center;
-            padding-top: 1rem;
+            padding: 3rem 0 3rem;
         }
 
         .header-subtitle {
@@ -687,11 +683,6 @@
             .products-grid {
                 gap: 2.5rem;
             }
-
-            .back-btn {
-                top: 1.5rem;
-                left: 2rem;
-            }
         }
 
         @media (max-width: 991px) {
@@ -699,19 +690,10 @@
                 padding: 0 2rem;
             }
 
-            .page-header {
-                padding: 5.5rem 0 3rem;
-            }
-
             .back-btn {
-                top: 1.5rem;
-                left: 2rem;
-                padding: 0.8rem 1.8rem;
+                padding: 0.9rem 1.8rem;
                 font-size: 0.75rem;
-            }
-
-            .header-content {
-                padding-top: 0.5rem;
+                margin: 1.5rem 0 0 0;
             }
 
             .header-title {
@@ -741,20 +723,15 @@
         }
 
         @media (max-width: 768px) {
-            .page-header {
-                padding: 5.5rem 0 2rem;
-            }
-
             .back-btn {
-                top: 1.5rem;
-                left: 1.5rem;
-                padding: 0.75rem 1.5rem;
+                padding: 0.85rem 1.5rem;
                 font-size: 0.7rem;
                 letter-spacing: 1.5px;
+                margin: 1.5rem 0 0 0;
             }
 
             .header-content {
-                padding-top: 0;
+                padding: 2.5rem 0 2rem;
             }
 
             .header-title {
@@ -863,17 +840,16 @@
                 padding: 0 1.5rem;
             }
 
-            .page-header {
-                padding: 5rem 0 1.5rem;
-            }
-
             .back-btn {
-                top: 1.2rem;
-                left: 1.5rem;
-                padding: 0.7rem 1.3rem;
+                padding: 0.8rem 1.3rem;
                 font-size: 0.65rem;
                 letter-spacing: 1px;
                 gap: 0.5rem;
+                margin: 1rem 0 0 0;
+            }
+
+            .header-content {
+                padding: 2rem 0 1.5rem;
             }
 
             .header-title {
