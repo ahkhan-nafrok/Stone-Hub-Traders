@@ -7,45 +7,65 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
   <!-- SEO Meta Tags -->
-  <meta name="description" content="MSP Stone International - Premium Makrana Marble & Granite Dealers with 70+ years of excellence. Custom Mandirs, Jaali Work, and Architectural Installations." />
+  <meta name="description" content="Stone Hub Traders — Premium Makrana Marble & Granite with 70+ years of excellence. Custom Mandirs, Jaali Work, and Architectural Installations." />
   <meta name="keywords" content="makrana marble, granite dealers, marble temple, custom mandir, marble flooring, jaali work, premium marble, architectural marble" />
-  <meta name="author" content="MSP Stone International" />
-  
+  <meta name="author" content="Stone Hub Traders" />
+
   <!-- Open Graph -->
-  <meta property="og:title" content="MSP Stone International - Premium Marble & Granite" />
-  <meta property="og:description" content="70+ years of excellence in premium marble craftsmanship" />
+  <meta property="og:title" content="Stone Hub Traders — Premium Marble & Granite" />
+  <meta property="og:description" content="70+ years of excellence in premium stone craftsmanship." />
   <meta property="og:type" content="website" />
-  
+
   <!-- Preconnect for Performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
-
-  <!-- DNS Prefetch -->
   <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
   <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
 
-  <!-- CRITICAL: Load fonts in HEAD before any component loads -->
+  <!-- Fonts: Montserrat with 200 added for architectural thin/bold contrast -->
   <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Inter:wght@700;800;900&family=Space+Grotesk:wght@700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&family=Inter:wght@300;400;500&family=Space+Grotesk:wght@400;500;700&display=swap"
     rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
 
-  <title>MSP Stone International - Premium Marble & Granite Dealers | 70+ Years Excellence</title>
+  <title>Stone Hub Traders — Premium Marble & Granite | 70+ Years of Excellence</title>
 
   <style>
-    /* ========== COLOR SYSTEM ========== */
+    /* ============================================================
+       DESIGN TOKENS — STONE HUB TRADERS
+       Architectural Minimalist · Stone & Brass Palette
+    ============================================================ */
     :root {
-      --dim-gold: #C9A961;
-      --pure-black: #000000;
-      --pure-white: #FFFFFF;
-      --off-white: #F5F5F5;
-      --text-dark: #0A0A0A;
+      /* Gold: shifted from jewellery #C9A961 → aged brass #A89070
+         Reads as material, not decorative. Closer to antique stone inlay. */
+      --gold:           #A89070;
+      --gold-light:     #C4AB8C;
+      --gold-dark:      #7D6A53;
+      --gold-muted:     rgba(168, 144, 112, 0.12);
+      --gold-rule:      rgba(168, 144, 112, 0.35);
+
+      /* Neutrals */
+      --pure-black:     #000000;
+      --charcoal:       #111111;
+      --mid-dark:       #1E1E1E;
+      --text-dark:      #0D0D0D;
+      --text-mid:       #4A4747;
+      --text-light:     #7A7672;
+
+      /* Surfaces: warm marble white, not clinical grey */
+      --pure-white:     #FFFFFF;
+      --stone-white:    #F6F3EF;  /* warm marble surface */
+      --stone-off:      #EDE8E1;  /* deeper stone for dividers */
+
+      /* System */
       --whatsapp-green: #25D366;
     }
 
-    /* ========== GLOBAL RESET & BASE ========== */
-    * {
+    /* ============================================================
+       GLOBAL RESET
+    ============================================================ */
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -58,7 +78,7 @@
 
     body {
       font-family: 'Montserrat', sans-serif;
-      background: var(--off-white);
+      background: var(--stone-white);
       color: var(--text-dark);
       line-height: 1.6;
       overflow-x: hidden;
@@ -66,79 +86,157 @@
       -moz-osx-font-smoothing: grayscale;
     }
 
-    /* ========== OPTIMIZED TYPOGRAPHY CAPS ========== */
-    /* Prevent font sizes from going too large or too small */
-    h1, .hero-title, .section-title {
-      font-size: clamp(2rem, 5vw, 5.5rem) !important;
-      line-height: 1.1 !important;
+    /* ============================================================
+       TYPOGRAPHY SCALE
+       Architectural principle: extreme contrast between display & body.
+       Thin (200) at large scale ↔ Bold (700+) at small scale.
+    ============================================================ */
+
+    /* Display: ultra-thin at scale — the architectural minimalist signature */
+    h1,
+    .hero-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(2.4rem, 5.5vw, 5.8rem) !important;
+      font-weight: 200 !important;           /* thin — bold is reserved for labels */
+      line-height: 1.08 !important;
+      letter-spacing: clamp(-0.5px, -0.05vw, -1px) !important;
     }
 
-    h2, .section-subtitle {
-      font-size: clamp(1.8rem, 4vw, 3.5rem) !important;
-      line-height: 1.2 !important;
+    /* Section titles: medium weight, not loud */
+    h2,
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(1.6rem, 3.5vw, 3.2rem) !important;
+      font-weight: 300 !important;
+      line-height: 1.15 !important;
+      letter-spacing: clamp(-0.3px, -0.02vw, -0.5px) !important;
     }
 
-    h3, .card-title {
-      font-size: clamp(1.1rem, 2vw, 1.6rem) !important;
+    /* Card & subsection titles */
+    h3,
+    .card-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(1rem, 1.8vw, 1.4rem) !important;
+      font-weight: 600 !important;
       line-height: 1.3 !important;
     }
 
     h4 {
-      font-size: clamp(1rem, 1.5vw, 1.3rem) !important;
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(0.9rem, 1.4vw, 1.15rem) !important;
+      font-weight: 600 !important;
     }
 
-    p, .body-text {
-      font-size: clamp(0.85rem, 1.2vw, 1rem) !important;
-      line-height: 1.7 !important;
+    /* Body: Inter for legibility at small sizes */
+    p,
+    .body-text {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(0.85rem, 1.1vw, 0.975rem) !important;
+      font-weight: 400 !important;
+      line-height: 1.75 !important;
+      color: var(--text-mid);
     }
 
-    .small-text, .caption {
-      font-size: clamp(0.7rem, 1vw, 0.85rem) !important;
+    /* Labels: the architectural workhorse — tight caps with spacing */
+    .label-text,
+    .eyebrow {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(0.6rem, 0.8vw, 0.7rem) !important;
+      font-weight: 700 !important;
+      letter-spacing: clamp(3px, 0.5vw, 6px) !important;
+      text-transform: uppercase !important;
+      color: var(--gold) !important;
     }
 
-    .label-text {
-      font-size: clamp(0.65rem, 0.9vw, 0.75rem) !important;
-      letter-spacing: clamp(2px, 0.3vw, 5px) !important;
+    .small-text,
+    .caption {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(0.72rem, 0.9vw, 0.8rem) !important;
+      line-height: 1.6 !important;
     }
 
-    /* ========== PAGE LOADER ========== */
+    /* ============================================================
+       PAGE LOADER — Architectural Sequential Reveal
+       No bounce. No pulse. Just a clean studio-grade ident.
+    ============================================================ */
     .page-loader {
       position: fixed;
       inset: 0;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
       background: var(--pure-white);
       z-index: 9999;
-      gap: 20px;
-      transition: opacity 0.5s ease, visibility 0.5s ease;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
     }
 
+    .loader-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Logo: clean fade, no scale bounce */
     .loader-logo {
-      width: clamp(80px, 15vw, 120px);
-      height: clamp(80px, 15vw, 120px);
+      width: clamp(44px, 7vw, 64px);
+      height: clamp(44px, 7vw, 64px);
       object-fit: contain;
-      animation: pulse 2s ease-in-out infinite;
+      opacity: 0;
+      animation: ld-fade 0.5s ease 0.15s forwards;
     }
 
-    @keyframes pulse {
-      0%, 100% {
-        transform: scale(1);
-        opacity: 1;
-      }
-      50% {
-        transform: scale(1.1);
-        opacity: 0.8;
-      }
+    /* Thin gold rule extends outward — the signature architectural moment */
+    .loader-rule {
+      width: 0;
+      height: 1px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        var(--gold) 25%,
+        var(--gold) 75%,
+        transparent
+      );
+      margin: 18px auto 14px;
+      animation: ld-rule 0.45s cubic-bezier(0.4, 0, 0.2, 1) 0.45s forwards;
     }
 
-    .loader-text {
+    /* Brand name: precise fade-up */
+    .loader-brand {
       font-family: 'Montserrat', sans-serif;
-      font-size: clamp(1rem, 2vw, 1.5rem);
-      font-weight: 800;
-      letter-spacing: clamp(4px, 1vw, 8px);
-      color: var(--text-dark);
+      font-size: clamp(0.65rem, 1.2vw, 0.8rem);
+      font-weight: 700;
+      letter-spacing: clamp(5px, 1.2vw, 10px);
+      color: var(--charcoal);
+      text-transform: uppercase;
+      opacity: 0;
+      transform: translateY(5px);
+      animation: ld-word 0.4s ease 0.75s forwards;
+    }
+
+    /* Tagline: whisper-thin, gold */
+    .loader-tagline {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(0.58rem, 0.85vw, 0.68rem);
+      font-weight: 300;
+      letter-spacing: clamp(2px, 0.6vw, 4px);
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-top: 6px;
+      opacity: 0;
+      transform: translateY(4px);
+      animation: ld-word 0.4s ease 0.95s forwards;
+    }
+
+    @keyframes ld-fade {
+      to { opacity: 1; }
+    }
+
+    @keyframes ld-rule {
+      to { width: clamp(40px, 7vw, 56px); }
+    }
+
+    @keyframes ld-word {
+      to { opacity: 1; transform: translateY(0); }
     }
 
     body.loaded .page-loader {
@@ -147,75 +245,82 @@
       pointer-events: none;
     }
 
-    /* ========== SITE WRAPPER ========== */
+    /* ============================================================
+       SITE WRAPPER
+    ============================================================ */
     .site-wrapper {
       opacity: 0;
-      transition: opacity 0.5s ease;
+      transition: opacity 0.5s ease 0.1s;
     }
 
     body.loaded .site-wrapper {
       opacity: 1;
     }
 
-    /* ========== WHATSAPP FLOATING BUTTON ========== */
+    /* ============================================================
+       WHATSAPP FLOAT — Refined, not generic
+       Smaller, clean pill-shadow, no ring animation
+    ============================================================ */
     .whatsapp-float {
       position: fixed;
-      bottom: 25px;
-      left: 25px;
-      width: 60px;
-      height: 60px;
+      bottom: 28px;
+      left: 28px;
+      width: 52px;
+      height: 52px;
       background: var(--whatsapp-green);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+      box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.15),
+        0 6px 24px rgba(37, 211, 102, 0.28);
       z-index: 9998;
       cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  box-shadow 0.25s ease;
       text-decoration: none;
     }
 
     .whatsapp-float:hover {
-      transform: scale(1.1) translateY(-3px);
-      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+      transform: translateY(-3px) scale(1.06);
+      box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.18),
+        0 10px 32px rgba(37, 211, 102, 0.38);
     }
 
     .whatsapp-float:active {
-      transform: scale(0.95);
+      transform: scale(0.96);
     }
 
     .whatsapp-float i {
       color: white;
-      font-size: 32px;
+      font-size: 26px;
+      line-height: 1;
     }
 
-    .whatsapp-float::before {
+    /* Single, slow pulse — subtle attention without noise */
+    .whatsapp-float::after {
       content: '';
       position: absolute;
-      inset: -8px;
-      border: 2px solid var(--whatsapp-green);
+      inset: -4px;
       border-radius: 50%;
-      opacity: 0;
-      animation: whatsapp-pulse 2s infinite;
+      border: 1.5px solid rgba(37, 211, 102, 0.45);
+      animation: wa-ring 2.5s ease-out infinite;
     }
 
-    @keyframes whatsapp-pulse {
-      0% {
-        transform: scale(0.8);
-        opacity: 1;
-      }
-      100% {
-        transform: scale(1.4);
-        opacity: 0;
-      }
+    @keyframes wa-ring {
+      0%   { transform: scale(1); opacity: 1; }
+      80%  { transform: scale(1.4); opacity: 0; }
+      100% { transform: scale(1.4); opacity: 0; }
     }
 
-    /* ========== COMPONENT CONTAINERS ========== */
+    /* ============================================================
+       COMPONENT CONTAINERS
+    ============================================================ */
     #navbarComponent,
     #heroComponent,
     #aboutComponent,
-    #projectsComponent,
     #categoriesComponent,
     #galleryComponent,
     #contactComponent,
@@ -224,84 +329,155 @@
       width: 100%;
     }
 
-    /* Remove extra spacing between components */
-    #aboutComponent + #projectsComponent,
-    #projectsComponent + #categoriesComponent {
-      margin-top: 0;
-      padding-top: 0;
+    /* ============================================================
+       GLOBAL UTILITY CLASSES — available to all components
+    ============================================================ */
+
+    /* Gold accent rule — use in components as visual divider */
+    .gold-rule {
+      display: block;
+      width: 36px;
+      height: 1px;
+      background: var(--gold);
+      margin: 0 auto;
     }
 
-    /* ========== RESPONSIVE BREAKPOINTS ========== */
-    @media (max-width: 1400px) {
-      html {
-        font-size: 15px;
-      }
+    .gold-rule--left {
+      margin: 0;
     }
 
-    @media (max-width: 1200px) {
-      html {
-        font-size: 14px;
-      }
+    /* Section eyebrow pattern */
+    .section-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
     }
 
-    @media (max-width: 991px) {
-      html {
-        font-size: 14px;
-      }
-      
-      .whatsapp-float {
-        width: 55px;
-        height: 55px;
-        bottom: 20px;
-        left: 20px;
-      }
-      
-      .whatsapp-float i {
-        font-size: 28px;
-      }
+    .section-eyebrow::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--gold);
+      flex-shrink: 0;
     }
 
-    @media (max-width: 768px) {
-      html {
-        font-size: 14px;
-      }
+    /* Refined button base */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 32px;
+      background: var(--charcoal);
+      color: var(--pure-white);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid var(--charcoal);
+      cursor: pointer;
+      transition: background 0.22s ease, color 0.22s ease, border-color 0.22s ease;
     }
 
-    @media (max-width: 576px) {
-      html {
-        font-size: 13px;
-      }
-      
-      .whatsapp-float {
-        width: 50px;
-        height: 50px;
-        bottom: 15px;
-        left: 15px;
-      }
-      
-      .whatsapp-float i {
-        font-size: 26px;
-      }
+    .btn-primary:hover {
+      background: transparent;
+      color: var(--charcoal);
     }
 
-    @media (max-width: 480px) {
-      html {
-        font-size: 13px;
-      }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 32px;
+      background: transparent;
+      color: var(--charcoal);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid var(--charcoal);
+      cursor: pointer;
+      transition: background 0.22s ease, color 0.22s ease;
     }
 
-    /* ========== PERFORMANCE OPTIMIZATIONS ========== */
-    /* Force GPU acceleration for animations */
-    .page-loader,
-    .whatsapp-float,
-    .loader-logo {
-      transform: translateZ(0);
-      will-change: transform, opacity;
+    .btn-outline:hover {
+      background: var(--charcoal);
+      color: var(--pure-white);
     }
 
-    /* Reduce motion for accessibility */
+    .btn-gold {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 32px;
+      background: transparent;
+      color: var(--gold);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid var(--gold);
+      cursor: pointer;
+      transition: background 0.22s ease, color 0.22s ease;
+    }
+
+    .btn-gold:hover {
+      background: var(--gold);
+      color: var(--pure-white);
+    }
+
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 clamp(20px, 4vw, 60px);
+    }
+
+    /* ============================================================
+       SCROLL MARGIN FOR FIXED NAV
+    ============================================================ */
+    section {
+      scroll-margin-top: 90px;
+    }
+
+    /* ============================================================
+       RESPONSIVE BREAKPOINTS
+    ============================================================ */
+    @media (max-width: 1400px) { html { font-size: 15px; } }
+    @media (max-width: 1200px) { html { font-size: 14px; } }
+    @media (max-width: 991px)  { html { font-size: 14px; }
+      .whatsapp-float { width: 48px; height: 48px; bottom: 22px; left: 22px; }
+      .whatsapp-float i { font-size: 24px; }
+    }
+    @media (max-width: 768px)  { html { font-size: 14px; } }
+    @media (max-width: 576px)  { html { font-size: 13px; }
+      .whatsapp-float { width: 46px; height: 46px; bottom: 18px; left: 18px; }
+      .whatsapp-float i { font-size: 22px; }
+    }
+    @media (max-width: 480px)  { html { font-size: 13px; } }
+
+    /* ============================================================
+       ACCESSIBILITY
+    ============================================================ */
+    :focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+    }
+
+    :focus:not(:focus-visible) {
+      outline: none;
+    }
+
     @media (prefers-reduced-motion: reduce) {
-      * {
+      *, *::before, *::after {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
@@ -309,303 +485,221 @@
       }
     }
 
-    /* ========== SMOOTH SCROLL OFFSET ========== */
-    section {
-      scroll-margin-top: 100px;
-    }
-
-    /* ========== ACCESSIBILITY ========== */
-    :focus-visible {
-      outline: 3px solid var(--dim-gold);
-      outline-offset: 3px;
-    }
-
-    /* Hide focus outline for mouse users */
-    :focus:not(:focus-visible) {
-      outline: none;
-    }
-
-    /* ========== PRINT STYLES ========== */
+    /* ============================================================
+       PRINT
+    ============================================================ */
     @media print {
       .page-loader,
-      .whatsapp-float {
-        display: none !important;
-      }
+      .whatsapp-float { display: none !important; }
     }
   </style>
 </head>
 
 <body itemscope itemtype="https://schema.org/WebPage">
-  <!-- Page Loader -->
-  <div class="page-loader" role="status" aria-live="polite" aria-label="Loading MSP Stone International">
-    <img src="white.png" alt="MSP Stone International Logo" class="loader-logo" />
-    <div class="loader-text" aria-hidden="true">MSP STONE</div>
+
+  <!-- ============================================================
+       PAGE LOADER — Architectural Sequential Reveal
+  ============================================================ -->
+  <div class="page-loader" role="status" aria-live="polite" aria-label="Loading Stone Hub Traders">
+    <div class="loader-inner">
+      <img src="white.png" alt="Stone Hub Traders" class="loader-logo" />
+      <div class="loader-rule" aria-hidden="true"></div>
+      <div class="loader-brand" aria-hidden="true">Stone Hub Traders</div>
+      <div class="loader-tagline" aria-hidden="true">Premium Marble &amp; Granite</div>
+    </div>
   </div>
 
-  <!-- Site Wrapper -->
+  <!-- ============================================================
+       SITE WRAPPER
+  ============================================================ -->
   <div class="site-wrapper">
-    <!-- Navbar Component -->
-    <nav id="navbarComponent" role="navigation" aria-label="Main Navigation"></nav>
+    <nav id="navbarComponent"     role="navigation" aria-label="Main Navigation"></nav>
 
-    <!-- Main Content -->
     <main>
-      <!-- Hero Component -->
-      <header id="heroComponent"></header>
-
-      <!-- About Component -->
-      <section id="aboutComponent" aria-label="About MSP Stone International"></section>
-
-      <!-- Projects Component -->
-      <section id="projectsComponent" aria-label="Featured Projects"></section>
-
-      <!-- Categories Component -->
+      <header  id="heroComponent"       ></header>
+      <section id="aboutComponent"      aria-label="About Stone Hub Traders"></section>
       <section id="categoriesComponent" aria-label="Marble and Granite Categories"></section>
-
-      <!-- Gallery Component -->
-      <section id="galleryComponent" aria-label="Product Gallery"></section>
-
-      <!-- Contact Component -->
-      <section id="contactComponent" aria-label="Contact Information"></section>
+      <section id="galleryComponent"    aria-label="Product Gallery"></section>
+      <section id="contactComponent"    aria-label="Contact Information"></section>
     </main>
 
-    <!-- Footer Component -->
     <footer id="footerComponent" role="contentinfo"></footer>
   </div>
 
-  <!-- WhatsApp Floating Button -->
-  <a href="https://wa.me/91739999995?text=Hello%20MSP%20Stone%20International,%20I%20would%20like%20to%20inquire%20about%20your%20marble%20and%20granite%20products."
-    class="whatsapp-float" 
-    target="_blank" 
-    rel="noopener noreferrer" 
+  <!-- ============================================================
+       WHATSAPP FLOAT
+  ============================================================ -->
+  <a href="https://wa.me/91739999995?text=Hello%20Stone%20Hub%20Traders%2C%20I%20would%20like%20to%20inquire%20about%20your%20marble%20and%20granite%20products."
+    class="whatsapp-float"
+    target="_blank"
+    rel="noopener noreferrer"
     aria-label="Contact us on WhatsApp"
     title="Chat with us on WhatsApp">
     <i class="fab fa-whatsapp" aria-hidden="true"></i>
   </a>
 
+  <!-- ============================================================
+       SCRIPTS
+  ============================================================ -->
   <script>
-    // ========== PERFORMANCE MONITORING ==========
-    const performanceMetrics = {
-      startTime: performance.now(),
-      fontsLoaded: false,
-      componentsLoaded: 0
+    // ──────────────────────────────────────────────
+    // PERFORMANCE METRICS
+    // ──────────────────────────────────────────────
+    const _perf = {
+      t0: performance.now(),
+      fontsReady: false,
+      loaded: 0
     };
 
-    // ========== FONT LOADING ==========
-    document.fonts.ready.then(function () {
-      performanceMetrics.fontsLoaded = true;
-      console.log('✅ Fonts loaded in', Math.round(performance.now() - performanceMetrics.startTime), 'ms');
+    document.fonts.ready.then(() => {
+      _perf.fontsReady = true;
     });
 
-    // ========== PAGE INITIALIZATION ==========
-    document.addEventListener("DOMContentLoaded", () => {
-      // Minimum loading time for smooth experience
-      const minLoadTime = 1500;
-      const elapsedTime = performance.now() - performanceMetrics.startTime;
-      const remainingTime = Math.max(0, minLoadTime - elapsedTime);
+    // ──────────────────────────────────────────────
+    // INIT — minimum 1.4s to let loader ident finish
+    // ──────────────────────────────────────────────
+    document.addEventListener('DOMContentLoaded', () => {
+      const MIN_SHOW = 1400;
+      const elapsed  = performance.now() - _perf.t0;
+      const wait     = Math.max(0, MIN_SHOW - elapsed);
 
       setTimeout(() => {
-        document.body.classList.add("loaded");
+        document.body.classList.add('loaded');
         loadComponents();
-      }, remainingTime);
+      }, wait);
     });
 
-    // ========== COMPONENT LOADING SYSTEM ==========
+    // ──────────────────────────────────────────────
+    // COMPONENT LOADER
+    // ──────────────────────────────────────────────
+    const COMPONENTS = [
+      { name: 'navbar',     target: 'navbarComponent'     },
+      { name: 'hero',       target: 'heroComponent'       },
+      { name: 'about',      target: 'aboutComponent'      },
+      { name: 'categories', target: 'categoriesComponent' },
+      { name: 'gallery',    target: 'galleryComponent'    },
+      { name: 'contact',    target: 'contactComponent'    },
+      { name: 'footer',     target: 'footerComponent'     }
+    ];
+
     async function loadComponents() {
-      const components = [
-        { name: "navbar", target: "navbarComponent" },
-        { name: "hero", target: "heroComponent" },
-        { name: "about", target: "aboutComponent" },
-        { name: "projects", target: "projectsComponent" },
-        { name: "categories", target: "categoriesComponent" },
-        { name: "gallery", target: "galleryComponent" },
-        { name: "contact", target: "contactComponent" },
-        { name: "footer", target: "footerComponent" }
-      ];
-
-      for (const comp of components) {
+      for (const comp of COMPONENTS) {
         await loadComponent(comp.name, comp.target);
-        performanceMetrics.componentsLoaded++;
+        _perf.loaded++;
       }
-
-      console.log('✅ All components loaded in', Math.round(performance.now() - performanceMetrics.startTime), 'ms');
-      
-      // Initialize any global interactions after all components are loaded
-      initializeGlobalInteractions();
+      initGlobal();
     }
 
-    // ========== ENHANCED COMPONENT LOADER ==========
     async function loadComponent(name, targetId) {
       try {
-        const startTime = performance.now();
-        
-        // Fetch HTML
-        const htmlResp = await fetch(`${name}.html`);
-        const htmlText = await htmlResp.text();
+        const t0 = performance.now();
 
-        // Parse HTML
-        const tempDiv = document.createElement('div');
-        tempDiv.innerHTML = htmlText;
+        const resp    = await fetch(`${name}.html`);
+        const html    = await resp.text();
+        const temp    = document.createElement('div');
+        temp.innerHTML = html;
 
-        // Get target element
-        const targetElement = document.getElementById(targetId);
-        if (!targetElement) {
-          console.error(`❌ Target element #${targetId} not found`);
-          return;
-        }
+        const target  = document.getElementById(targetId);
+        if (!target) { console.warn(`⚠ #${targetId} not found`); return; }
 
-        // Extract and insert CSS styles with font inheritance
-        const styles = tempDiv.querySelectorAll('style');
-        styles.forEach(style => {
-          const styleElement = document.createElement('style');
-          styleElement.innerHTML = style.innerHTML;
-          styleElement.setAttribute('data-component', name);
-
-          // Ensure component styles inherit font family
-          styleElement.innerHTML = styleElement.innerHTML.replace(
-            /font-family:\s*'Montserrat'/gi,
-            "font-family: 'Montserrat', sans-serif"
-          );
-
-          document.head.appendChild(styleElement);
+        // Inject component styles into <head>
+        temp.querySelectorAll('style').forEach(s => {
+          const el = document.createElement('style');
+          el.setAttribute('data-component', name);
+          el.innerHTML = s.innerHTML;
+          document.head.appendChild(el);
+          s.remove();
         });
 
-        // Extract scripts before removing them
-        const scripts = tempDiv.querySelectorAll('script');
-        const scriptContents = Array.from(scripts).map(script => script.innerHTML);
-
-        // Clean up parsed HTML
-        scripts.forEach(script => script.remove());
-        styles.forEach(style => style.remove());
-        
-        // Remove duplicate font links
-        const fontLinks = tempDiv.querySelectorAll('link[href*="fonts.googleapis.com"]');
-        fontLinks.forEach(link => link.remove());
-
-        // Insert HTML content
-        targetElement.innerHTML = tempDiv.innerHTML;
-
-        // Wait for DOM to settle
-        await new Promise(resolve => setTimeout(resolve, 100));
-
-        // Execute component scripts
-        scriptContents.forEach(scriptContent => {
-          if (scriptContent.trim()) {
-            try {
-              const scriptElement = document.createElement('script');
-              scriptElement.innerHTML = scriptContent;
-              scriptElement.setAttribute('data-component', name);
-              document.body.appendChild(scriptElement);
-
-              // Clean up after execution
-              setTimeout(() => {
-                if (scriptElement.parentNode) {
-                  scriptElement.parentNode.removeChild(scriptElement);
-                }
-              }, 500);
-            } catch (scriptError) {
-              console.error(`❌ Error executing script in ${name}:`, scriptError);
-            }
-          }
+        // Collect scripts before inserting HTML
+        const scripts = [];
+        temp.querySelectorAll('script').forEach(s => {
+          scripts.push(s.innerHTML);
+          s.remove();
         });
 
-        const loadTime = Math.round(performance.now() - startTime);
-        console.log(`✅ ${name} loaded in ${loadTime}ms`);
+        // Remove redundant font links
+        temp.querySelectorAll('link[href*="fonts.googleapis.com"]').forEach(l => l.remove());
+
+        // Insert HTML
+        target.innerHTML = temp.innerHTML;
+
+        // Let DOM settle, then run scripts
+        await new Promise(r => setTimeout(r, 80));
+        scripts.forEach(code => {
+          if (!code.trim()) return;
+          const el = document.createElement('script');
+          el.setAttribute('data-component', name);
+          el.innerHTML = code;
+          document.body.appendChild(el);
+          setTimeout(() => el.parentNode?.removeChild(el), 500);
+        });
+
+        console.log(`✔ ${name} — ${Math.round(performance.now() - t0)}ms`);
 
       } catch (err) {
-        console.error(`❌ Error loading ${name}:`, err);
+        console.error(`✖ ${name}:`, err);
       }
     }
 
-    // ========== GLOBAL INTERACTIONS ==========
-    function initializeGlobalInteractions() {
-      // Smooth scroll for all internal links
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-          const href = this.getAttribute('href');
+    // ──────────────────────────────────────────────
+    // GLOBAL INTERACTIONS
+    // ──────────────────────────────────────────────
+    function initGlobal() {
+      // Smooth-scroll internal anchors with nav offset
+      document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+          const href = a.getAttribute('href');
           if (href === '#') return;
-          
           e.preventDefault();
-          const targetId = href.substring(1);
-          const targetElement = document.getElementById(targetId);
-          
-          if (targetElement) {
-            const headerHeight = 100;
-            const targetPosition = targetElement.offsetTop - headerHeight;
-            
-            window.scrollTo({
-              top: targetPosition,
-              behavior: 'smooth'
-            });
-          }
+          const el = document.getElementById(href.slice(1));
+          if (el) window.scrollTo({ top: el.offsetTop - 90, behavior: 'smooth' });
         });
       });
 
-      // Lazy load images
+      // Native lazy-load fallback via IntersectionObserver
       if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              const img = entry.target;
-              if (img.dataset.src) {
-                img.src = img.dataset.src;
-                img.removeAttribute('data-src');
-                imageObserver.unobserve(img);
-              }
+        const io = new IntersectionObserver(entries => {
+          entries.forEach(({ isIntersecting, target }) => {
+            if (isIntersecting && target.dataset.src) {
+              target.src = target.dataset.src;
+              target.removeAttribute('data-src');
+              io.unobserve(target);
             }
           });
-        });
+        }, { rootMargin: '200px' });
 
-        document.querySelectorAll('img[data-src]').forEach(img => {
-          imageObserver.observe(img);
-        });
+        document.querySelectorAll('img[data-src]').forEach(img => io.observe(img));
       }
-
-      console.log('✅ Global interactions initialized');
     }
 
-    // ========== CROSS-COMPONENT MESSAGING ==========
-    window.addEventListener('message', function (event) {
-      if (event.data.type === 'scrollToSection') {
-        const sectionId = event.data.sectionId;
-        const targetElement = document.getElementById(sectionId);
-
-        if (targetElement) {
-          const headerHeight = 100;
-          const targetPosition = targetElement.offsetTop - headerHeight;
-
-          window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-          });
-        }
+    // Cross-component messaging (scroll requests from child components)
+    window.addEventListener('message', ({ data }) => {
+      if (data?.type === 'scrollToSection') {
+        const el = document.getElementById(data.sectionId);
+        if (el) window.scrollTo({ top: el.offsetTop - 90, behavior: 'smooth' });
       }
     });
 
-    // ========== ERROR HANDLING ==========
-    window.addEventListener('error', function(e) {
-      console.error('❌ Global error:', e.error);
-    });
+    // Error boundaries
+    window.addEventListener('error',              e => console.error('✖ Global:', e.error));
+    window.addEventListener('unhandledrejection', e => console.error('✖ Promise:', e.reason));
 
-    window.addEventListener('unhandledrejection', function(e) {
-      console.error('❌ Unhandled promise rejection:', e.reason);
-    });
-
-    // ========== PERFORMANCE LOGGING ==========
-    window.addEventListener('load', function() {
-      const loadTime = Math.round(performance.now() - performanceMetrics.startTime);
-      console.log(`
-🚀 MSP STONE INTERNATIONAL - PERFORMANCE METRICS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-✅ Total Load Time: ${loadTime}ms
-✅ Fonts Loaded: ${performanceMetrics.fontsLoaded ? 'Yes' : 'No'}
-✅ Components Loaded: ${performanceMetrics.componentsLoaded}/8
-✅ DOM Interactive: ${Math.round(performance.timing.domInteractive - performance.timing.navigationStart)}ms
-✅ DOM Complete: ${Math.round(performance.timing.domComplete - performance.timing.navigationStart)}ms
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-      `);
+    // Final performance report
+    window.addEventListener('load', () => {
+      const ms  = Math.round(performance.now() - _perf.t0);
+      const nav = performance.timing;
+      console.log(
+        `%c STONE HUB TRADERS %c\n` +
+        `Load   ${ms}ms\n` +
+        `DOM    ${nav.domInteractive - nav.navigationStart}ms\n` +
+        `Fonts  ${_perf.fontsReady ? 'Ready' : 'Pending'}\n` +
+        `Parts  ${_perf.loaded}/8`,
+        'background:#A89070;color:#fff;padding:2px 8px;font-weight:700',
+        'color:#A89070'
+      );
     });
   </script>
+
 </body>
-
 </html>
-
