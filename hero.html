@@ -1,274 +1,464 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aizaz Marbles - Premium Stone Excellence</title>
-    
-    <!-- Premium Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --dim-gold: #C9A961;
-            --pure-black: #000000;
-            --pure-white: #FFFFFF;
-        }
+<style>
+  /* ============================================================
+     HERO — STONE HUB TRADERS  v2
+     Same palette & architecture — refined for mobile
+  ============================================================ */
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  .hero {
+    height: 100vh;
+    min-height: 620px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background: var(--charcoal, #111);
+  }
 
-        body {
-            overflow-x: hidden;
-        }
+  /* ── Video ── */
+  .hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    object-fit: cover;
+  }
 
-        /* Premium Video Hero */
-        .hero {
-            height: 100vh;
-            width: 100%;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--pure-black);
-        }
+  /* ── Overlay ── */
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.82) 0%,
+      rgba(0, 0, 0, 0.56) 45%,
+      rgba(0, 0, 0, 0.22) 100%
+    );
+  }
 
-        /* Video Background */
-        .hero-video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            transform: translate(-50%, -50%);
-            z-index: 1;
-            object-fit: cover;
-        }
+  .hero-overlay::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 160px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.38), transparent);
+    pointer-events: none;
+  }
 
-        /* Dark Overlay for Better Text Contrast */
-        .hero-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, 
-                rgba(0, 0, 0, 0.6) 0%, 
-                rgba(0, 0, 0, 0.4) 50%, 
-                rgba(0, 0, 0, 0.7) 100%);
-            z-index: 2;
-        }
+  /* ── Content ── */
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 clamp(22px, 4vw, 60px);
+  }
 
-        /* Premium Title Container */
-        .hero-content {
-            position: relative;
-            z-index: 10;
-            text-align: center;
-            padding: 0 2rem;
-            max-width: 1600px;
-            width: 100%;
-        }
+  .hero-inner {
+    max-width: clamp(300px, 52vw, 580px);
+  }
 
-        /* Ultra Bold Premium Title */
-        .hero-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 8rem;
-            font-weight: 900;
-            letter-spacing: -3px;
-            line-height: 1;
-            color: var(--pure-white);
-            text-transform: uppercase;
-            opacity: 0;
-            animation: fadeInScale 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
-            text-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
-        }
+  /* ── Eyebrow ──
+     FIX: three separate pills on mobile so it never wraps mid-phrase */
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: clamp(16px, 3vh, 26px);
+    flex-wrap: nowrap;           /* never wrap the whole row */
+    opacity: 0;
+    transform: translateY(12px);
+    animation: h-fadeup 0.5s ease 0.1s forwards;
+  }
 
-        .hero-title .gold-text {
-            color: var(--dim-gold);
-            display: block;
-            margin-top: 0.2em;
-        }
+  .hero-eyebrow-rule {
+    display: block;
+    width: 22px;
+    height: 1px;
+    background: var(--gold, #A89070);
+    flex-shrink: 0;
+  }
 
-        /* Animations */
-        @keyframes fadeInScale {
-            from {
-                opacity: 0;
-                transform: scale(0.9) translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1) translateY(0);
-            }
-        }
+  /* The three labels separated by middots */
+  .hero-eyebrow-group {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    overflow: hidden;           /* clips if truly too narrow */
+  }
 
-        /* Subtle Accent Line */
-        .hero-accent {
-            width: 100px;
-            height: 4px;
-            background: var(--dim-gold);
-            margin: 2rem auto 0;
-            opacity: 0;
-            animation: expandWidth 1s cubic-bezier(0.4, 0, 0.2, 1) 1s forwards;
-        }
+  .hero-eyebrow-item {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(0.50rem, 0.78vw, 0.60rem);
+    font-weight: 700;
+    letter-spacing: clamp(1.5px, 0.3vw, 3.5px);
+    text-transform: uppercase;
+    color: var(--gold, #A89070);
+    white-space: nowrap;
+  }
 
-        @keyframes expandWidth {
-            from {
-                width: 0;
-                opacity: 0;
-            }
-            to {
-                width: 100px;
-                opacity: 1;
-            }
-        }
+  .hero-eyebrow-dot {
+    display: inline-block;
+    width: 3px;
+    height: 3px;
+    background: rgba(168, 144, 112, 0.55);
+    border-radius: 50%;
+    margin: 0 clamp(6px, 1.2vw, 10px);
+    flex-shrink: 0;
+    vertical-align: middle;
+  }
 
-        /* Responsive Design */
-        @media (max-width: 1400px) {
-            .hero-title {
-                font-size: 7rem;
-                letter-spacing: -2px;
-            }
-        }
+  /* ── Headline ──
+     Weight 200 — the architectural signature.
+     On mobile: slightly tighter tracking so it never breaks oddly. */
+  .hero-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(3rem, 7.8vw, 7rem);
+    font-weight: 200;
+    line-height: 1.04;
+    letter-spacing: clamp(-0.5px, -0.1vw, -2px);
+    color: var(--pure-white, #fff);
+    display: flex;
+    flex-direction: column;
+    margin-bottom: clamp(18px, 3vh, 30px);
+  }
 
-        @media (max-width: 1200px) {
-            .hero-title {
-                font-size: 6rem;
-            }
-        }
+  .title-l1 {
+    display: block;
+    opacity: 0;
+    transform: translateY(18px);
+    animation: h-fadeup 0.55s ease 0.26s forwards;
+  }
 
-        @media (max-width: 991px) {
-            .hero-title {
-                font-size: 5rem;
-                letter-spacing: -1px;
-            }
-            
-            .hero-accent {
-                width: 80px;
-                height: 3px;
-            }
-        }
+  /* "Traders" in gold — material hierarchy, not decorative */
+  .title-l2 {
+    display: block;
+    color: var(--gold, #A89070);
+    opacity: 0;
+    transform: translateY(18px);
+    animation: h-fadeup 0.55s ease 0.40s forwards;
+  }
 
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 3.5rem;
-                letter-spacing: 0;
-            }
-            
-            .hero-content {
-                padding: 0 1.5rem;
-            }
-            
-            .hero-accent {
-                width: 60px;
-                margin-top: 1.5rem;
-            }
-        }
+  /* Thin extending rule between headline and tagline */
+  .hero-rule {
+    width: 0;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      var(--gold, #A89070),
+      rgba(168, 144, 112, 0.22)
+    );
+    margin-bottom: clamp(14px, 2.2vh, 22px);
+    animation: h-rule 0.45s cubic-bezier(0.4, 0, 0.2, 1) 0.58s forwards;
+  }
 
-        @media (max-width: 576px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            
-            .hero-content {
-                padding: 0 1rem;
-            }
-            
-            .hero-accent {
-                width: 50px;
-                height: 2px;
-                margin-top: 1rem;
-            }
-        }
+  @keyframes h-rule { to { width: 48px; } }
 
-        @media (max-width: 400px) {
-            .hero-title {
-                font-size: 2rem;
-            }
-        }
+  /* ── Tagline ── */
+  .hero-tagline {
+    font-family: 'Inter', 'Montserrat', sans-serif;
+    font-size: clamp(0.76rem, 1.1vw, 0.88rem);
+    font-weight: 300;
+    line-height: 1.74;
+    color: rgba(255, 255, 255, 0.54);
+    margin-bottom: clamp(26px, 4.5vh, 42px);
+    opacity: 0;
+    transform: translateY(10px);
+    animation: h-fadeup 0.5s ease 0.74s forwards;
+    /* FIX: sentence-case — "Precision" not "precision" in markup below */
+  }
 
-        /* Video Loading Optimization */
-        @media (prefers-reduced-motion: reduce) {
-            .hero-title {
-                animation: none;
-                opacity: 1;
-                transform: none;
-            }
-            
-            .hero-accent {
-                animation: none;
-                opacity: 1;
-            }
-        }
+  /* ── CTAs ──
+     FIX: Row on all sizes, auto width, not full-stretch.
+     Primary fills min-content, outline is ghost. */
+  .hero-ctas {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: nowrap;          /* side by side always */
+    opacity: 0;
+    transform: translateY(8px);
+    animation: h-fadeup 0.5s ease 0.90s forwards;
+  }
 
-        /* Mobile Video Optimization */
-        @media (max-width: 768px) {
-            .hero-video {
-                /* Slightly zoom on mobile for better framing */
-                min-width: 110%;
-                min-height: 110%;
-            }
-        }
-    </style>
-</head>
-<body>
-    <section class="hero" id="home">
-        <!-- Video Background -->
-        <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="assets\homemandir12.png">
-            <source src="assets/hero.mp4" type="video/mp4">
-            <source src="video/hero-video.webm" type="video/webm">
-            <!-- Fallback image if video doesn't load -->
-            Your browser does not support the video tag.
-        </video>
+  .hero-btn {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(0.54rem, 0.78vw, 0.64rem);
+    font-weight: 700;
+    letter-spacing: clamp(2px, 0.35vw, 3px);
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: clamp(11px, 1.5vh, 14px) clamp(20px, 2.5vw, 30px);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition:
+      background    0.22s ease,
+      color         0.22s ease,
+      border-color  0.22s ease;
+    white-space: nowrap;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
 
-        <!-- Dark Overlay -->
-        <div class="hero-overlay"></div>
+  /* Primary: solid white */
+  .hero-btn--primary {
+    background: var(--pure-white, #fff);
+    color: var(--charcoal, #111);
+    border: 1px solid var(--pure-white, #fff);
+  }
 
-        <!-- Premium Title -->
-        <div class="hero-content">
-            <h1 class="hero-title">
-                MS Stone
-                <span class="gold-text">International</span>
-            </h1>
-            <div class="hero-accent"></div>
+  .hero-btn--primary:hover {
+    background: transparent;
+    color: var(--pure-white, #fff);
+  }
+
+  /* Outline: ghost */
+  .hero-btn--outline {
+    background: transparent;
+    color: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+  }
+
+  .hero-btn--outline:hover {
+    color: var(--pure-white, #fff);
+    border-color: rgba(255, 255, 255, 0.65);
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  /* Arrow nudge on hover */
+  .hero-btn--outline .btn-arrow {
+    display: inline-block;
+    transition: transform 0.25s ease;
+  }
+
+  .hero-btn--outline:hover .btn-arrow { transform: translateX(4px); }
+
+  /* ── Scroll indicator ── */
+  .hero-scroll {
+    position: absolute;
+    bottom: clamp(20px, 4vh, 36px);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    z-index: 10;
+    opacity: 0;
+    animation: h-fadeup 0.5s ease 1.25s forwards;
+    user-select: none;
+  }
+
+  .hero-scroll-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.52rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.32);
+  }
+
+  .hero-scroll-line {
+    width: 1px;
+    height: 36px;
+    background: rgba(168, 144, 112, 0.18);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-scroll-line::after {
+    content: '';
+    position: absolute;
+    top: -60%;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to bottom, transparent, var(--gold, #A89070), transparent);
+    animation: scroll-drop 2s ease-in-out 1.5s infinite;
+  }
+
+  @keyframes scroll-drop {
+    0%   { top: -60%; }
+    65%  { top: 120%; }
+    100% { top: 120%; }
+  }
+
+  /* Shared fade-up */
+  @keyframes h-fadeup {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+
+  /* Tablet */
+  @media (max-width: 768px) {
+    .hero-overlay {
+      background: rgba(0, 0, 0, 0.70);
+    }
+
+    .hero-inner { max-width: 100%; }
+
+    .hero-video {
+      min-width: 110%;
+      min-height: 110%;
+    }
+
+    /* On narrower screens hide the least essential eyebrow items */
+    .hero-eyebrow-item:last-child,
+    .hero-eyebrow-dot:last-of-type {
+      display: none;
+    }
+  }
+
+  /* Mobile */
+  @media (max-width: 480px) {
+    .hero-title {
+      font-size: clamp(2.8rem, 13.5vw, 3.8rem) !important;
+      letter-spacing: -0.5px !important;
+    }
+
+    /* On very small screens show only first eyebrow item */
+    .hero-eyebrow-item:nth-child(n+2),
+    .hero-eyebrow-dot {
+      display: none;
+    }
+
+    /* CTAs: still side-by-side but slightly more compact */
+    .hero-btn {
+      padding: 11px 18px;
+      font-size: 0.52rem;
+      letter-spacing: 1.8px;
+    }
+
+    .hero-scroll { display: none; }
+  }
+
+  /* Very small (360px) */
+  @media (max-width: 380px) {
+    .hero-ctas { gap: 8px; }
+
+    .hero-btn {
+      padding: 10px 14px;
+      letter-spacing: 1.5px;
+    }
+  }
+
+  /* ============================================================
+     REDUCED MOTION
+  ============================================================ */
+  @media (prefers-reduced-motion: reduce) {
+    .hero-eyebrow,
+    .title-l1,
+    .title-l2,
+    .hero-rule,
+    .hero-tagline,
+    .hero-ctas,
+    .hero-scroll {
+      animation: none !important;
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+    .hero-rule { width: 48px; }
+    .hero-scroll-line::after { animation: none; }
+  }
+</style>
+
+<section class="hero" id="home">
+
+  <!-- Video background -->
+  <video
+    class="hero-video"
+    autoplay muted loop playsinline
+    preload="auto"
+    poster="assets/homemandir12.png"
+    aria-hidden="true">
+    <source src="assets/hero.mp4"  type="video/mp4" />
+    <source src="assets/hero.webm" type="video/webm" />
+  </video>
+
+  <!-- Overlay -->
+  <div class="hero-overlay" aria-hidden="true"></div>
+
+  <!-- Content -->
+  <div class="hero-content">
+    <div class="hero-inner">
+
+      <!-- Eyebrow — three discrete items so no mid-phrase wrapping -->
+      <div class="hero-eyebrow" aria-label="Makrana Marble · Premium Granite · Jaali Work">
+        <span class="hero-eyebrow-rule" aria-hidden="true"></span>
+        <div class="hero-eyebrow-group" aria-hidden="true">
+          <span class="hero-eyebrow-item">Makrana Marble</span>
+          <span class="hero-eyebrow-dot"></span>
+          <span class="hero-eyebrow-item">Premium Granite</span>
+          <span class="hero-eyebrow-dot"></span>
+          <span class="hero-eyebrow-item">Jaali Work</span>
         </div>
-    </section>
+      </div>
 
-    <script>
-    (function() {
-        // Optimize video loading
-        const video = document.querySelector('.hero-video');
-        
-        if (video) {
-            // Ensure video plays on iOS devices
-            video.play().catch(err => {
-                console.log('Video autoplay prevented:', err);
-            });
+      <!-- Headline: weight 200, two-line split -->
+      <h1 class="hero-title">
+        <span class="title-l1">Stone Hub</span>
+        <span class="title-l2">Traders</span>
+      </h1>
 
-            // Pause video when page is not visible (performance optimization)
-            document.addEventListener('visibilitychange', function() {
-                if (document.hidden) {
-                    video.pause();
-                } else {
-                    video.play().catch(err => console.log('Video play error:', err));
-                }
-            });
+      <!-- Gold extending rule -->
+      <div class="hero-rule" aria-hidden="true"></div>
 
-            // Reduce video quality on slower connections
-            if ('connection' in navigator) {
-                const connection = navigator.connection;
-                if (connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g') {
-                    video.style.display = 'none';
-                }
-            }
-        }
+      <!-- Tagline: FIX — sentence-case, cleaned up copy -->
+      <p class="hero-tagline">
+        Precision stone craftsmanship.<br />
+        Sourced from Makrana, Rajasthan &mdash; delivered across India.
+      </p>
 
-        console.log('✅ Premium Video Hero initialized');
-    })();
-    </script>
-</body>
-</html>
+      <!-- CTAs: side by side, auto-width on all breakpoints -->
+      <div class="hero-ctas">
+        <a href="#categories" class="hero-btn hero-btn--primary">
+          Explore Collection
+        </a>
+        <a href="#contact" class="hero-btn hero-btn--outline">
+          Get a Quote <span class="btn-arrow" aria-hidden="true">&nbsp;&rarr;</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="hero-scroll" aria-hidden="true">
+    <span class="hero-scroll-label">Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+
+</section>
+
+<script>
+(function () {
+  var video = document.querySelector('.hero-video');
+  if (!video) return;
+
+  video.play().catch(function () {});
+
+  document.addEventListener('visibilitychange', function () {
+    document.hidden ? video.pause() : video.play().catch(function () {});
+  }, { passive: true });
+
+  var conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+  if (conn && (conn.effectiveType === 'slow-2g' || conn.effectiveType === '2g')) {
+    video.style.display = 'none';
+  }
+
+  console.log('✔ Hero v2 initialized');
+})();
+</script>
