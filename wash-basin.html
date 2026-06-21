@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="description" content="Stone Hub Traders — Wash Basin & Bathtub Collection. Freestanding tubs and vessel basins sculpted from premium Makrana marble." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" /></noscript>
+
+  <link rel="stylesheet" href="product.css" />
+
+  <title>Wash Basin &amp; Bathtub — Stone Hub Traders | Premium Makrana Marble</title>
+</head>
+
+<body>
+
+  <nav class="pg-nav" role="navigation" aria-label="Page navigation">
+    <div class="pg-nav-inner">
+      <a href="index.html" class="pg-nav-back" aria-label="Back to home">
+        <i class="fas fa-arrow-left pg-nav-back-icon" aria-hidden="true"></i>
+        <span>Back to Home</span>
+      </a>
+      <a href="index.html" class="pg-nav-logo" aria-label="Stone Hub Traders home">
+        <span class="pg-nav-logo-name">Stone Hub Traders</span>
+        <span class="pg-nav-logo-sub">Premium Marble &amp; Granite</span>
+      </a>
+    </div>
+  </nav>
+
+  <header class="pg-hero">
+    <div class="pg-hero-inner">
+      <div>
+        <div class="pg-hero-eyebrow" aria-hidden="true">
+          <span class="pg-hero-eyebrow-label">Vessel Basins &nbsp;·&nbsp; Freestanding Tubs &nbsp;·&nbsp; Makrana Marble</span>
+        </div>
+
+        <h1 class="pg-hero-title">
+          Basin &amp;<br><em>Bathtub</em>
+        </h1>
+
+        <p class="pg-hero-tagline">
+          Freestanding bathtubs and vessel basins sculpted
+          from white Makrana marble.
+        </p>
+      </div>
+
+      <div class="pg-hero-ghost" aria-hidden="true">
+        <span class="pg-hero-ghost-num">12</span>
+        <span class="pg-hero-ghost-label">Designs</span>
+      </div>
+    </div>
+    <div class="pg-hero-rule" aria-hidden="true"></div>
+  </header>
+
+  <section class="products-section" id="products" aria-label="Wash basin and bathtub collection">
+    <div class="products-container">
+
+      <div class="products-meta">
+        <p class="products-count">
+          Showing <strong id="showingCount">0</strong> of <strong>12</strong> designs
+        </p>
+        <div class="products-filter" role="group" aria-label="Filter by type">
+          <button class="filter-pill active" data-filter="all">All</button>
+          <button class="filter-pill" data-filter="premium">Premium</button>
+          <button class="filter-pill" data-filter="basin">Basin</button>
+          <button class="filter-pill" data-filter="bathtub">Bathtub</button>
+          <button class="filter-pill" data-filter="freestanding">Freestanding</button>
+        </div>
+      </div>
+
+      <div class="products-grid" id="productsGrid" role="list"></div>
+
+      <div class="load-more-section" id="loadMoreSection">
+        <div class="load-progress-wrap">
+          <div class="load-progress-bar" id="progressBar" style="width:0%"></div>
+        </div>
+        <button class="load-more-btn" id="loadMoreBtn" aria-label="Load more designs">
+          Load More Designs
+          <i class="fas fa-arrow-down" aria-hidden="true"></i>
+        </button>
+        <p class="load-more-info" id="loadMoreInfo"></p>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="modal-backdrop" id="modalBackdrop" role="dialog" aria-modal="true" aria-label="Product details">
+    <div class="modal-panel" id="modalPanel">
+
+      <div class="modal-img-wrap">
+        <img src="" alt="" class="modal-img" id="modalImg" loading="lazy" />
+        <div class="modal-img-hint" aria-hidden="true">
+          <i class="fas fa-search-plus"></i> Click to zoom
+        </div>
+        <button class="modal-close" id="modalClose" aria-label="Close details">
+          <i class="fas fa-times" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-eyebrow">
+          <span class="modal-badge" id="modalBadge"></span>
+        </div>
+        <span class="modal-rule" aria-hidden="true"></span>
+        <h2 class="modal-title" id="modalTitle"></h2>
+        <span class="modal-separator" aria-hidden="true"></span>
+        <p class="modal-desc" id="modalDesc"></p>
+
+        <p class="modal-features-head">What's included</p>
+        <ul class="modal-features" id="modalFeatures"></ul>
+
+        <div class="modal-actions">
+          <a href="" class="modal-btn modal-btn--wa" id="modalWa"
+             target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            Inquire on WhatsApp
+          </a>
+          <button class="modal-btn modal-btn--share" id="modalShare" aria-label="Share product">
+            <i class="fas fa-share-alt" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-label="Image zoom">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close zoom">
+      <i class="fas fa-times" aria-hidden="true"></i>
+    </button>
+    <img src="" alt="" id="lightboxImg" />
+  </div>
+
+  <a href="https://wa.me/917976839230?text=Hello%20Stone%20Hub%20Traders%2C%20I%20would%20like%20to%20inquire%20about%20your%20Wash%20Basins%20and%20Bathtubs."
+     class="whatsapp-float"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp" aria-hidden="true"></i>
+  </a>
+
+  <script>
+  (function () {
+    'use strict';
+
+    var PAGE_CONFIG = {
+      waNumber:    '917976839230',
+      waPageHint:  'Wash Basin & Bathtub',
+      pageSize:    9,
+      totalLabel:  '12'
+    };
+
+    var PRODUCTS = [
+      {
+        id: 'basin-1',
+        title: 'Vessel Sink Bowl',
+        badge: 'Vessel Style',
+        tags: ['basin'],
+        isPremium: false,
+        image: 'wash-basin/washbasin1.webp',
+        shortDesc: 'A rounded vessel-style basin carved from a single marble block, sitting above the counter rather than set into it.',
+        fullDesc: "The Vessel Sink Bowl is carved from a single solid marble block into a smooth rounded form, designed to sit above the counter rather than recessed into it. The exposed bowl shape lets the marble's natural veining show on every surface, turning a functional fixture into a visible feature.",
+        features: ['Carved from a single marble block', 'Above-counter vessel installation', 'Smooth interior and exterior finish', 'Visible natural veining throughout', 'Custom diameter on request']
+      },
+      {
+        id: 'basin-2',
+        title: 'Carved Rim Wash Basin',
+        badge: 'Detailed Carving',
+        tags: ['basin', 'premium'],
+        isPremium: true,
+        image: 'wash-basin/washbasin2.webp',
+        shortDesc: 'Wash basin with a hand-carved decorative rim, adding traditional detailing around an otherwise simple bowl.',
+        fullDesc: 'The Carved Rim Wash Basin keeps the bowl itself simple and lets the rim carry the craftsmanship — a hand-carved decorative edge running the full circumference. It bridges functional bathroom hardware with the same traditional carving techniques used across the rest of the collection.',
+        features: ['Hand-carved decorative rim', 'Simple uncarved interior bowl', 'Traditional edge detailing', 'Above or under-counter mounting', 'Sealed for daily water use']
+      },
+      {
+        id: 'basin-3',
+        title: 'Freestanding Oval Bathtub',
+        badge: 'Premium Collection',
+        tags: ['bathtub', 'freestanding', 'premium'],
+        isPremium: true,
+        image: 'wash-basin/washbasin3.webp',
+        shortDesc: 'An oval freestanding bathtub carved from solid white Makrana marble, built as a sculptural centrepiece.',
+        fullDesc: 'The Freestanding Oval Bathtub is carved from solid blocks of white Makrana marble rather than cast or moulded, so it carries genuine stone weight, temperature retention, and veining. Designed to sit freestanding in the centre of a bathroom, it functions as much as sculpture as it does as a tub.',
+        features: ['Carved from solid marble blocks', 'Genuine stone weight and thermal retention', 'Freestanding centrepiece installation', 'Natural veining on every surface', 'Sealed, water-safe finish']
+      },
+      {
+        id: 'basin-4',
+        title: 'Sculpted Stone Soaking Tub',
+        badge: 'Deep Soak',
+        tags: ['bathtub', 'freestanding', 'premium'],
+        isPremium: true,
+        image: 'wash-basin/washbasin4.webp',
+        shortDesc: 'Deep soaking tub sculpted with rounded interior walls for a fuller-body bathing experience.',
+        fullDesc: 'The Sculpted Stone Soaking Tub is carved deeper than a standard freestanding bath, with rounded interior walls designed for full-body immersion. The added depth and the marble\u2019s natural heat retention make it suited to clients building a dedicated soaking or wellness space.',
+        features: ['Deep-soak carved interior', 'Rounded wall profile for comfort', 'Solid marble heat retention', 'Freestanding installation', 'Wellness and spa-suited design']
+      },
+      {
+        id: 'basin-5',
+        title: 'Wall-Mounted Marble Basin',
+        badge: 'Space Saver',
+        tags: ['basin'],
+        isPremium: false,
+        image: 'wash-basin/washbasin5.webp',
+        shortDesc: 'Compact wall-mounted basin designed for powder rooms and smaller bathroom layouts.',
+        fullDesc: "The Wall-Mounted Marble Basin is sized and shaped for spaces where a full vanity isn't practical. Mounted directly to the wall, it keeps the floor area open while still bringing solid marble character to a powder room or guest bathroom.",
+        features: ['Compact wall-mounted format', 'Suited to powder rooms', 'Open-floor space-saving design', 'Polished solid marble construction', 'Multiple bracket mounting options']
+      },
+      {
+        id: 'basin-6',
+        title: 'Double Vanity Trough Basin',
+        badge: 'Shared Vanity',
+        tags: ['basin'],
+        isPremium: false,
+        image: 'wash-basin/washbasin6.webp',
+        shortDesc: 'Elongated trough-style basin designed to serve a double vanity with two faucet positions.',
+        fullDesc: 'The Double Vanity Trough Basin is carved as a single elongated bowl, long enough to serve two faucet positions across a shared vanity counter. It avoids the visual clutter of two separate basins while still giving each person their own washing space.',
+        features: ['Single elongated trough basin', 'Serves two faucet positions', 'Reduces vanity visual clutter', 'Custom length to fit counter', 'Solid marble construction']
+      },
+      {
+        id: 'basin-7',
+        title: 'Hand-Carved Floral Basin',
+        badge: 'Artisan Elite',
+        tags: ['basin', 'premium'],
+        isPremium: true,
+        image: 'wash-basin/washbasin7.webp',
+        shortDesc: 'Basin exterior carved with detailed floral motifs, turning a fixture into a decorative object.',
+        fullDesc: 'The Hand-Carved Floral Basin extends the carving traditionally reserved for temples and mandirs into bathroom fixtures. Floral motifs are carved across the exterior of the bowl by hand, so even the underside and outer walls carry detailed craftsmanship, not just the visible rim.',
+        features: ['Hand-carved floral exterior motifs', 'Detailing on bowl exterior, not just rim', 'Master artisan craftsmanship', 'Sealed interior for daily use', 'Statement piece for powder rooms']
+      },
+      {
+        id: 'basin-8',
+        title: 'Rectangular Freestanding Bathtub',
+        badge: 'Modern Design',
+        tags: ['bathtub', 'freestanding'],
+        isPremium: false,
+        image: 'wash-basin/washbasin8.webp',
+        shortDesc: 'Clean rectangular freestanding bathtub with straight edges for a modern, architectural bathroom.',
+        fullDesc: "The Rectangular Freestanding Bathtub trades the curved lines of a classical tub for straight edges and crisp corners. Built for contemporary bathrooms that want marble's material quality presented in a more architectural, minimal form.",
+        features: ['Straight-edged rectangular form', 'Freestanding centrepiece installation', 'Contemporary architectural profile', 'Solid marble construction', 'Sealed, water-safe finish']
+      },
+      {
+        id: 'basin-9',
+        title: 'Pedestal Wash Basin',
+        badge: 'Classic',
+        tags: ['basin'],
+        isPremium: false,
+        image: 'wash-basin/washbasin9.webp',
+        shortDesc: 'Traditional pedestal-mounted basin with a solid marble column base supporting the bowl.',
+        fullDesc: 'The Pedestal Wash Basin pairs a polished bowl with a matching solid marble pedestal column, concealing the plumbing while adding floor presence. A traditional bathroom format executed in the same stone as the rest of the collection.',
+        features: ['Solid marble pedestal column', 'Conceals plumbing connections', 'Polished bowl and base match', 'Traditional bathroom format', 'Freestanding floor installation']
+      },
+      {
+        id: 'basin-10',
+        title: 'Onyx Glow Vessel Basin',
+        badge: 'Illuminated',
+        tags: ['basin', 'premium'],
+        isPremium: true,
+        image: 'wash-basin/washbasin10.webp',
+        shortDesc: 'Translucent onyx vessel basin designed to glow when lit from beneath the vanity counter.',
+        fullDesc: 'The Onyx Glow Vessel Basin is cut thin from translucent onyx marble and paired with an under-counter LED, so the bowl glows softly once lit. A striking option for powder rooms and bar areas where the basin doubles as ambient lighting.',
+        features: ['Thin-cut translucent onyx bowl', 'Under-counter LED compatibility', 'Soft ambient glow when lit', 'Above-counter vessel installation', 'Statement piece for powder rooms']
+      },
+      {
+        id: 'basin-11',
+        title: 'Roll-Top Inspired Marble Tub',
+        badge: 'Heritage',
+        tags: ['bathtub', 'freestanding', 'premium'],
+        isPremium: true,
+        image: 'wash-basin/washbasin11.webp',
+        shortDesc: 'Classic roll-top silhouette reimagined in solid carved marble instead of cast iron or acrylic.',
+        fullDesc: "The Roll-Top Inspired Marble Tub takes the classic Victorian roll-top silhouette and carves it from solid marble instead of the cast iron or acrylic it's traditionally made from. The familiar curved profile gains the weight, coolness, and veining only solid stone can give it.",
+        features: ['Classic roll-top silhouette', 'Carved from solid marble', 'Heavier, cooler than cast alternatives', 'Freestanding centrepiece installation', 'Custom claw or plinth base options']
+      },
+      {
+        id: 'basin-12',
+        title: 'Minimalist Rectangular Basin',
+        badge: 'Contemporary',
+        tags: ['basin'],
+        isPremium: false,
+        image: 'wash-basin/washbasin12.webp',
+        shortDesc: 'Simple rectangular basin with clean edges, built for understated contemporary vanities.',
+        fullDesc: "The Minimalist Rectangular Basin keeps the form as plain as possible — clean rectangular edges, a flat polished interior, no carving or applied detail. It suits vanities where the marble's natural surface should be the only feature.",
+        features: ['Clean rectangular form', 'Flat polished interior', 'No carving or applied detail', 'Above or under-counter mounting', 'Suited to minimalist vanities']
+      }
+    ];
+
+    var PAGE_SIZE   = PAGE_CONFIG.pageSize;
+    var WA_NUMBER   = PAGE_CONFIG.waNumber;
+    var currentPage = 0;
+    var currentFilter = 'all';
+    var filteredProducts = [];
+
+    function waURL(title) {
+      return 'https://wa.me/' + WA_NUMBER
+        + '?text=' + encodeURIComponent(
+            "Hello Stone Hub Traders, I'm interested in the "
+            + title + ' from your ' + PAGE_CONFIG.waPageHint
+            + ' collection. Please share details and pricing.'
+          );
+    }
+
+    function esc(str) {
+      var d = document.createElement('div');
+      d.appendChild(document.createTextNode(str));
+      return d.innerHTML;
+    }
+
+    function applyFilter(filter) {
+      currentFilter = filter;
+      currentPage   = 0;
+      filteredProducts = filter === 'all'
+        ? PRODUCTS
+        : PRODUCTS.filter(function (p) { return p.tags.indexOf(filter) !== -1; });
+      document.getElementById('productsGrid').innerHTML = '';
+      renderPage();
+    }
+
+    function renderPage() {
+      var grid  = document.getElementById('productsGrid');
+      var start = currentPage * PAGE_SIZE;
+      var end   = Math.min(start + PAGE_SIZE, filteredProducts.length);
+      var slice = filteredProducts.slice(start, end);
+      var frag  = document.createDocumentFragment();
+
+      slice.forEach(function (product, idx) {
+        var card = document.createElement('article');
+        card.className = 'product-card fade-up';
+        card.setAttribute('role', 'listitem');
+        card.setAttribute('tabindex', '0');
+        card.style.transitionDelay = (idx % PAGE_SIZE * 0.055) + 's';
+
+        card.innerHTML =
+          '<div class="card-img-wrap">' +
+            '<img class="card-img" src="' + esc(product.image) + '"' +
+              ' alt="' + esc(product.title) + '"' +
+              ' loading="lazy" decoding="async" />' +
+            (product.badge
+              ? '<span class="card-badge">' + esc(product.badge) + '</span>'
+              : '') +
+            (product.isPremium
+              ? '<span class="card-badge-star" aria-label="Premium">' +
+                  '<i class="fas fa-star" aria-hidden="true"></i>' +
+                '</span>'
+              : '') +
+          '</div>' +
+          '<div class="card-body">' +
+            '<span class="card-rule" aria-hidden="true"></span>' +
+            '<h3 class="card-name">' + esc(product.title) + '</h3>' +
+            '<p class="card-desc">' + esc(product.shortDesc) + '</p>' +
+            '<div class="card-actions">' +
+              '<a href="' + waURL(product.title) + '"' +
+                ' class="card-btn card-btn--wa"' +
+                ' target="_blank" rel="noopener noreferrer"' +
+                ' onclick="event.stopPropagation()"' +
+                ' aria-label="WhatsApp inquiry for ' + esc(product.title) + '">' +
+                '<i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp' +
+              '</a>' +
+              '<button class="card-btn card-btn--view"' +
+                ' aria-label="View details for ' + esc(product.title) + '">' +
+                '<i class="fas fa-eye" aria-hidden="true"></i> Details' +
+              '</button>' +
+            '</div>' +
+          '</div>';
+
+        card.addEventListener('click', function (e) {
+          if (e.target.closest('.card-btn--wa')) return;
+          openModal(product.id);
+        });
+        card.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(product.id); }
+        });
+        card.addEventListener('mouseenter', function () {
+          var img = card.querySelector('.card-img');
+          if (img) img.style.willChange = 'transform';
+        });
+        card.addEventListener('mouseleave', function () {
+          var img = card.querySelector('.card-img');
+          if (img) img.style.willChange = '';
+        });
+
+        frag.appendChild(card);
+      });
+
+      grid.appendChild(frag);
+      currentPage++;
+
+      var shown = Math.min(currentPage * PAGE_SIZE, filteredProducts.length);
+      document.getElementById('showingCount').textContent = shown;
+      document.getElementById('progressBar').style.width =
+        (shown / filteredProducts.length * 100) + '%';
+
+      updateLoadMore();
+      scheduleReveal();
+    }
+
+    function updateLoadMore() {
+      var shown   = Math.min(currentPage * PAGE_SIZE, filteredProducts.length);
+      var total   = filteredProducts.length;
+      var btn     = document.getElementById('loadMoreBtn');
+      var info    = document.getElementById('loadMoreInfo');
+
+      if (shown >= total) {
+        btn.disabled = true;
+        btn.textContent = 'All Designs Shown';
+        info.textContent = total + ' of ' + total + ' designs';
+      } else {
+        var rem = total - shown;
+        btn.disabled = false;
+        btn.innerHTML =
+          'Load More Designs <i class="fas fa-arrow-down" aria-hidden="true"></i>';
+        info.textContent = rem + ' more design' + (rem !== 1 ? 's' : '') + ' remaining';
+      }
+    }
+
+    var revealIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          revealIO.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+    function scheduleReveal() {
+      requestAnimationFrame(function () {
+        document.querySelectorAll('.fade-up:not(.visible)').forEach(function (el) {
+          revealIO.observe(el);
+        });
+      });
+    }
+
+    var _activeId = null;
+
+    function openModal(id) {
+      var product = PRODUCTS.find(function (p) { return p.id === id; });
+      if (!product) return;
+      _activeId = id;
+
+      document.getElementById('modalImg').src       = product.image;
+      document.getElementById('modalImg').alt       = product.title;
+      document.getElementById('modalBadge').textContent = product.badge;
+      document.getElementById('modalTitle').textContent = product.title;
+      document.getElementById('modalDesc').textContent  = product.fullDesc;
+      document.getElementById('modalWa').href           = waURL(product.title);
+
+      document.getElementById('modalFeatures').innerHTML =
+        product.features.map(function (f) {
+          return '<li>' + esc(f) + '</li>';
+        }).join('');
+
+      document.getElementById('modalBackdrop').classList.add('open');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('modalClose').focus();
+    }
+
+    function closeModal() {
+      document.getElementById('modalBackdrop').classList.remove('open');
+      document.body.style.overflow = '';
+      _activeId = null;
+    }
+
+    function openLightbox(src, alt) {
+      document.getElementById('lightboxImg').src = src;
+      document.getElementById('lightboxImg').alt = alt || '';
+      document.getElementById('lightbox').classList.add('open');
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+    }
+
+    function shareProduct() {
+      if (!_activeId) return;
+      var p = PRODUCTS.find(function (x) { return x.id === _activeId; });
+      if (!p) return;
+      if (navigator.share) {
+        navigator.share({ title: p.title + ' — Stone Hub Traders', text: p.shortDesc, url: window.location.href }).catch(function(){});
+      } else if (navigator.clipboard) {
+        navigator.clipboard.writeText(window.location.href);
+        var btn = document.getElementById('modalShare');
+        var prev = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-check" aria-hidden="true"></i>';
+        setTimeout(function () { btn.innerHTML = prev; }, 1500);
+      }
+    }
+
+    document.querySelectorAll('.filter-pill').forEach(function (pill) {
+      pill.addEventListener('click', function () {
+        document.querySelectorAll('.filter-pill').forEach(function (p) { p.classList.remove('active'); });
+        pill.classList.add('active');
+        applyFilter(pill.dataset.filter);
+      });
+    });
+
+    document.getElementById('loadMoreBtn').addEventListener('click', renderPage);
+    document.getElementById('modalClose').addEventListener('click', closeModal);
+    document.getElementById('modalBackdrop').addEventListener('click', function (e) {
+      if (e.target === this) closeModal();
+    });
+    document.getElementById('modalImg').addEventListener('click', function () {
+      openLightbox(this.src, this.alt);
+    });
+    document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+    document.getElementById('lightbox').addEventListener('click', function (e) {
+      if (e.target === this) closeLightbox();
+    });
+    document.getElementById('modalShare').addEventListener('click', shareProduct);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') { closeLightbox(); closeModal(); }
+    });
+
+    applyFilter('all');
+
+    console.log('%c STONE HUB TRADERS %c Wash Basin & Bathtub — ' + PRODUCTS.length + ' designs',
+      'background:#A89070;color:#fff;padding:2px 8px;font-weight:700', 'color:#A89070');
+
+  })();
+  </script>
+
+</body>
+</html>
