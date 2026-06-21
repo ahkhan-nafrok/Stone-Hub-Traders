@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="description" content="Stone Hub Traders — Wall Cladding Collection. Bookmatched slabs, fluted panels, jaali screens, and exterior-grade facade cladding in Makrana marble." />
+
+  <!-- Critical preconnects -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- FontAwesome deferred -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" /></noscript>
+
+  <!-- Shared product stylesheet — all layout, cards, modal, nav -->
+  <link rel="stylesheet" href="product.css" />
+
+  <title>Wall Cladding — Stone Hub Traders | Architectural Makrana Marble</title>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       NAVIGATION  (identical structure across all product pages)
+  ============================================================ -->
+  <nav class="pg-nav" role="navigation" aria-label="Page navigation">
+    <div class="pg-nav-inner">
+      <a href="index.html" class="pg-nav-back" aria-label="Back to home">
+        <i class="fas fa-arrow-left pg-nav-back-icon" aria-hidden="true"></i>
+        <span>Back to Home</span>
+      </a>
+      <a href="index.html" class="pg-nav-logo" aria-label="Stone Hub Traders home">
+        <span class="pg-nav-logo-name">Stone Hub Traders</span>
+        <span class="pg-nav-logo-sub">Premium Marble &amp; Granite</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       PAGE HERO
+  ============================================================ -->
+  <header class="pg-hero">
+    <div class="pg-hero-inner">
+      <div>
+        <div class="pg-hero-eyebrow" aria-hidden="true">
+          <span class="pg-hero-eyebrow-label">Architectural Surfaces &nbsp;·&nbsp; Interior &amp; Facade &nbsp;·&nbsp; Makrana Marble</span>
+        </div>
+
+        <h1 class="pg-hero-title">
+          Wall<br><em>Cladding</em>
+        </h1>
+
+        <p class="pg-hero-tagline">
+          Feature walls in premium Makrana marble — architecture
+          defined by material, from interior surfaces to weather-rated facades.
+        </p>
+      </div>
+
+      <div class="pg-hero-ghost" aria-hidden="true">
+        <span class="pg-hero-ghost-num">13</span>
+        <span class="pg-hero-ghost-label">Designs</span>
+      </div>
+    </div>
+    <div class="pg-hero-rule" aria-hidden="true"></div>
+  </header>
+
+  <!-- ============================================================
+       PRODUCTS
+  ============================================================ -->
+  <section class="products-section" id="products" aria-label="Wall cladding collection">
+    <div class="products-container">
+
+      <!-- Meta bar -->
+      <div class="products-meta">
+        <p class="products-count">
+          Showing <strong id="showingCount">0</strong> of <strong>13</strong> designs
+        </p>
+        <div class="products-filter" role="group" aria-label="Filter by type">
+          <button class="filter-pill active" data-filter="all">All</button>
+          <button class="filter-pill" data-filter="premium">Premium</button>
+          <button class="filter-pill" data-filter="textured">Textured</button>
+          <button class="filter-pill" data-filter="matte">Matte</button>
+          <button class="filter-pill" data-filter="exterior">Exterior</button>
+        </div>
+      </div>
+
+      <!-- Grid -->
+      <div class="products-grid" id="productsGrid" role="list"></div>
+
+      <!-- Load more -->
+      <div class="load-more-section" id="loadMoreSection">
+        <div class="load-progress-wrap">
+          <div class="load-progress-bar" id="progressBar" style="width:0%"></div>
+        </div>
+        <button class="load-more-btn" id="loadMoreBtn" aria-label="Load more designs">
+          Load More Designs
+          <i class="fas fa-arrow-down" aria-hidden="true"></i>
+        </button>
+        <p class="load-more-info" id="loadMoreInfo"></p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       MODAL — identical HTML structure to every product page
+  ============================================================ -->
+  <div class="modal-backdrop" id="modalBackdrop" role="dialog" aria-modal="true" aria-label="Product details">
+    <div class="modal-panel" id="modalPanel">
+
+      <div class="modal-img-wrap">
+        <img src="" alt="" class="modal-img" id="modalImg" loading="lazy" />
+        <div class="modal-img-hint" aria-hidden="true">
+          <i class="fas fa-search-plus"></i> Click to zoom
+        </div>
+        <button class="modal-close" id="modalClose" aria-label="Close details">
+          <i class="fas fa-times" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-eyebrow">
+          <span class="modal-badge" id="modalBadge"></span>
+        </div>
+        <span class="modal-rule" aria-hidden="true"></span>
+        <h2 class="modal-title" id="modalTitle"></h2>
+        <span class="modal-separator" aria-hidden="true"></span>
+        <p class="modal-desc" id="modalDesc"></p>
+
+        <p class="modal-features-head">What's included</p>
+        <ul class="modal-features" id="modalFeatures"></ul>
+
+        <div class="modal-actions">
+          <a href="" class="modal-btn modal-btn--wa" id="modalWa"
+             target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            Inquire on WhatsApp
+          </a>
+          <button class="modal-btn modal-btn--share" id="modalShare" aria-label="Share product">
+            <i class="fas fa-share-alt" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============================================================
+       LIGHTBOX — identical across all product pages
+  ============================================================ -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-label="Image zoom">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close zoom">
+      <i class="fas fa-times" aria-hidden="true"></i>
+    </button>
+    <img src="" alt="" id="lightboxImg" />
+  </div>
+
+  <!-- ============================================================
+       WHATSAPP FLOAT
+  ============================================================ -->
+  <a href="https://wa.me/917976839230?text=Hello%20Stone%20Hub%20Traders%2C%20I%20would%20like%20to%20inquire%20about%20your%20Wall%20Cladding."
+     class="whatsapp-float"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp" aria-hidden="true"></i>
+  </a>
+
+  <!-- ============================================================
+       SCRIPT — only the CONFIG block changes per page
+       Engine is copy-paste identical to home-mandir.html / inlay-works.html
+       Extract to product.js when you have 4+ pages.
+  ============================================================ -->
+  <script>
+  (function () {
+    'use strict';
+
+    /* ── ─── ─── ─── ─── ─── ─── ─── ─── ─── ─── ─── ──
+       PAGE CONFIG  ← only this block changes per page
+    ── ─── ─── ─── ─── ─── ─── ─── ─── ─── ─── ─── ── */
+    var PAGE_CONFIG = {
+      waNumber:    '917976839230',
+      waPageHint:  'Wall Cladding',
+      pageSize:    9,
+      totalLabel:  '13'                /* matches ghost number in hero */
+    };
+
+    var PRODUCTS = [
+      {
+        id: 'cladding-1',
+        title: 'Book-Matched Slab Wall',
+        badge: 'Premium Collection',
+        tags: ['premium'],
+        isPremium: true,
+        image: 'wall-cladding/wallcladding1.webp',
+        shortDesc: 'Mirror-matched Makrana slabs cut from a single block, creating a symmetrical butterfly vein pattern across the wall.',
+        fullDesc: 'Book-Matched Slab Wall takes two slabs cut sequentially from the same marble block and opens them like a page, mirroring the natural veining into a symmetrical pattern. The result reads as deliberate architecture rather than applied decoration — veins that flow, fold, and meet at a precise seam. Polished to a high gloss, it remains the most requested format for lobbies and statement walls.',
+        features: ['Mirror bookmatched veining', 'Cut from a single marble block', 'High-gloss polished finish', 'Precision seam alignment', 'Custom sizing for feature walls']
+      },
+      {
+        id: 'cladding-2',
+        title: 'Fluted Reeded Panel Wall',
+        badge: 'Modern Design',
+        tags: ['textured'],
+        isPremium: false,
+        image: 'wall-cladding/wallcladding2.webp',
+        shortDesc: 'Vertical fluted channels hand-carved into solid marble, casting rhythmic shadow lines that shift through the day.',
+        fullDesc: 'The Fluted Reeded Panel Wall brings a contemporary architectural rhythm to solid marble. Each channel is hand-carved at a consistent depth, so natural and artificial light catches the grooves differently as the day moves, giving an otherwise flat wall a sense of motion. Popular in hospitality lobbies and modern residences seeking texture without ornament.',
+        features: ['Hand-carved vertical fluting', 'Consistent groove depth and spacing', 'Dynamic light and shadow play', 'Contemporary architectural profile', 'Available in multiple flute widths']
+      },
+      {
+        id: 'cladding-3',
+        title: 'Honed Matte Feature Wall',
+        badge: 'Understated',
+        tags: ['matte'],
+        isPremium: false,
+        image: 'wall-cladding/wallcladding3.webp',
+        shortDesc: "Soft, non-reflective honed finish that lets the marble's natural texture and tone speak without the glare of gloss.",
+        fullDesc: 'Where polish emphasises shine, honing emphasises stone. The Honed Matte Feature Wall is ground to a smooth, low-sheen surface that softens reflections and brings out subtle tonal variation in the marble. It reads quieter and more tactile, suited to interiors where the wall should anchor a room rather than dominate it.',
+        features: ['Smooth low-sheen honed finish', 'Reduced glare and reflection', 'Subtle natural tone variation', 'Tactile, fingerprint-resistant surface', 'Pairs well with warm lighting']
+      },
+      {
+        id: 'cladding-4',
+        title: '3D Geometric Relief Cladding',
+        badge: 'Sculptural',
+        tags: ['textured', 'premium'],
+        isPremium: true,
+        image: 'wall-cladding/wallcladding4.webp',
+        shortDesc: 'Precision-carved three-dimensional geometric forms that project from the wall surface for a sculptural feature.',
+        fullDesc: 'The 3D Geometric Relief Cladding turns a flat marble wall into a sculptural surface. Repeating geometric forms are carved at varying depths from solid blocks, each panel cut to interlock seamlessly with the next. The relief catches light from every angle, making it a centrepiece for reception areas, hotel lobbies, and statement interiors.',
+        features: ['Three-dimensional carved relief', 'Interlocking panel system', 'Multiple geometric pattern options', 'Carved from solid marble blocks', 'Striking under directional lighting']
+      },
+      {
+        id: 'cladding-5',
+        title: 'Exterior Facade Cladding',
+        badge: 'Exterior Grade',
+        tags: ['exterior'],
+        isPremium: false,
+        image: 'wall-cladding/wallcladding5.webp',
+        shortDesc: 'Weather-sealed marble panels engineered for building facades, balconies, and exposed exterior surfaces.',
+        fullDesc: "Exterior Facade Cladding is finished and sealed specifically for outdoor exposure — resistant to rain, UV fading, and temperature shifts that interior marble was never built to handle. Panels are cut to engineered thickness for facade mounting systems, bringing the same Makrana character to a building's exterior that you'd find inside it.",
+        features: ['Weather and UV-resistant sealing', 'Engineered for facade mounting systems', 'Consistent exterior-grade thickness', 'Rain and temperature resistant', 'Suitable for balconies and building exteriors']
+      },
+      {
+        id: 'cladding-6',
+        title: 'Onyx Backlit Wall Panel',
+        badge: 'Illuminated',
+        tags: ['premium'],
+        isPremium: true,
+        image: 'wall-cladding/wallcladding6.webp',
+        shortDesc: "Translucent onyx-marble panels designed for LED backlighting, glowing with colour and veining after dark.",
+        fullDesc: "The Onyx Backlit Wall Panel is cut thin enough for light to pass through, so when backlit with LEDs the stone's natural veining glows from within. By day it reads as a richly veined marble surface; by night it transforms into a luminous feature wall. A favoured choice for bars, reception desks, and statement residential walls.",
+        features: ['Light-translucent thin-cut panels', 'LED backlighting compatible', 'Striking day and night appearance', 'Rich natural veining illuminated', 'Custom panel sizing available']
+      },
+      {
+        id: 'cladding-7',
+        title: 'Herringbone Marble Mosaic Wall',
+        badge: 'Classic Pattern',
+        tags: ['textured'],
+        isPremium: false,
+        image: 'wall-cladding/wallcladding7.webp',
+        shortDesc: 'Small-format marble tiles laid in a classic herringbone pattern for texture-rich walls and accent surfaces.',
+        fullDesc: 'The Herringbone Marble Mosaic Wall takes small-format marble pieces and lays them in the classic interlocking herringbone arrangement. The repeating angles create depth and movement across the surface, working equally well as a full feature wall or a contained accent panel behind a vanity or bar.',
+        features: ['Classic herringbone tile arrangement', 'Small-format precision-cut pieces', 'Depth and texture through repetition', 'Suitable for accent or full walls', 'Available in multiple marble tones']
+      },
+      {
+        id: 'cladding-8',
+        title: 'Classic Veined Slab Wall',
+        badge: 'Best Seller',
+        tags: ['premium'],
+        isPremium: false,
+        image: 'wall-cladding/wallcladding8.webp',
+        shortDesc: "Large-format polished slabs showcasing the marble's natural veining with minimal joint lines.",
+        fullDesc: "The Classic Veined Slab Wall is the most straightforward expression of Makrana marble — large, polished slabs installed with minimal joints so the stone's natural veining reads uninterrupted across the wall. No carving, no pattern work, just the material at its purest. A reliable choice for clients who want the marble itself to be the statement.",
+        features: ['Large-format slab installation', 'Minimal joint lines', 'High-gloss polished finish', 'Natural veining showcased uninterrupted', 'Suited to large open walls']
+      },
+      {
+        id: 'cladding-9',
+        title: 'Stacked Stone Ledger Wall',
+        badge: 'Natural Texture',
+        tags: ['exterior', 'textured'],
+        isPremium: false,
+        image: 'wall-cladding/wallcladding9.webp',
+        shortDesc: 'Irregular, textured ledger-stone profile that mimics natural rock formations for rugged exterior or accent walls.',
+        fullDesc: 'The Stacked Stone Ledger Wall departs from smooth marble entirely, using an irregular, naturally fractured ledger profile that stacks like layered rock. The rugged texture suits outdoor courtyards, garden walls, and accent surfaces where a more organic, less formal stone character is wanted.',
+        features: ['Irregular natural ledger texture', 'Layered stacked-stone profile', 'Suitable for exterior installation', 'Rugged, organic stone character', 'Low-maintenance weathered finish']
+      },
+      {
+        id: 'cladding-10',
+        title: 'Mughal Jaali Screen Cladding',
+        badge: 'Heritage Craft',
+        tags: ['premium', 'textured'],
+        isPremium: true,
+        image: 'wall-cladding/wallcladding10.webp',
+        shortDesc: 'Pierced lattice cladding panels carved in traditional Mughal geometric patterns, filtering light through solid marble.',
+        fullDesc: 'The Mughal Jaali Screen Cladding adapts the centuries-old art of pierced stone lattice work into a wall cladding format. Each panel is hand-carved with traditional geometric perforations, allowing light and air to filter through while maintaining the structural presence of solid marble — equally striking as an interior divider or an exterior screen wall.',
+        features: ['Hand-carved Mughal geometric lattice', 'Light and air-permeable design', 'Functions as wall or divider screen', 'Traditional pierced stone technique', 'Suitable for interior and exterior use']
+      },
+      {
+        id: 'cladding-11',
+        title: 'Tumbled Stone Textured Cladding',
+        badge: 'Artisan Finish',
+        tags: ['textured', 'exterior'],
+        isPremium: false,
+        image: 'wall-cladding/wallcladding11.webp',
+        shortDesc: 'Mechanically tumbled marble with softened edges and a worn, antiqued surface texture.',
+        fullDesc: "Tumbled Stone Textured Cladding puts marble through a tumbling process that rounds its edges and roughens its surface, producing an aged, worn character usually associated with centuries-old stonework. It brings warmth and informality to spaces that don't want the crispness of polished marble — courtyards, rustic interiors, and transitional spaces.",
+        features: ['Mechanically tumbled finish', 'Softened, rounded edge profile', 'Aged, antiqued surface texture', 'Informal, rustic character', 'Suitable for indoor and outdoor walls']
+      },
+      {
+        id: 'cladding-12',
+        title: 'Minimalist Slab Wall',
+        badge: 'Contemporary',
+        tags: ['matte'],
+        isPremium: false,
+        image: 'wall-cladding/wallcladding12.webp',
+        shortDesc: 'Clean, seamless large-format slabs in a restrained matte finish for understated contemporary interiors.',
+        fullDesc: 'The Minimalist Slab Wall is built for interiors that want material quality without visual noise. Large slabs are honed to a restrained matte finish and installed with near-invisible joints, producing a calm, continuous surface that recedes rather than competes — ideal for spaces where the architecture, not the stone, should lead.',
+        features: ['Large-format seamless slabs', 'Restrained matte finish', 'Near-invisible joint lines', 'Calm, continuous wall surface', 'Suited to contemporary minimalist interiors']
+      }
+    ];
+
+    /* ── ─── ─── ─── ─── ─── ─── ─── ─── ─── ─── ─── ──
+       ENGINE — identical across all product pages
+       (copy-paste from home-mandir.html / inlay-works.html)
+    ── ─── ─── ─── ─── ─── ─── ─── ─── ─── ─── ─── ── */
+    var PAGE_SIZE   = PAGE_CONFIG.pageSize;
+    var WA_NUMBER   = PAGE_CONFIG.waNumber;
+    var currentPage = 0;
+    var currentFilter = 'all';
+    var filteredProducts = [];
+
+    function waURL(title) {
+      return 'https://wa.me/' + WA_NUMBER
+        + '?text=' + encodeURIComponent(
+            "Hello Stone Hub Traders, I'm interested in the "
+            + title + ' from your ' + PAGE_CONFIG.waPageHint
+            + ' collection. Please share details and pricing.'
+          );
+    }
+
+    function esc(str) {
+      var d = document.createElement('div');
+      d.appendChild(document.createTextNode(str));
+      return d.innerHTML;
+    }
+
+    /* Filter */
+    function applyFilter(filter) {
+      currentFilter = filter;
+      currentPage   = 0;
+      filteredProducts = filter === 'all'
+        ? PRODUCTS
+        : PRODUCTS.filter(function (p) { return p.tags.indexOf(filter) !== -1; });
+      document.getElementById('productsGrid').innerHTML = '';
+      renderPage();
+    }
+
+    /* Render paginated batch */
+    function renderPage() {
+      var grid  = document.getElementById('productsGrid');
+      var start = currentPage * PAGE_SIZE;
+      var end   = Math.min(start + PAGE_SIZE, filteredProducts.length);
+      var slice = filteredProducts.slice(start, end);
+      var frag  = document.createDocumentFragment();
+
+      slice.forEach(function (product, idx) {
+        var card = document.createElement('article');
+        card.className = 'product-card fade-up';
+        card.setAttribute('role', 'listitem');
+        card.setAttribute('tabindex', '0');
+        card.style.transitionDelay = (idx % PAGE_SIZE * 0.055) + 's';
+
+        card.innerHTML =
+          '<div class="card-img-wrap">' +
+            '<img class="card-img" src="' + esc(product.image) + '"' +
+              ' alt="' + esc(product.title) + '"' +
+              ' loading="lazy" decoding="async" />' +
+            (product.badge
+              ? '<span class="card-badge">' + esc(product.badge) + '</span>'
+              : '') +
+            (product.isPremium
+              ? '<span class="card-badge-star" aria-label="Premium">' +
+                  '<i class="fas fa-star" aria-hidden="true"></i>' +
+                '</span>'
+              : '') +
+          '</div>' +
+          '<div class="card-body">' +
+            '<span class="card-rule" aria-hidden="true"></span>' +
+            '<h3 class="card-name">' + esc(product.title) + '</h3>' +
+            '<p class="card-desc">' + esc(product.shortDesc) + '</p>' +
+            '<div class="card-actions">' +
+              '<a href="' + waURL(product.title) + '"' +
+                ' class="card-btn card-btn--wa"' +
+                ' target="_blank" rel="noopener noreferrer"' +
+                ' onclick="event.stopPropagation()"' +
+                ' aria-label="WhatsApp inquiry for ' + esc(product.title) + '">' +
+                '<i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp' +
+              '</a>' +
+              '<button class="card-btn card-btn--view"' +
+                ' aria-label="View details for ' + esc(product.title) + '">' +
+                '<i class="fas fa-eye" aria-hidden="true"></i> Details' +
+              '</button>' +
+            '</div>' +
+          '</div>';
+
+        card.addEventListener('click', function (e) {
+          if (e.target.closest('.card-btn--wa')) return;
+          openModal(product.id);
+        });
+        card.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(product.id); }
+        });
+        card.addEventListener('mouseenter', function () {
+          var img = card.querySelector('.card-img');
+          if (img) img.style.willChange = 'transform';
+        });
+        card.addEventListener('mouseleave', function () {
+          var img = card.querySelector('.card-img');
+          if (img) img.style.willChange = '';
+        });
+
+        frag.appendChild(card);
+      });
+
+      grid.appendChild(frag);
+      currentPage++;
+
+      /* Sync count */
+      var shown = Math.min(currentPage * PAGE_SIZE, filteredProducts.length);
+      document.getElementById('showingCount').textContent = shown;
+      document.getElementById('progressBar').style.width =
+        (shown / filteredProducts.length * 100) + '%';
+
+      updateLoadMore();
+      scheduleReveal();
+    }
+
+    function updateLoadMore() {
+      var shown   = Math.min(currentPage * PAGE_SIZE, filteredProducts.length);
+      var total   = filteredProducts.length;
+      var btn     = document.getElementById('loadMoreBtn');
+      var info    = document.getElementById('loadMoreInfo');
+
+      if (shown >= total) {
+        btn.disabled = true;
+        btn.textContent = 'All Designs Shown';
+        info.textContent = total + ' of ' + total + ' designs';
+      } else {
+        var rem = total - shown;
+        btn.disabled = false;
+        btn.innerHTML =
+          'Load More Designs <i class="fas fa-arrow-down" aria-hidden="true"></i>';
+        info.textContent = rem + ' more design' + (rem !== 1 ? 's' : '') + ' remaining';
+      }
+    }
+
+    /* Scroll reveal */
+    var revealIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          revealIO.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+    function scheduleReveal() {
+      requestAnimationFrame(function () {
+        document.querySelectorAll('.fade-up:not(.visible)').forEach(function (el) {
+          revealIO.observe(el);
+        });
+      });
+    }
+
+    /* Modal */
+    var _activeId = null;
+
+    function openModal(id) {
+      var product = PRODUCTS.find(function (p) { return p.id === id; });
+      if (!product) return;
+      _activeId = id;
+
+      document.getElementById('modalImg').src       = product.image;
+      document.getElementById('modalImg').alt       = product.title;
+      document.getElementById('modalBadge').textContent = product.badge;
+      document.getElementById('modalTitle').textContent = product.title;
+      document.getElementById('modalDesc').textContent  = product.fullDesc;
+      document.getElementById('modalWa').href           = waURL(product.title);
+
+      document.getElementById('modalFeatures').innerHTML =
+        product.features.map(function (f) {
+          return '<li>' + esc(f) + '</li>';
+        }).join('');
+
+      document.getElementById('modalBackdrop').classList.add('open');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('modalClose').focus();
+    }
+
+    function closeModal() {
+      document.getElementById('modalBackdrop').classList.remove('open');
+      document.body.style.overflow = '';
+      _activeId = null;
+    }
+
+    /* Lightbox */
+    function openLightbox(src, alt) {
+      document.getElementById('lightboxImg').src = src;
+      document.getElementById('lightboxImg').alt = alt || '';
+      document.getElementById('lightbox').classList.add('open');
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+    }
+
+    /* Share */
+    function shareProduct() {
+      if (!_activeId) return;
+      var p = PRODUCTS.find(function (x) { return x.id === _activeId; });
+      if (!p) return;
+      if (navigator.share) {
+        navigator.share({ title: p.title + ' — Stone Hub Traders', text: p.shortDesc, url: window.location.href }).catch(function(){});
+      } else if (navigator.clipboard) {
+        navigator.clipboard.writeText(window.location.href);
+        var btn = document.getElementById('modalShare');
+        var prev = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-check" aria-hidden="true"></i>';
+        setTimeout(function () { btn.innerHTML = prev; }, 1500);
+      }
+    }
+
+    /* ── Events ── */
+    document.querySelectorAll('.filter-pill').forEach(function (pill) {
+      pill.addEventListener('click', function () {
+        document.querySelectorAll('.filter-pill').forEach(function (p) { p.classList.remove('active'); });
+        pill.classList.add('active');
+        applyFilter(pill.dataset.filter);
+      });
+    });
+
+    document.getElementById('loadMoreBtn').addEventListener('click', renderPage);
+    document.getElementById('modalClose').addEventListener('click', closeModal);
+    document.getElementById('modalBackdrop').addEventListener('click', function (e) {
+      if (e.target === this) closeModal();
+    });
+    document.getElementById('modalImg').addEventListener('click', function () {
+      openLightbox(this.src, this.alt);
+    });
+    document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+    document.getElementById('lightbox').addEventListener('click', function (e) {
+      if (e.target === this) closeLightbox();
+    });
+    document.getElementById('modalShare').addEventListener('click', shareProduct);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') { closeLightbox(); closeModal(); }
+    });
+
+    /* Init */
+    applyFilter('all');
+
+    console.log('%c STONE HUB TRADERS %c Wall Cladding — ' + PRODUCTS.length + ' designs',
+      'background:#A89070;color:#fff;padding:2px 8px;font-weight:700', 'color:#A89070');
+
+  })();
+  </script>
+
+</body>
+</html>
