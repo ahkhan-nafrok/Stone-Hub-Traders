@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="description" content="Stone Hub Traders — Fireplace Collection. Carved mantels, modern surrounds, and outdoor fireplace features in premium Makrana marble." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" /></noscript>
+
+  <link rel="stylesheet" href="product.css" />
+
+  <title>Fireplaces — Stone Hub Traders | Premium Makrana Marble</title>
+</head>
+
+<body>
+
+  <nav class="pg-nav" role="navigation" aria-label="Page navigation">
+    <div class="pg-nav-inner">
+      <a href="index.html" class="pg-nav-back" aria-label="Back to home">
+        <i class="fas fa-arrow-left pg-nav-back-icon" aria-hidden="true"></i>
+        <span>Back to Home</span>
+      </a>
+      <a href="index.html" class="pg-nav-logo" aria-label="Stone Hub Traders home">
+        <span class="pg-nav-logo-name">Stone Hub Traders</span>
+        <span class="pg-nav-logo-sub">Premium Marble &amp; Granite</span>
+      </a>
+    </div>
+  </nav>
+
+  <header class="pg-hero">
+    <div class="pg-hero-inner">
+      <div>
+        <div class="pg-hero-eyebrow" aria-hidden="true">
+          <span class="pg-hero-eyebrow-label">Surrounds &amp; Mantels &nbsp;·&nbsp; Indoor &amp; Outdoor &nbsp;·&nbsp; Makrana Marble</span>
+        </div>
+
+        <h1 class="pg-hero-title">
+          Marble<br><em>Fireplaces</em>
+        </h1>
+
+        <p class="pg-hero-tagline">
+          Fireplace surrounds and mantels carved in marble —
+          heat that meets heritage.
+        </p>
+      </div>
+
+      <div class="pg-hero-ghost" aria-hidden="true">
+        <span class="pg-hero-ghost-num">13</span>
+        <span class="pg-hero-ghost-label">Designs</span>
+      </div>
+    </div>
+    <div class="pg-hero-rule" aria-hidden="true"></div>
+  </header>
+
+  <section class="products-section" id="products" aria-label="Fireplace collection">
+    <div class="products-container">
+
+      <div class="products-meta">
+        <p class="products-count">
+          Showing <strong id="showingCount">0</strong> of <strong>13</strong> designs
+        </p>
+        <div class="products-filter" role="group" aria-label="Filter by type">
+          <button class="filter-pill active" data-filter="all">All</button>
+          <button class="filter-pill" data-filter="premium">Premium</button>
+          <button class="filter-pill" data-filter="classic">Classic</button>
+          <button class="filter-pill" data-filter="modern">Modern</button>
+          <button class="filter-pill" data-filter="exterior">Exterior</button>
+        </div>
+      </div>
+
+      <div class="products-grid" id="productsGrid" role="list"></div>
+
+      <div class="load-more-section" id="loadMoreSection">
+        <div class="load-progress-wrap">
+          <div class="load-progress-bar" id="progressBar" style="width:0%"></div>
+        </div>
+        <button class="load-more-btn" id="loadMoreBtn" aria-label="Load more designs">
+          Load More Designs
+          <i class="fas fa-arrow-down" aria-hidden="true"></i>
+        </button>
+        <p class="load-more-info" id="loadMoreInfo"></p>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="modal-backdrop" id="modalBackdrop" role="dialog" aria-modal="true" aria-label="Product details">
+    <div class="modal-panel" id="modalPanel">
+
+      <div class="modal-img-wrap">
+        <img src="" alt="" class="modal-img" id="modalImg" loading="lazy" />
+        <div class="modal-img-hint" aria-hidden="true">
+          <i class="fas fa-search-plus"></i> Click to zoom
+        </div>
+        <button class="modal-close" id="modalClose" aria-label="Close details">
+          <i class="fas fa-times" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-eyebrow">
+          <span class="modal-badge" id="modalBadge"></span>
+        </div>
+        <span class="modal-rule" aria-hidden="true"></span>
+        <h2 class="modal-title" id="modalTitle"></h2>
+        <span class="modal-separator" aria-hidden="true"></span>
+        <p class="modal-desc" id="modalDesc"></p>
+
+        <p class="modal-features-head">What's included</p>
+        <ul class="modal-features" id="modalFeatures"></ul>
+
+        <div class="modal-actions">
+          <a href="" class="modal-btn modal-btn--wa" id="modalWa"
+             target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            Inquire on WhatsApp
+          </a>
+          <button class="modal-btn modal-btn--share" id="modalShare" aria-label="Share product">
+            <i class="fas fa-share-alt" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-label="Image zoom">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close zoom">
+      <i class="fas fa-times" aria-hidden="true"></i>
+    </button>
+    <img src="" alt="" id="lightboxImg" />
+  </div>
+
+  <a href="https://wa.me/917976839230?text=Hello%20Stone%20Hub%20Traders%2C%20I%20would%20like%20to%20inquire%20about%20your%20Marble%20Fireplaces."
+     class="whatsapp-float"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp" aria-hidden="true"></i>
+  </a>
+
+  <script>
+  (function () {
+    'use strict';
+
+    var PAGE_CONFIG = {
+      waNumber:    '917976839230',
+      waPageHint:  'Fireplaces',
+      pageSize:    9,
+      totalLabel:  '13'
+    };
+
+    var PRODUCTS = [
+      {
+        id: 'fireplace-1',
+        title: 'Carved Classical Mantel',
+        badge: 'Heritage Carving',
+        tags: ['classic', 'premium'],
+        isPremium: true,
+        image: 'fireplace/fireplace1.webp',
+        shortDesc: 'Traditional carved marble mantel with classical column detailing flanking the firebox opening.',
+        fullDesc: 'The Carved Classical Mantel follows the proportions of a traditional European-style fireplace surround, with carved column detailing on either side of the firebox and a profiled shelf above. Hand-carved by the same artisans who work on our temple commissions, it brings formal architectural weight to a living room.',
+        features: ['Hand-carved column detailing', 'Classical proportioned mantel shelf', 'Custom firebox opening sizing', 'Heat-rated marble selection', 'Suited to formal living rooms']
+      },
+      {
+        id: 'fireplace-2',
+        title: 'Minimalist Slab Surround',
+        badge: 'Modern Design',
+        tags: ['modern'],
+        isPremium: false,
+        image: 'fireplace/fireplace2.webp',
+        shortDesc: 'Clean, uncarved marble slab surround with no mantel shelf, built for contemporary interiors.',
+        fullDesc: 'The Minimalist Slab Surround strips the fireplace back to a single flat marble panel framing the firebox, with no carved detail and no projecting mantel shelf. It suits contemporary interiors that want the fireplace integrated into the wall rather than standing apart from it.',
+        features: ['Flat uncarved slab panel', 'No projecting mantel shelf', 'Wall-integrated appearance', 'Heat-rated marble selection', 'Custom sizing to firebox']
+      },
+      {
+        id: 'fireplace-3',
+        title: 'Arched Marble Fireplace Surround',
+        badge: 'Classic',
+        tags: ['classic'],
+        isPremium: false,
+        image: 'fireplace/fireplace3.webp',
+        shortDesc: 'Surround built around a carved arch opening, echoing traditional hearth architecture.',
+        fullDesc: "The Arched Marble Fireplace Surround shapes the firebox opening into a carved arch rather than a square frame, referencing traditional hearth architecture. The curved line softens the fireplace's presence in the room while keeping the formal weight of solid marble.",
+        features: ['Carved arched firebox opening', 'Traditional hearth-inspired profile', 'Heat-rated marble construction', 'Custom arch radius available', 'Suited to classic interiors']
+      },
+      {
+        id: 'fireplace-4',
+        title: 'Geometric Relief Fireplace Panel',
+        badge: 'Sculptural',
+        tags: ['modern', 'premium'],
+        isPremium: true,
+        image: 'fireplace/fireplace4.webp',
+        shortDesc: 'Fireplace surround carved with a repeating three-dimensional geometric relief pattern.',
+        fullDesc: 'The Geometric Relief Fireplace Panel extends the same 3D carved relief technique used in our wall cladding collection to the fireplace surround, giving the area around the firebox a sculptural, light-catching texture rather than a flat carved or plain panel.',
+        features: ['Three-dimensional carved relief', 'Repeating geometric pattern', 'Sculptural light-catching texture', 'Heat-rated marble selection', 'Custom panel sizing']
+      },
+      {
+        id: 'fireplace-5',
+        title: 'Outdoor Courtyard Fireplace',
+        badge: 'Exterior Grade',
+        tags: ['exterior'],
+        isPremium: false,
+        image: 'fireplace/fireplace5.webp',
+        shortDesc: 'Weather-sealed marble fireplace surround built for outdoor courtyards and covered terraces.',
+        fullDesc: 'The Outdoor Courtyard Fireplace is sealed and finished for exterior exposure, built to handle rain and temperature swings that an interior surround was never designed for. Suited to courtyards, covered terraces, and outdoor living areas where a fireplace becomes a gathering point.',
+        features: ['Weather-sealed exterior finish', 'Heat and moisture resistant', 'Suited to courtyards and terraces', 'Consistent Makrana marble character', 'Custom firebox integration']
+      },
+      {
+        id: 'fireplace-6',
+        title: 'Pillar Flanked Fireplace Surround',
+        badge: 'Architectural',
+        tags: ['classic', 'premium'],
+        isPremium: true,
+        image: 'fireplace/fireplace6.webp',
+        shortDesc: 'Surround flanked by two solid carved marble pillars supporting a wide mantel shelf.',
+        fullDesc: 'The Pillar Flanked Fireplace Surround places a full carved marble pillar on either side of the firebox, supporting a wide mantel shelf above. The structural, architectural presence makes it a natural fit for larger living rooms and formal entertaining spaces.',
+        features: ['Twin hand-carved marble pillars', 'Wide supported mantel shelf', 'Architectural structural presence', 'Heat-rated marble construction', 'Suited to larger living rooms']
+      },
+      {
+        id: 'fireplace-7',
+        title: 'Onyx Backlit Fireplace Feature',
+        badge: 'Illuminated',
+        tags: ['premium', 'modern'],
+        isPremium: true,
+        image: 'fireplace/fireplace7.webp',
+        shortDesc: 'Fireplace surround framed in translucent onyx, glowing from internal LED lighting around the firebox.',
+        fullDesc: 'The Onyx Backlit Fireplace Feature frames the firebox in thin-cut translucent onyx marble, lit from within by a concealed LED system. By day the stone reads as richly veined marble; once lit, it glows around the fire itself, doubling the room\u2019s light source.',
+        features: ['Thin-cut translucent onyx framing', 'Concealed internal LED lighting', 'Glows around the firebox when lit', 'Statement living room centrepiece', 'Heat-rated, fire-safe materials']
+      },
+      {
+        id: 'fireplace-8',
+        title: 'Book-Matched Slab Fireplace Wall',
+        badge: 'Premium Collection',
+        tags: ['premium', 'modern'],
+        isPremium: true,
+        image: 'fireplace/fireplace8.webp',
+        shortDesc: 'Full-height fireplace wall using bookmatched slabs to mirror veining around the firebox.',
+        fullDesc: "The Book-Matched Slab Fireplace Wall extends the fireplace surround into a full floor-to-ceiling feature, using bookmatched slabs so the marble's veining mirrors symmetrically around the firebox. It treats the entire wall, not just the immediate surround, as part of the fireplace design.",
+        features: ['Floor-to-ceiling bookmatched slabs', 'Mirrored veining around firebox', 'Full feature wall integration', 'High-gloss polished finish', 'Custom wall height available']
+      },
+      {
+        id: 'fireplace-9',
+        title: 'Traditional Carved Overmantel',
+        badge: 'Heritage',
+        tags: ['classic', 'premium'],
+        isPremium: true,
+        image: 'fireplace/fireplace9.webp',
+        shortDesc: 'Surround topped with a tall carved overmantel panel rising above the firebox to the ceiling line.',
+        fullDesc: 'The Traditional Carved Overmantel extends the fireplace upward with a tall, hand-carved panel rising above the mantel shelf toward the ceiling line. Traditional motifs continue the carving across the full height, in the manner of historic European and colonial-era fireplaces.',
+        features: ['Tall hand-carved overmantel panel', 'Traditional motif carving', 'Extended height above mantel shelf', 'Historic fireplace styling', 'Custom motif selection available']
+      },
+      {
+        id: 'fireplace-10',
+        title: 'Floor-to-Ceiling Stone Fireplace Wall',
+        badge: 'Contemporary',
+        tags: ['modern', 'premium'],
+        isPremium: true,
+        image: 'fireplace/fireplace10.webp',
+        shortDesc: 'Full-height honed marble wall integrating the firebox into a single continuous surface.',
+        fullDesc: 'The Floor-to-Ceiling Stone Fireplace Wall treats the fireplace as part of a larger architectural surface rather than a standalone fixture. A single honed marble wall runs from floor to ceiling, with the firebox opening cut directly into it — no separate surround, no mantel break.',
+        features: ['Floor-to-ceiling continuous wall', 'Firebox integrated into single surface', 'Honed matte finish', 'No mantel break or surround seam', 'Suited to contemporary open living spaces']
+      },
+      {
+        id: 'fireplace-11',
+        title: 'Outdoor Fire Pit Surround',
+        badge: 'Outdoor Collection',
+        tags: ['exterior'],
+        isPremium: false,
+        image: 'fireplace/fireplace11.webp',
+        shortDesc: 'Circular marble surround built around a ground-level outdoor fire pit.',
+        fullDesc: 'The Outdoor Fire Pit Surround is built for ground-level outdoor fire features rather than wall-mounted fireboxes — a circular or polygonal marble ring framing the pit itself. Sealed for outdoor exposure, it suits gardens, courtyards, and outdoor entertaining areas.',
+        features: ['Circular or polygonal ring form', 'Built around ground-level fire pits', 'Outdoor-rated sealed finish', 'Suited to gardens and courtyards', 'Custom diameter available']
+      },
+      {
+        id: 'fireplace-12',
+        title: 'Herringbone Hearth Surround',
+        badge: 'Textured',
+        tags: ['modern'],
+        isPremium: false,
+        image: 'fireplace/fireplace12.webp',
+        shortDesc: 'Fireplace surround tiled in a herringbone marble pattern for texture around the firebox.',
+        fullDesc: 'The Herringbone Hearth Surround applies the same small-format herringbone tiling used in our wall cladding collection to the area directly around the firebox, giving the fireplace a textured, patterned frame rather than a single flat or carved slab.',
+        features: ['Herringbone tile pattern', 'Small-format precision-cut pieces', 'Textured framing around firebox', 'Heat-rated tile selection', 'Available in multiple marble tones']
+      },
+      {
+        id: 'fireplace-13',
+        title: 'Heritage Jaali Fireplace Screen',
+        badge: 'Heritage Craft',
+        tags: ['classic', 'premium'],
+        isPremium: true,
+        image: 'fireplace/fireplace13.webp',
+        shortDesc: 'Pierced jaali lattice screen positioned above the firebox, filtering light from the mantel area.',
+        fullDesc: 'The Heritage Jaali Fireplace Screen brings the same pierced lattice carving used in our jaali wall cladding to the fireplace, positioned in the panel above the firebox. Light and warmth filter through the perforated pattern, adding traditional detail without obscuring the fire itself.',
+        features: ['Hand-carved pierced jaali lattice', 'Positioned above firebox opening', 'Light and air-permeable detail', 'Traditional carving technique', 'Heat-rated marble selection']
+      }
+    ];
+
+    var PAGE_SIZE   = PAGE_CONFIG.pageSize;
+    var WA_NUMBER   = PAGE_CONFIG.waNumber;
+    var currentPage = 0;
+    var currentFilter = 'all';
+    var filteredProducts = [];
+
+    function waURL(title) {
+      return 'https://wa.me/' + WA_NUMBER
+        + '?text=' + encodeURIComponent(
+            "Hello Stone Hub Traders, I'm interested in the "
+            + title + ' from your ' + PAGE_CONFIG.waPageHint
+            + ' collection. Please share details and pricing.'
+          );
+    }
+
+    function esc(str) {
+      var d = document.createElement('div');
+      d.appendChild(document.createTextNode(str));
+      return d.innerHTML;
+    }
+
+    function applyFilter(filter) {
+      currentFilter = filter;
+      currentPage   = 0;
+      filteredProducts = filter === 'all'
+        ? PRODUCTS
+        : PRODUCTS.filter(function (p) { return p.tags.indexOf(filter) !== -1; });
+      document.getElementById('productsGrid').innerHTML = '';
+      renderPage();
+    }
+
+    function renderPage() {
+      var grid  = document.getElementById('productsGrid');
+      var start = currentPage * PAGE_SIZE;
+      var end   = Math.min(start + PAGE_SIZE, filteredProducts.length);
+      var slice = filteredProducts.slice(start, end);
+      var frag  = document.createDocumentFragment();
+
+      slice.forEach(function (product, idx) {
+        var card = document.createElement('article');
+        card.className = 'product-card fade-up';
+        card.setAttribute('role', 'listitem');
+        card.setAttribute('tabindex', '0');
+        card.style.transitionDelay = (idx % PAGE_SIZE * 0.055) + 's';
+
+        card.innerHTML =
+          '<div class="card-img-wrap">' +
+            '<img class="card-img" src="' + esc(product.image) + '"' +
+              ' alt="' + esc(product.title) + '"' +
+              ' loading="lazy" decoding="async" />' +
+            (product.badge
+              ? '<span class="card-badge">' + esc(product.badge) + '</span>'
+              : '') +
+            (product.isPremium
+              ? '<span class="card-badge-star" aria-label="Premium">' +
+                  '<i class="fas fa-star" aria-hidden="true"></i>' +
+                '</span>'
+              : '') +
+          '</div>' +
+          '<div class="card-body">' +
+            '<span class="card-rule" aria-hidden="true"></span>' +
+            '<h3 class="card-name">' + esc(product.title) + '</h3>' +
+            '<p class="card-desc">' + esc(product.shortDesc) + '</p>' +
+            '<div class="card-actions">' +
+              '<a href="' + waURL(product.title) + '"' +
+                ' class="card-btn card-btn--wa"' +
+                ' target="_blank" rel="noopener noreferrer"' +
+                ' onclick="event.stopPropagation()"' +
+                ' aria-label="WhatsApp inquiry for ' + esc(product.title) + '">' +
+                '<i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp' +
+              '</a>' +
+              '<button class="card-btn card-btn--view"' +
+                ' aria-label="View details for ' + esc(product.title) + '">' +
+                '<i class="fas fa-eye" aria-hidden="true"></i> Details' +
+              '</button>' +
+            '</div>' +
+          '</div>';
+
+        card.addEventListener('click', function (e) {
+          if (e.target.closest('.card-btn--wa')) return;
+          openModal(product.id);
+        });
+        card.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(product.id); }
+        });
+        card.addEventListener('mouseenter', function () {
+          var img = card.querySelector('.card-img');
+          if (img) img.style.willChange = 'transform';
+        });
+        card.addEventListener('mouseleave', function () {
+          var img = card.querySelector('.card-img');
+          if (img) img.style.willChange = '';
+        });
+
+        frag.appendChild(card);
+      });
+
+      grid.appendChild(frag);
+      currentPage++;
+
+      var shown = Math.min(currentPage * PAGE_SIZE, filteredProducts.length);
+      document.getElementById('showingCount').textContent = shown;
+      document.getElementById('progressBar').style.width =
+        (shown / filteredProducts.length * 100) + '%';
+
+      updateLoadMore();
+      scheduleReveal();
+    }
+
+    function updateLoadMore() {
+      var shown   = Math.min(currentPage * PAGE_SIZE, filteredProducts.length);
+      var total   = filteredProducts.length;
+      var btn     = document.getElementById('loadMoreBtn');
+      var info    = document.getElementById('loadMoreInfo');
+
+      if (shown >= total) {
+        btn.disabled = true;
+        btn.textContent = 'All Designs Shown';
+        info.textContent = total + ' of ' + total + ' designs';
+      } else {
+        var rem = total - shown;
+        btn.disabled = false;
+        btn.innerHTML =
+          'Load More Designs <i class="fas fa-arrow-down" aria-hidden="true"></i>';
+        info.textContent = rem + ' more design' + (rem !== 1 ? 's' : '') + ' remaining';
+      }
+    }
+
+    var revealIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          revealIO.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+    function scheduleReveal() {
+      requestAnimationFrame(function () {
+        document.querySelectorAll('.fade-up:not(.visible)').forEach(function (el) {
+          revealIO.observe(el);
+        });
+      });
+    }
+
+    var _activeId = null;
+
+    function openModal(id) {
+      var product = PRODUCTS.find(function (p) { return p.id === id; });
+      if (!product) return;
+      _activeId = id;
+
+      document.getElementById('modalImg').src       = product.image;
+      document.getElementById('modalImg').alt       = product.title;
+      document.getElementById('modalBadge').textContent = product.badge;
+      document.getElementById('modalTitle').textContent = product.title;
+      document.getElementById('modalDesc').textContent  = product.fullDesc;
+      document.getElementById('modalWa').href           = waURL(product.title);
+
+      document.getElementById('modalFeatures').innerHTML =
+        product.features.map(function (f) {
+          return '<li>' + esc(f) + '</li>';
+        }).join('');
+
+      document.getElementById('modalBackdrop').classList.add('open');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('modalClose').focus();
+    }
+
+    function closeModal() {
+      document.getElementById('modalBackdrop').classList.remove('open');
+      document.body.style.overflow = '';
+      _activeId = null;
+    }
+
+    function openLightbox(src, alt) {
+      document.getElementById('lightboxImg').src = src;
+      document.getElementById('lightboxImg').alt = alt || '';
+      document.getElementById('lightbox').classList.add('open');
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+    }
+
+    function shareProduct() {
+      if (!_activeId) return;
+      var p = PRODUCTS.find(function (x) { return x.id === _activeId; });
+      if (!p) return;
+      if (navigator.share) {
+        navigator.share({ title: p.title + ' — Stone Hub Traders', text: p.shortDesc, url: window.location.href }).catch(function(){});
+      } else if (navigator.clipboard) {
+        navigator.clipboard.writeText(window.location.href);
+        var btn = document.getElementById('modalShare');
+        var prev = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-check" aria-hidden="true"></i>';
+        setTimeout(function () { btn.innerHTML = prev; }, 1500);
+      }
+    }
+
+    document.querySelectorAll('.filter-pill').forEach(function (pill) {
+      pill.addEventListener('click', function () {
+        document.querySelectorAll('.filter-pill').forEach(function (p) { p.classList.remove('active'); });
+        pill.classList.add('active');
+        applyFilter(pill.dataset.filter);
+      });
+    });
+
+    document.getElementById('loadMoreBtn').addEventListener('click', renderPage);
+    document.getElementById('modalClose').addEventListener('click', closeModal);
+    document.getElementById('modalBackdrop').addEventListener('click', function (e) {
+      if (e.target === this) closeModal();
+    });
+    document.getElementById('modalImg').addEventListener('click', function () {
+      openLightbox(this.src, this.alt);
+    });
+    document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+    document.getElementById('lightbox').addEventListener('click', function (e) {
+      if (e.target === this) closeLightbox();
+    });
+    document.getElementById('modalShare').addEventListener('click', shareProduct);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') { closeLightbox(); closeModal(); }
+    });
+
+    applyFilter('all');
+
+    console.log('%c STONE HUB TRADERS %c Fireplaces — ' + PRODUCTS.length + ' designs',
+      'background:#A89070;color:#fff;padding:2px 8px;font-weight:700', 'color:#A89070');
+
+  })();
+  </script>
+
+</body>
+</html>
