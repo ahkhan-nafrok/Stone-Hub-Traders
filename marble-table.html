@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="description" content="Stone Hub Traders — Marble Table Tops Collection. Bookmatched dining tables, carved consoles, and coffee tables in premium Makrana marble." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" /></noscript>
+
+  <link rel="stylesheet" href="product.css" />
+
+  <title>Marble Table Tops — Stone Hub Traders | Premium Makrana Marble</title>
+</head>
+
+<body>
+
+  <nav class="pg-nav" role="navigation" aria-label="Page navigation">
+    <div class="pg-nav-inner">
+      <a href="index.html" class="pg-nav-back" aria-label="Back to home">
+        <i class="fas fa-arrow-left pg-nav-back-icon" aria-hidden="true"></i>
+        <span>Back to Home</span>
+      </a>
+      <a href="index.html" class="pg-nav-logo" aria-label="Stone Hub Traders home">
+        <span class="pg-nav-logo-name">Stone Hub Traders</span>
+        <span class="pg-nav-logo-sub">Premium Marble &amp; Granite</span>
+      </a>
+    </div>
+  </nav>
+
+  <header class="pg-hero">
+    <div class="pg-hero-inner">
+      <div>
+        <div class="pg-hero-eyebrow" aria-hidden="true">
+          <span class="pg-hero-eyebrow-label">Dining &amp; Console &nbsp;·&nbsp; Coffee Tables &nbsp;·&nbsp; Makrana Marble</span>
+        </div>
+
+        <h1 class="pg-hero-title">
+          Marble<br><em>Table Tops</em>
+        </h1>
+
+        <p class="pg-hero-tagline">
+          Dining tables, console tops, and coffee surfaces in
+          book-matched Makrana slabs.
+        </p>
+      </div>
+
+      <div class="pg-hero-ghost" aria-hidden="true">
+        <span class="pg-hero-ghost-num">10</span>
+        <span class="pg-hero-ghost-label">Designs</span>
+      </div>
+    </div>
+    <div class="pg-hero-rule" aria-hidden="true"></div>
+  </header>
+
+  <section class="products-section" id="products" aria-label="Marble table tops collection">
+    <div class="products-container">
+
+      <div class="products-meta">
+        <p class="products-count">
+          Showing <strong id="showingCount">0</strong> of <strong>10</strong> designs
+        </p>
+        <div class="products-filter" role="group" aria-label="Filter by type">
+          <button class="filter-pill active" data-filter="all">All</button>
+          <button class="filter-pill" data-filter="premium">Premium</button>
+          <button class="filter-pill" data-filter="dining">Dining</button>
+          <button class="filter-pill" data-filter="console">Console</button>
+          <button class="filter-pill" data-filter="coffee">Coffee</button>
+        </div>
+      </div>
+
+      <div class="products-grid" id="productsGrid" role="list"></div>
+
+      <div class="load-more-section" id="loadMoreSection">
+        <div class="load-progress-wrap">
+          <div class="load-progress-bar" id="progressBar" style="width:0%"></div>
+        </div>
+        <button class="load-more-btn" id="loadMoreBtn" aria-label="Load more designs">
+          Load More Designs
+          <i class="fas fa-arrow-down" aria-hidden="true"></i>
+        </button>
+        <p class="load-more-info" id="loadMoreInfo"></p>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="modal-backdrop" id="modalBackdrop" role="dialog" aria-modal="true" aria-label="Product details">
+    <div class="modal-panel" id="modalPanel">
+
+      <div class="modal-img-wrap">
+        <img src="" alt="" class="modal-img" id="modalImg" loading="lazy" />
+        <div class="modal-img-hint" aria-hidden="true">
+          <i class="fas fa-search-plus"></i> Click to zoom
+        </div>
+        <button class="modal-close" id="modalClose" aria-label="Close details">
+          <i class="fas fa-times" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-eyebrow">
+          <span class="modal-badge" id="modalBadge"></span>
+        </div>
+        <span class="modal-rule" aria-hidden="true"></span>
+        <h2 class="modal-title" id="modalTitle"></h2>
+        <span class="modal-separator" aria-hidden="true"></span>
+        <p class="modal-desc" id="modalDesc"></p>
+
+        <p class="modal-features-head">What's included</p>
+        <ul class="modal-features" id="modalFeatures"></ul>
+
+        <div class="modal-actions">
+          <a href="" class="modal-btn modal-btn--wa" id="modalWa"
+             target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            Inquire on WhatsApp
+          </a>
+          <button class="modal-btn modal-btn--share" id="modalShare" aria-label="Share product">
+            <i class="fas fa-share-alt" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-label="Image zoom">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close zoom">
+      <i class="fas fa-times" aria-hidden="true"></i>
+    </button>
+    <img src="" alt="" id="lightboxImg" />
+  </div>
+
+  <a href="https://wa.me/917976839230?text=Hello%20Stone%20Hub%20Traders%2C%20I%20would%20like%20to%20inquire%20about%20your%20Marble%20Table%20Tops."
+     class="whatsapp-float"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp" aria-hidden="true"></i>
+  </a>
+
+  <script>
+  (function () {
+    'use strict';
+
+    var PAGE_CONFIG = {
+      waNumber:    '917976839230',
+      waPageHint:  'Marble Table Tops',
+      pageSize:    9,
+      totalLabel:  '10'
+    };
+
+    var PRODUCTS = [
+      {
+        id: 'table-1',
+        title: 'Grand Bookmatched Dining Table',
+        badge: 'Premium Collection',
+        tags: ['premium', 'dining'],
+        isPremium: true,
+        image: 'marble-table/marbletable1.webp',
+        shortDesc: 'A bookmatched Makrana slab dining surface where mirrored veining runs unbroken across the full length of the table.',
+        fullDesc: 'The Grand Bookmatched Dining Table pairs two slabs cut from the same block, opened and mirrored so the veining reads as one continuous pattern across the entire surface. Set on a solid marble base, it seats eight to ten comfortably and anchors a dining room the way only a single, uninterrupted slab of stone can.',
+        features: ['Mirror bookmatched slab top', 'Solid marble pedestal base', 'Seats 8–10 comfortably', 'High-gloss polished finish', 'Custom length on request']
+      },
+      {
+        id: 'table-2',
+        title: 'Carved Pedestal Dining Table',
+        badge: 'Classic',
+        tags: ['dining'],
+        isPremium: false,
+        image: 'marble-table/marbletable2.webp',
+        shortDesc: 'Round dining table on a hand-carved marble pedestal, finished with traditional floral motifs around the base.',
+        fullDesc: 'The Carved Pedestal Dining Table brings classical proportion to the dining room. A circular Makrana marble top sits on a single carved pedestal base, detailed with traditional floral motifs that echo the same carving language used across our temple work. A grounded, formal centrepiece for family dining.',
+        features: ['Hand-carved pedestal base', 'Circular polished marble top', 'Traditional floral detailing', 'Seats 6 comfortably', 'Available in multiple diameters']
+      },
+      {
+        id: 'table-3',
+        title: 'Sculpted Base Console Table',
+        badge: 'Statement Piece',
+        tags: ['console', 'premium'],
+        isPremium: true,
+        image: 'marble-table/marbletable3.webp',
+        shortDesc: 'Narrow console table with a sculptural carved marble base, designed for entryways and hallway walls.',
+        fullDesc: 'The Sculpted Base Console Table is built for the narrow spaces that frame a home — entryways, hallways, behind a sofa. The base is carved as a single sculptural form rather than simple legs, so the table reads as a piece of furniture-art even before anything is placed on top.',
+        features: ['Sculptural single-form carved base', 'Slim profile for narrow spaces', 'Polished marble top', 'Suited to entryways and hallways', 'Custom width available']
+      },
+      {
+        id: 'table-4',
+        title: 'Brass Inlay Coffee Table',
+        badge: 'Artisan Detail',
+        tags: ['coffee', 'premium'],
+        isPremium: true,
+        image: 'marble-table/marbletable4.webp',
+        shortDesc: "Low marble coffee table with a fine brass inlay border tracing the edge of the polished top.",
+        fullDesc: "The Brass Inlay Coffee Table pairs the coolness of polished Makrana marble with a fine brass border inlaid along the table's edge. The metal line catches light without overwhelming the stone, giving an otherwise simple low table a quiet sense of craft and finish.",
+        features: ['Fine brass edge inlay', 'Polished marble top', 'Low-profile coffee table form', 'Solid marble or metal base options', 'Hand-finished brass detailing']
+      },
+      {
+        id: 'table-5',
+        title: 'Live-Edge Slab Dining Table',
+        badge: 'Natural Form',
+        tags: ['dining'],
+        isPremium: false,
+        image: 'marble-table/marbletable5.webp',
+        shortDesc: "A dining table that keeps the marble slab's natural irregular edge instead of cutting it square.",
+        fullDesc: "The Live-Edge Slab Dining Table leaves the stone's natural fracture line intact along one or both edges, rather than squaring it off. Every table is therefore genuinely one-of-one — no two slabs break the same way. For clients who want the marble's raw character left visible, not polished away.",
+        features: ['Natural uncut live edge', 'One-of-one slab character', 'Polished top, raw edge contrast', 'Solid marble or steel base', 'Each piece genuinely unique']
+      },
+      {
+        id: 'table-6',
+        title: 'Round Marble Coffee Table',
+        badge: 'Best Seller',
+        tags: ['coffee'],
+        isPremium: false,
+        image: 'marble-table/marbletable6.webp',
+        shortDesc: 'Simple round coffee table in polished Makrana marble, sized for everyday living room use.',
+        fullDesc: 'The Round Marble Coffee Table is the straightforward, everyday option in the collection — a clean circular top on a simple pedestal or tripod base, polished and ready for daily use. No carving, no inlay, just dependable marble craftsmanship at living-room scale.',
+        features: ['Clean circular polished top', 'Pedestal or tripod base options', 'Living-room scale sizing', 'Durable everyday-use finish', 'Multiple base finish options']
+      },
+      {
+        id: 'table-7',
+        title: 'Marble & Walnut Console Table',
+        badge: 'Hybrid Craft',
+        tags: ['console'],
+        isPremium: false,
+        image: 'marble-table/marbletable7.webp',
+        shortDesc: 'Marble top set onto a solid walnut frame, balancing warm wood against cool polished stone.',
+        fullDesc: 'The Marble & Walnut Console Table pairs a polished marble top with a solid walnut frame and legs, balancing the coolness of stone against the warmth of timber. It suits interiors that want marble\u2019s material quality without committing an entire piece of furniture to stone alone.',
+        features: ['Polished marble inset top', 'Solid walnut frame and legs', 'Warm wood and cool stone contrast', 'Lighter overall weight than full-marble pieces', 'Suited to hallways and living rooms']
+      },
+      {
+        id: 'table-8',
+        title: 'Onyx Backlit Side Table',
+        badge: 'Illuminated',
+        tags: ['coffee', 'premium'],
+        isPremium: true,
+        image: 'marble-table/marbletable8.webp',
+        shortDesc: 'Translucent onyx-marble side table designed to glow softly from an internal LED light source.',
+        fullDesc: 'The Onyx Backlit Side Table is cut from thin, light-translucent onyx marble and built around a concealed LED base, so the stone glows from within once lit. By day it sits as a richly veined side table; by evening it becomes a quiet light source in the room.',
+        features: ['Thin-cut translucent onyx top', 'Concealed internal LED lighting', 'Glows softly when lit', 'Compact side-table footprint', 'Battery or wired power options']
+      },
+      {
+        id: 'table-9',
+        title: 'Carved Pillar Dining Table',
+        badge: 'Heritage',
+        tags: ['dining', 'premium'],
+        isPremium: true,
+        image: 'marble-table/marbletable9.webp',
+        shortDesc: 'Dining table set on twin carved marble pillars, drawing on traditional temple architectural detailing.',
+        fullDesc: 'The Carved Pillar Dining Table borrows its base structure from temple architecture — two hand-carved marble pillars supporting a long polished top. It carries the weight and presence of architectural stonework into a dining setting, suited to formal dining rooms and larger homes.',
+        features: ['Twin hand-carved marble pillars', 'Temple-inspired architectural detailing', 'Long polished dining top', 'Seats 8 or more', 'Substantial structural presence']
+      },
+      {
+        id: 'table-10',
+        title: 'Minimalist Oval Console',
+        badge: 'Contemporary',
+        tags: ['console'],
+        isPremium: false,
+        image: 'marble-table/marbletable10.webp',
+        shortDesc: 'Clean oval console table in honed marble, kept deliberately free of carving or ornament.',
+        fullDesc: "The Minimalist Oval Console strips the form back to an oval honed top on slim straight legs, with no carving or applied detail. It's built for contemporary interiors where the marble's natural surface is the only decoration the piece needs.",
+        features: ['Oval honed marble top', 'Slim straight-leg base', 'No carving or applied ornament', 'Suited to contemporary interiors', 'Compact entryway-friendly footprint']
+      }
+    ];
+
+    var PAGE_SIZE   = PAGE_CONFIG.pageSize;
+    var WA_NUMBER   = PAGE_CONFIG.waNumber;
+    var currentPage = 0;
+    var currentFilter = 'all';
+    var filteredProducts = [];
+
+    function waURL(title) {
+      return 'https://wa.me/' + WA_NUMBER
+        + '?text=' + encodeURIComponent(
+            "Hello Stone Hub Traders, I'm interested in the "
+            + title + ' from your ' + PAGE_CONFIG.waPageHint
+            + ' collection. Please share details and pricing.'
+          );
+    }
+
+    function esc(str) {
+      var d = document.createElement('div');
+      d.appendChild(document.createTextNode(str));
+      return d.innerHTML;
+    }
+
+    function applyFilter(filter) {
+      currentFilter = filter;
+      currentPage   = 0;
+      filteredProducts = filter === 'all'
+        ? PRODUCTS
+        : PRODUCTS.filter(function (p) { return p.tags.indexOf(filter) !== -1; });
+      document.getElementById('productsGrid').innerHTML = '';
+      renderPage();
+    }
+
+    function renderPage() {
+      var grid  = document.getElementById('productsGrid');
+      var start = currentPage * PAGE_SIZE;
+      var end   = Math.min(start + PAGE_SIZE, filteredProducts.length);
+      var slice = filteredProducts.slice(start, end);
+      var frag  = document.createDocumentFragment();
+
+      slice.forEach(function (product, idx) {
+        var card = document.createElement('article');
+        card.className = 'product-card fade-up';
+        card.setAttribute('role', 'listitem');
+        card.setAttribute('tabindex', '0');
+        card.style.transitionDelay = (idx % PAGE_SIZE * 0.055) + 's';
+
+        card.innerHTML =
+          '<div class="card-img-wrap">' +
+            '<img class="card-img" src="' + esc(product.image) + '"' +
+              ' alt="' + esc(product.title) + '"' +
+              ' loading="lazy" decoding="async" />' +
+            (product.badge
+              ? '<span class="card-badge">' + esc(product.badge) + '</span>'
+              : '') +
+            (product.isPremium
+              ? '<span class="card-badge-star" aria-label="Premium">' +
+                  '<i class="fas fa-star" aria-hidden="true"></i>' +
+                '</span>'
+              : '') +
+          '</div>' +
+          '<div class="card-body">' +
+            '<span class="card-rule" aria-hidden="true"></span>' +
+            '<h3 class="card-name">' + esc(product.title) + '</h3>' +
+            '<p class="card-desc">' + esc(product.shortDesc) + '</p>' +
+            '<div class="card-actions">' +
+              '<a href="' + waURL(product.title) + '"' +
+                ' class="card-btn card-btn--wa"' +
+                ' target="_blank" rel="noopener noreferrer"' +
+                ' onclick="event.stopPropagation()"' +
+                ' aria-label="WhatsApp inquiry for ' + esc(product.title) + '">' +
+                '<i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp' +
+              '</a>' +
+              '<button class="card-btn card-btn--view"' +
+                ' aria-label="View details for ' + esc(product.title) + '">' +
+                '<i class="fas fa-eye" aria-hidden="true"></i> Details' +
+              '</button>' +
+            '</div>' +
+          '</div>';
+
+        card.addEventListener('click', function (e) {
+          if (e.target.closest('.card-btn--wa')) return;
+          openModal(product.id);
+        });
+        card.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(product.id); }
+        });
+        card.addEventListener('mouseenter', function () {
+          var img = card.querySelector('.card-img');
+          if (img) img.style.willChange = 'transform';
+        });
+        card.addEventListener('mouseleave', function () {
+          var img = card.querySelector('.card-img');
+          if (img) img.style.willChange = '';
+        });
+
+        frag.appendChild(card);
+      });
+
+      grid.appendChild(frag);
+      currentPage++;
+
+      var shown = Math.min(currentPage * PAGE_SIZE, filteredProducts.length);
+      document.getElementById('showingCount').textContent = shown;
+      document.getElementById('progressBar').style.width =
+        (shown / filteredProducts.length * 100) + '%';
+
+      updateLoadMore();
+      scheduleReveal();
+    }
+
+    function updateLoadMore() {
+      var shown   = Math.min(currentPage * PAGE_SIZE, filteredProducts.length);
+      var total   = filteredProducts.length;
+      var btn     = document.getElementById('loadMoreBtn');
+      var info    = document.getElementById('loadMoreInfo');
+
+      if (shown >= total) {
+        btn.disabled = true;
+        btn.textContent = 'All Designs Shown';
+        info.textContent = total + ' of ' + total + ' designs';
+      } else {
+        var rem = total - shown;
+        btn.disabled = false;
+        btn.innerHTML =
+          'Load More Designs <i class="fas fa-arrow-down" aria-hidden="true"></i>';
+        info.textContent = rem + ' more design' + (rem !== 1 ? 's' : '') + ' remaining';
+      }
+    }
+
+    var revealIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          revealIO.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+    function scheduleReveal() {
+      requestAnimationFrame(function () {
+        document.querySelectorAll('.fade-up:not(.visible)').forEach(function (el) {
+          revealIO.observe(el);
+        });
+      });
+    }
+
+    var _activeId = null;
+
+    function openModal(id) {
+      var product = PRODUCTS.find(function (p) { return p.id === id; });
+      if (!product) return;
+      _activeId = id;
+
+      document.getElementById('modalImg').src       = product.image;
+      document.getElementById('modalImg').alt       = product.title;
+      document.getElementById('modalBadge').textContent = product.badge;
+      document.getElementById('modalTitle').textContent = product.title;
+      document.getElementById('modalDesc').textContent  = product.fullDesc;
+      document.getElementById('modalWa').href           = waURL(product.title);
+
+      document.getElementById('modalFeatures').innerHTML =
+        product.features.map(function (f) {
+          return '<li>' + esc(f) + '</li>';
+        }).join('');
+
+      document.getElementById('modalBackdrop').classList.add('open');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('modalClose').focus();
+    }
+
+    function closeModal() {
+      document.getElementById('modalBackdrop').classList.remove('open');
+      document.body.style.overflow = '';
+      _activeId = null;
+    }
+
+    function openLightbox(src, alt) {
+      document.getElementById('lightboxImg').src = src;
+      document.getElementById('lightboxImg').alt = alt || '';
+      document.getElementById('lightbox').classList.add('open');
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+    }
+
+    function shareProduct() {
+      if (!_activeId) return;
+      var p = PRODUCTS.find(function (x) { return x.id === _activeId; });
+      if (!p) return;
+      if (navigator.share) {
+        navigator.share({ title: p.title + ' — Stone Hub Traders', text: p.shortDesc, url: window.location.href }).catch(function(){});
+      } else if (navigator.clipboard) {
+        navigator.clipboard.writeText(window.location.href);
+        var btn = document.getElementById('modalShare');
+        var prev = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-check" aria-hidden="true"></i>';
+        setTimeout(function () { btn.innerHTML = prev; }, 1500);
+      }
+    }
+
+    document.querySelectorAll('.filter-pill').forEach(function (pill) {
+      pill.addEventListener('click', function () {
+        document.querySelectorAll('.filter-pill').forEach(function (p) { p.classList.remove('active'); });
+        pill.classList.add('active');
+        applyFilter(pill.dataset.filter);
+      });
+    });
+
+    document.getElementById('loadMoreBtn').addEventListener('click', renderPage);
+    document.getElementById('modalClose').addEventListener('click', closeModal);
+    document.getElementById('modalBackdrop').addEventListener('click', function (e) {
+      if (e.target === this) closeModal();
+    });
+    document.getElementById('modalImg').addEventListener('click', function () {
+      openLightbox(this.src, this.alt);
+    });
+    document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+    document.getElementById('lightbox').addEventListener('click', function (e) {
+      if (e.target === this) closeLightbox();
+    });
+    document.getElementById('modalShare').addEventListener('click', shareProduct);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') { closeLightbox(); closeModal(); }
+    });
+
+    applyFilter('all');
+
+    console.log('%c STONE HUB TRADERS %c Marble Table Tops — ' + PRODUCTS.length + ' designs',
+      'background:#A89070;color:#fff;padding:2px 8px;font-weight:700', 'color:#A89070');
+
+  })();
+  </script>
+
+</body>
+</html>
