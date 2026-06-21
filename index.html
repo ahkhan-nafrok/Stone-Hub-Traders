@@ -529,7 +529,7 @@
   <!-- ============================================================
        WHATSAPP FLOAT
   ============================================================ -->
-  <a href="https://wa.me/91739999995?text=Hello%20Stone%20Hub%20Traders%2C%20I%20would%20like%20to%20inquire%20about%20your%20marble%20and%20granite%20products."
+  <a href="https://wa.me/917976839230?text=Hello%20Stone%20Hub%20Traders%2C%20I%20would%20like%20to%20inquire%20about%20your%20marble%20and%20granite%20products."
     class="whatsapp-float"
     target="_blank"
     rel="noopener noreferrer"
@@ -542,164 +542,184 @@
        SCRIPTS
   ============================================================ -->
   <script>
-    // ──────────────────────────────────────────────
-    // PERFORMANCE METRICS
-    // ──────────────────────────────────────────────
-    const _perf = {
-      t0: performance.now(),
-      fontsReady: false,
-      loaded: 0
-    };
+  // ──────────────────────────────────────────────
+  // PERFORMANCE METRICS
+  // ──────────────────────────────────────────────
+  const _perf = {
+    t0: performance.now(),
+    fontsReady: false,
+    loaded: 0
+  };
 
-    document.fonts.ready.then(() => {
-      _perf.fontsReady = true;
-    });
+  document.fonts.ready.then(() => {
+    _perf.fontsReady = true;
+  });
 
-    // ──────────────────────────────────────────────
-    // INIT — minimum 1.4s to let loader ident finish
-    // ──────────────────────────────────────────────
-    document.addEventListener('DOMContentLoaded', () => {
-      const MIN_SHOW = 1400;
-      const elapsed  = performance.now() - _perf.t0;
-      const wait     = Math.max(0, MIN_SHOW - elapsed);
+  // ──────────────────────────────────────────────
+  // SCROLL RESTORATION
+  // Prevent browser restoring scroll before async
+  // components inflate the page height
+  // ──────────────────────────────────────────────
+  history.scrollRestoration = 'manual';
 
-      setTimeout(() => {
-        document.body.classList.add('loaded');
-        loadComponents();
-      }, wait);
-    });
+  window.addEventListener('pagehide', function () {
+    sessionStorage.setItem('sht_scroll_y', window.scrollY);
+  });
 
-    // ──────────────────────────────────────────────
-    // COMPONENT LOADER
-    // ──────────────────────────────────────────────
-    const COMPONENTS = [
-      { name: 'navbar',     target: 'navbarComponent'     },
-      { name: 'hero',       target: 'heroComponent'       },
-      { name: 'about',      target: 'aboutComponent'      },
-      { name: 'categories', target: 'categoriesComponent' },
-      { name: 'gallery',    target: 'galleryComponent'    },
-      { name: 'contact',    target: 'contactComponent'    },
-      { name: 'footer',     target: 'footerComponent'     }
-    ];
+  // ──────────────────────────────────────────────
+  // INIT — minimum 1.4s to let loader ident finish
+  // ──────────────────────────────────────────────
+  document.addEventListener('DOMContentLoaded', () => {
+    const MIN_SHOW = 1400;
+    const elapsed  = performance.now() - _perf.t0;
+    const wait     = Math.max(0, MIN_SHOW - elapsed);
 
-    async function loadComponents() {
-      for (const comp of COMPONENTS) {
-        await loadComponent(comp.name, comp.target);
-        _perf.loaded++;
-      }
-      initGlobal();
+    setTimeout(() => {
+      document.body.classList.add('loaded');
+      loadComponents();
+    }, wait);
+  });
+
+  // ──────────────────────────────────────────────
+  // COMPONENT LOADER
+  // ──────────────────────────────────────────────
+  const COMPONENTS = [
+    { name: 'navbar',     target: 'navbarComponent'     },
+    { name: 'hero',       target: 'heroComponent'       },
+    { name: 'about',      target: 'aboutComponent'      },
+    { name: 'categories', target: 'categoriesComponent' },
+    { name: 'gallery',    target: 'galleryComponent'    },
+    { name: 'contact',    target: 'contactComponent'    },
+    { name: 'footer',     target: 'footerComponent'     }
+  ];
+
+  async function loadComponents() {
+    for (const comp of COMPONENTS) {
+      await loadComponent(comp.name, comp.target);
+      _perf.loaded++;
     }
 
-    async function loadComponent(name, targetId) {
-      try {
-        const t0 = performance.now();
-
-        const resp    = await fetch(`${name}.html`);
-        const html    = await resp.text();
-        const temp    = document.createElement('div');
-        temp.innerHTML = html;
-
-        const target  = document.getElementById(targetId);
-        if (!target) { console.warn(`⚠ #${targetId} not found`); return; }
-
-        // Inject component styles into <head>
-        temp.querySelectorAll('style').forEach(s => {
-          const el = document.createElement('style');
-          el.setAttribute('data-component', name);
-          el.innerHTML = s.innerHTML;
-          document.head.appendChild(el);
-          s.remove();
-        });
-
-        // Collect scripts before inserting HTML
-        const scripts = [];
-        temp.querySelectorAll('script').forEach(s => {
-          scripts.push(s.innerHTML);
-          s.remove();
-        });
-
-        // Remove redundant font links
-        temp.querySelectorAll('link[href*="fonts.googleapis.com"]').forEach(l => l.remove());
-
-        // Insert HTML
-        target.innerHTML = temp.innerHTML;
-
-        // Let DOM settle, then run scripts
-        await new Promise(r => setTimeout(r, 80));
-        scripts.forEach(code => {
-          if (!code.trim()) return;
-          const el = document.createElement('script');
-          el.setAttribute('data-component', name);
-          el.innerHTML = code;
-          document.body.appendChild(el);
-          setTimeout(() => el.parentNode?.removeChild(el), 500);
-        });
-
-        console.log(`✔ ${name} — ${Math.round(performance.now() - t0)}ms`);
-
-      } catch (err) {
-        console.error(`✖ ${name}:`, err);
-      }
+    // Restore scroll AFTER all components have rendered
+    // and the page has reached its full height
+    const savedY = sessionStorage.getItem('sht_scroll_y');
+    if (savedY !== null) {
+      window.scrollTo(0, parseInt(savedY, 10));
+      sessionStorage.removeItem('sht_scroll_y');
     }
 
-    // ──────────────────────────────────────────────
-    // GLOBAL INTERACTIONS
-    // ──────────────────────────────────────────────
-    function initGlobal() {
-      // Smooth-scroll internal anchors with nav offset
-      document.querySelectorAll('a[href^="#"]').forEach(a => {
-        a.addEventListener('click', e => {
-          const href = a.getAttribute('href');
-          if (href === '#') return;
-          e.preventDefault();
-          const el = document.getElementById(href.slice(1));
-          if (el) window.scrollTo({ top: el.offsetTop - 90, behavior: 'smooth' });
-        });
+    initGlobal();
+  }
+
+  async function loadComponent(name, targetId) {
+    try {
+      const t0 = performance.now();
+
+      const resp     = await fetch(`${name}.html`);
+      const html     = await resp.text();
+      const temp     = document.createElement('div');
+      temp.innerHTML = html;
+
+      const target = document.getElementById(targetId);
+      if (!target) { console.warn(`⚠ #${targetId} not found`); return; }
+
+      // Inject component styles into <head>
+      temp.querySelectorAll('style').forEach(s => {
+        const el = document.createElement('style');
+        el.setAttribute('data-component', name);
+        el.innerHTML = s.innerHTML;
+        document.head.appendChild(el);
+        s.remove();
       });
 
-      // Native lazy-load fallback via IntersectionObserver
-      if ('IntersectionObserver' in window) {
-        const io = new IntersectionObserver(entries => {
-          entries.forEach(({ isIntersecting, target }) => {
-            if (isIntersecting && target.dataset.src) {
-              target.src = target.dataset.src;
-              target.removeAttribute('data-src');
-              io.unobserve(target);
-            }
-          });
-        }, { rootMargin: '200px' });
+      // Collect scripts before inserting HTML
+      const scripts = [];
+      temp.querySelectorAll('script').forEach(s => {
+        scripts.push(s.innerHTML);
+        s.remove();
+      });
 
-        document.querySelectorAll('img[data-src]').forEach(img => io.observe(img));
-      }
+      // Remove redundant font links
+      temp.querySelectorAll('link[href*="fonts.googleapis.com"]').forEach(l => l.remove());
+
+      // Insert HTML
+      target.innerHTML = temp.innerHTML;
+
+      // Let DOM settle, then run scripts
+      await new Promise(r => setTimeout(r, 80));
+      scripts.forEach(code => {
+        if (!code.trim()) return;
+        const el = document.createElement('script');
+        el.setAttribute('data-component', name);
+        el.innerHTML = code;
+        document.body.appendChild(el);
+        setTimeout(() => el.parentNode?.removeChild(el), 500);
+      });
+
+      console.log(`✔ ${name} — ${Math.round(performance.now() - t0)}ms`);
+
+    } catch (err) {
+      console.error(`✖ ${name}:`, err);
     }
+  }
 
-    // Cross-component messaging (scroll requests from child components)
-    window.addEventListener('message', ({ data }) => {
-      if (data?.type === 'scrollToSection') {
-        const el = document.getElementById(data.sectionId);
+  // ──────────────────────────────────────────────
+  // GLOBAL INTERACTIONS
+  // ──────────────────────────────────────────────
+  function initGlobal() {
+    // Smooth-scroll internal anchors with nav offset
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const href = a.getAttribute('href');
+        if (href === '#') return;
+        e.preventDefault();
+        const el = document.getElementById(href.slice(1));
         if (el) window.scrollTo({ top: el.offsetTop - 90, behavior: 'smooth' });
-      }
+      });
     });
 
-    // Error boundaries
-    window.addEventListener('error',              e => console.error('✖ Global:', e.error));
-    window.addEventListener('unhandledrejection', e => console.error('✖ Promise:', e.reason));
+    // Native lazy-load fallback via IntersectionObserver
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(({ isIntersecting, target }) => {
+          if (isIntersecting && target.dataset.src) {
+            target.src = target.dataset.src;
+            target.removeAttribute('data-src');
+            io.unobserve(target);
+          }
+        });
+      }, { rootMargin: '200px' });
 
-    // Final performance report
-    window.addEventListener('load', () => {
-      const ms  = Math.round(performance.now() - _perf.t0);
-      const nav = performance.timing;
-      console.log(
-        `%c STONE HUB TRADERS %c\n` +
-        `Load   ${ms}ms\n` +
-        `DOM    ${nav.domInteractive - nav.navigationStart}ms\n` +
-        `Fonts  ${_perf.fontsReady ? 'Ready' : 'Pending'}\n` +
-        `Parts  ${_perf.loaded}/8`,
-        'background:#A89070;color:#fff;padding:2px 8px;font-weight:700',
-        'color:#A89070'
-      );
-    });
-  </script>
+      document.querySelectorAll('img[data-src]').forEach(img => io.observe(img));
+    }
+  }
+
+  // Cross-component messaging (scroll requests from child components)
+  window.addEventListener('message', ({ data }) => {
+    if (data?.type === 'scrollToSection') {
+      const el = document.getElementById(data.sectionId);
+      if (el) window.scrollTo({ top: el.offsetTop - 90, behavior: 'smooth' });
+    }
+  });
+
+  // Error boundaries
+  window.addEventListener('error',              e => console.error('✖ Global:', e.error));
+  window.addEventListener('unhandledrejection', e => console.error('✖ Promise:', e.reason));
+
+  // Final performance report
+  window.addEventListener('load', () => {
+    const ms  = Math.round(performance.now() - _perf.t0);
+    const nav = performance.timing;
+    console.log(
+      `%c STONE HUB TRADERS %c\n` +
+      `Load   ${ms}ms\n` +
+      `DOM    ${nav.domInteractive - nav.navigationStart}ms\n` +
+      `Fonts  ${_perf.fontsReady ? 'Ready' : 'Pending'}\n` +
+      `Parts  ${_perf.loaded}/8`,
+      'background:#A89070;color:#fff;padding:2px 8px;font-weight:700',
+      'color:#A89070'
+    );
+  });
+</script>
 
 </body>
 </html>
