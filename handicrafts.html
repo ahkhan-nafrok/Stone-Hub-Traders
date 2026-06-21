@@ -1,1388 +1,617 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Handicrafts Collection - MSP Stone International</title>
-    
-    <!-- Optimized Font Loading -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"></noscript>
-    
-    <!-- Preconnect for FontAwesome -->
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"></noscript>
-    <style>
-        :root {
-            --dim-gold: #C9A961;
-            --pure-black: #000000;
-            --pure-white: #FFFFFF;
-            --off-white: #F5F5F5;
-            --text-dark: #0A0A0A;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="description" content="Stone Hub Traders — Urli & Handicrafts Collection. Decorative bowls, inlay pieces, and artisan objects in premium Makrana marble." />
 
-        html {
-            scroll-behavior: smooth;
-        }
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
 
-        body {
-            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: var(--off-white);
-            color: var(--text-dark);
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" /></noscript>
 
-        /* HEADER SECTION */
-        .page-header {
-            background: var(--pure-black);
-            padding: 0;
-            border-bottom: 3px solid var(--dim-gold);
-            position: relative;
-        }
+  <link rel="stylesheet" href="product.css" />
 
-        .container {
-            max-width: 1600px;
-            margin: 0 auto;
-            padding: 0 3rem;
-            position: relative;
-        }
-
-        /* BACK BUTTON */
-        .back-btn {
-            background: var(--dim-gold);
-            color: var(--pure-black);
-            padding: 1rem 2rem;
-            font-size: 0.8rem;
-            font-weight: 800;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: inherit;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            margin: 2rem 0 0 0;
-            transform: translateZ(0);
-        }
-
-        .back-btn:hover {
-            background: var(--pure-white);
-            transform: translateX(-5px);
-        }
-
-        .header-content {
-            text-align: center;
-            padding: 3rem 0 3rem;
-        }
-
-        .header-subtitle {
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            color: var(--dim-gold);
-            margin-bottom: 1rem;
-        }
-
-        .header-title {
-            font-size: 4.5rem;
-            font-weight: 900;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: var(--pure-white);
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-        }
-
-        .header-description {
-            font-size: 1.1rem;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            color: rgba(255, 255, 255, 0.8);
-            max-width: 800px;
-            margin: 0 auto;
-            line-height: 1.7;
-        }
-
-        /* PRODUCTS SECTION */
-        .products-section {
-            padding: 5rem 0;
-            background: var(--pure-white);
-            contain: layout style paint;
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        /* PRODUCT CARD */
-        .product-card {
-            background: var(--pure-black);
-            border: 3px solid var(--pure-black);
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-            position: relative;
-            cursor: pointer;
-            transform: translateZ(0);
-            backface-visibility: hidden;
-            perspective: 1000px;
-            contain: layout style paint;
-        }
-
-        .product-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--dim-gold);
-            z-index: 2;
-        }
-
-        .product-card:hover {
-            transform: translateY(-8px) translateZ(0);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-            border-color: var(--dim-gold);
-        }
-
-        .product-card * {
-            pointer-events: none;
-        }
-
-        .product-card .btn-whatsapp {
-            pointer-events: auto;
-        }
-
-        /* IMAGE CONTAINER */
-        .product-image {
-            position: relative;
-            width: 100%;
-            height: 400px;
-            overflow: hidden;
-            background: var(--pure-black);
-            transform: translateZ(0);
-        }
-
-        .product-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: brightness(0.85);
-            transition: transform 0.4s ease, filter 0.4s ease;
-            transform: translateZ(0);
-            backface-visibility: hidden;
-        }
-
-        .product-card:hover .product-image img {
-            filter: brightness(1);
-            transform: scale(1.05) translateZ(0);
-        }
-
-        .premium-badge {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: var(--dim-gold);
-            color: var(--pure-black);
-            padding: 0.5rem 1rem;
-            font-size: 0.65rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            z-index: 3;
-            box-shadow: 0 4px 15px rgba(201, 169, 97, 0.5);
-            transform: translateZ(0);
-        }
-
-        /* PRODUCT INFO */
-        .product-info {
-            padding: 2.5rem 2rem 2rem;
-            background: var(--pure-black);
-        }
-
-        .product-title {
-            font-size: 1.8rem;
-            font-weight: 900;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            color: var(--dim-gold);
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        .product-description {
-            font-size: 0.95rem;
-            font-weight: 500;
-            letter-spacing: 0.3px;
-            color: rgba(255, 255, 255, 0.85);
-            line-height: 1.7;
-            margin-bottom: 2rem;
-        }
-
-        /* BUTTONS */
-        .product-buttons {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .btn {
-            flex: 1;
-            padding: 1.1rem 1.5rem;
-            font-size: 0.8rem;
-            font-weight: 800;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            border: none;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            font-family: inherit;
-            position: relative;
-            overflow: hidden;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.8rem;
-            transform: translateZ(0);
-        }
-
-        .btn-whatsapp {
-            background: #25D366;
-            color: var(--pure-white);
-        }
-
-        .btn-whatsapp::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #128C7E;
-            transform: translateX(-100%);
-            transition: transform 0.3s ease;
-            z-index: -1;
-        }
-
-        .btn-whatsapp:hover::before {
-            transform: translateX(0);
-        }
-
-        .btn-whatsapp:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
-        }
-
-        .btn-view {
-            background: var(--pure-white);
-            color: var(--pure-black);
-            pointer-events: auto;
-        }
-
-        .btn-view::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--dim-gold);
-            transform: translateX(-100%);
-            transition: transform 0.3s ease;
-            z-index: -1;
-        }
-
-        .btn-view:hover::before {
-            transform: translateX(0);
-        }
-
-        .btn-view:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(201, 169, 97, 0.4);
-        }
-
-        /* MODAL */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.95);
-            z-index: 9999;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .modal.active {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 1;
-        }
-
-        .modal-content {
-            background: var(--pure-black);
-            max-width: 1200px;
-            width: 90%;
-            max-height: 90vh;
-            overflow-y: auto;
-            position: relative;
-            transform: scale(0.95) translateZ(0);
-            transition: transform 0.3s ease;
-            box-shadow: 0 30px 90px rgba(0, 0, 0, 0.9);
-            backface-visibility: hidden;
-            scrollbar-width: thin;
-            scrollbar-color: var(--dim-gold) var(--pure-black);
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .modal.active .modal-content {
-            transform: scale(1) translateZ(0);
-        }
-
-        /* IMAGE ZOOM MODAL */
-        .image-zoom-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.98);
-            z-index: 10000;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .image-zoom-modal.active {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 1;
-        }
-
-        .zoom-image-container {
-            position: relative;
-            max-width: 95%;
-            max-height: 95vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .zoom-image {
-            max-width: 100%;
-            max-height: 95vh;
-            object-fit: contain;
-            border: 2px solid var(--dim-gold);
-        }
-
-        .zoom-back-btn {
-            position: fixed;
-            top: 30px;
-            left: 30px;
-            background: var(--dim-gold);
-            color: var(--pure-black);
-            border: none;
-            padding: 1rem 2rem;
-            font-size: 0.85rem;
-            font-weight: 800;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            cursor: pointer;
-            font-family: inherit;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            z-index: 10001;
-        }
-
-        .zoom-back-btn:hover {
-            background: var(--pure-white);
-            transform: translateX(-5px);
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 50px;
-            height: 50px;
-            background: var(--dim-gold);
-            color: var(--pure-black);
-            border: none;
-            cursor: pointer;
-            font-size: 1.5rem;
-            z-index: 10;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-close:hover {
-            background: var(--pure-white);
-            transform: rotate(90deg);
-        }
-
-        .modal-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            min-height: 600px;
-        }
-
-        .modal-image {
-            width: 100%;
-            height: 100%;
-            min-height: 600px;
-            object-fit: cover;
-            cursor: pointer;
-            transition: filter 0.3s ease;
-            transform: translateZ(0);
-        }
-
-        .modal-image:hover {
-            filter: brightness(1.1);
-        }
-
-        .modal-info {
-            padding: 4rem 3rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .modal-badge {
-            display: inline-block;
-            background: var(--dim-gold);
-            color: var(--pure-black);
-            padding: 0.5rem 1.2rem;
-            font-size: 0.7rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 2rem;
-            width: fit-content;
-        }
-
-        .modal-title {
-            font-size: 3rem;
-            font-weight: 900;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--pure-white);
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-        }
-
-        .modal-description {
-            font-size: 1.05rem;
-            font-weight: 500;
-            letter-spacing: 0.3px;
-            color: rgba(255, 255, 255, 0.85);
-            line-height: 1.8;
-            margin-bottom: 2rem;
-        }
-
-        .modal-features {
-            list-style: none;
-            margin-bottom: 3rem;
-        }
-
-        .modal-features li {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: rgba(255, 255, 255, 0.9);
-            padding: 0.8rem 0;
-            border-bottom: 1px solid rgba(201, 169, 97, 0.2);
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .modal-features li i {
-            color: var(--dim-gold);
-            font-size: 0.8rem;
-        }
-
-        .modal-whatsapp {
-            background: #25D366;
-            color: var(--pure-white);
-            padding: 1.3rem 2.5rem;
-            font-size: 0.9rem;
-            font-weight: 800;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: inherit;
-            display: inline-flex;
-            align-items: center;
-            gap: 1rem;
-            text-decoration: none;
-            justify-content: center;
-            transform: translateZ(0);
-        }
-
-        .modal-whatsapp:hover {
-            background: #128C7E;
-            transform: translateY(-3px) translateZ(0);
-            box-shadow: 0 12px 30px rgba(37, 211, 102, 0.4);
-        }
-
-        /* SCROLLBAR */
-        .modal-content::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        .modal-content::-webkit-scrollbar-track {
-            background: var(--pure-black);
-        }
-
-        .modal-content::-webkit-scrollbar-thumb {
-            background: var(--dim-gold);
-            border-radius: 5px;
-        }
-
-        .modal-content::-webkit-scrollbar-thumb:hover {
-            background: var(--pure-white);
-        }
-
-        /* RESPONSIVE */
-        
-        @media (min-width: 2560px) {
-            .container {
-                max-width: 2200px;
-                padding: 0 5rem;
-            }
-
-            .header-title {
-                font-size: 4.5rem;
-            }
-
-            .products-grid {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 3rem;
-                max-width: 2000px;
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .product-image {
-                height: 400px;
-            }
-
-            .product-card {
-                max-width: 500px;
-            }
-        }
-
-        @media (min-width: 1921px) and (max-width: 2559px) {
-            .container {
-                max-width: 1800px;
-                padding: 0 4rem;
-            }
-
-            .header-title {
-                font-size: 4.2rem;
-            }
-
-            .products-grid {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 2.5rem;
-            }
-
-            .product-image {
-                height: 380px;
-            }
-        }
-
-        @media (max-width: 1200px) {
-            .header-title {
-                font-size: 3.8rem;
-            }
-
-            .products-grid {
-                gap: 2.5rem;
-            }
-        }
-
-        @media (max-width: 991px) {
-            .container {
-                padding: 0 2rem;
-            }
-
-            .back-btn {
-                padding: 0.9rem 1.8rem;
-                font-size: 0.75rem;
-                margin: 1.5rem 0 0 0;
-            }
-
-            .header-title {
-                font-size: 3.2rem;
-            }
-
-            .products-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 2rem;
-            }
-
-            .modal-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .modal-image {
-                min-height: 400px;
-            }
-
-            .modal-info {
-                padding: 3rem 2rem;
-            }
-
-            .modal-title {
-                font-size: 2.5rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .back-btn {
-                padding: 0.85rem 1.5rem;
-                font-size: 0.7rem;
-                letter-spacing: 1.5px;
-                margin: 1.5rem 0 0 0;
-            }
-
-            .header-content {
-                padding: 2.5rem 0 2rem;
-            }
-
-            .header-title {
-                font-size: 2.8rem;
-                letter-spacing: 2px;
-            }
-
-            .header-subtitle {
-                font-size: 0.7rem;
-                letter-spacing: 4px;
-            }
-
-            .header-description {
-                font-size: 1rem;
-            }
-
-            .products-section {
-                padding: 3rem 0;
-            }
-
-            .products-grid {
-                grid-template-columns: 1fr;
-                gap: 2.5rem;
-                margin-top: 2rem;
-            }
-
-            .product-image {
-                height: 380px;
-            }
-
-            .product-info {
-                padding: 2rem 1.8rem;
-            }
-
-            .product-title {
-                font-size: 1.6rem;
-            }
-
-            .product-description {
-                font-size: 0.92rem;
-                line-height: 1.65;
-            }
-
-            .product-buttons {
-                gap: 0.8rem;
-            }
-
-            .btn {
-                padding: 1rem 1.3rem;
-                font-size: 0.75rem;
-                letter-spacing: 1.5px;
-            }
-
-            .modal-content {
-                width: 95%;
-            }
-
-            .modal-close {
-                width: 45px;
-                height: 45px;
-                top: 15px;
-                right: 15px;
-                font-size: 1.3rem;
-            }
-
-            .modal-image {
-                min-height: 300px;
-            }
-
-            .modal-info {
-                padding: 2.5rem 1.5rem;
-            }
-
-            .modal-title {
-                font-size: 2rem;
-            }
-
-            .modal-description {
-                font-size: 0.95rem;
-            }
-
-            .modal-features li {
-                font-size: 0.9rem;
-                padding: 0.7rem 0;
-            }
-
-            .modal-whatsapp {
-                padding: 1.1rem 2rem;
-                font-size: 0.8rem;
-            }
-
-            .zoom-back-btn {
-                top: 20px;
-                left: 20px;
-                padding: 0.9rem 1.8rem;
-                font-size: 0.75rem;
-            }
-
-            .zoom-image {
-                max-height: 85vh;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .container {
-                padding: 0 1.5rem;
-            }
-
-            .back-btn {
-                padding: 0.8rem 1.3rem;
-                font-size: 0.65rem;
-                letter-spacing: 1px;
-                gap: 0.5rem;
-                margin: 1rem 0 0 0;
-            }
-
-            .header-content {
-                padding: 2rem 0 1.5rem;
-            }
-
-            .header-title {
-                font-size: 2rem;
-                letter-spacing: 1px;
-            }
-
-            .header-description {
-                font-size: 0.9rem;
-                line-height: 1.6;
-            }
-
-            .products-grid {
-                gap: 2rem;
-            }
-
-            .product-image {
-                height: 320px;
-            }
-
-            .product-card {
-                border-width: 2px;
-            }
-
-            .product-info {
-                padding: 1.8rem 1.5rem;
-            }
-
-            .product-title {
-                font-size: 1.4rem;
-                letter-spacing: 0.5px;
-            }
-
-            .product-description {
-                font-size: 0.88rem;
-                line-height: 1.6;
-                margin-bottom: 1.5rem;
-            }
-
-            .product-buttons {
-                flex-direction: column;
-                gap: 0.7rem;
-            }
-
-            .btn {
-                padding: 0.95rem 1.2rem;
-                font-size: 0.72rem;
-                letter-spacing: 1.2px;
-            }
-
-            .premium-badge {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.6rem;
-                top: 15px;
-                right: 15px;
-            }
-
-            .modal-title {
-                font-size: 1.7rem;
-            }
-
-            .zoom-back-btn {
-                top: 15px;
-                left: 15px;
-                padding: 0.8rem 1.5rem;
-                font-size: 0.7rem;
-                letter-spacing: 1.5px;
-            }
-
-            .zoom-image {
-                border-width: 1px;
-            }
-        }
-    </style>
+  <title>Urli &amp; Handicrafts — Stone Hub Traders | Premium Makrana Marble</title>
 </head>
+
 <body>
-    <!-- HEADER -->
-    <header class="page-header">
-        <div class="container">
-            <a href="index.html" class="back-btn">
-                <i class="fas fa-arrow-left"></i>
-                Back to Home
-            </a>
-            <div class="header-content">
-                <p class="header-subtitle">Artisan Creations</p>
-                <h1 class="header-title">Handicrafts Collection</h1>
-                <p class="header-description">
-                    Explore our curated collection of exquisite marble handicrafts, where traditional artistry meets functional beauty. Each piece is handcrafted by skilled artisans, showcasing intricate details and timeless designs.
-                </p>
-            </div>
-        </div>
-    </header>
 
-    <!-- PRODUCTS (Dynamically Generated) -->
-    <section class="products-section">
-        <div class="container">
-            <div class="products-grid" id="productsGrid">
-                <!-- Products will be dynamically inserted here -->
-            </div>
-        </div>
-    </section>
-
-    <!-- MODAL -->
-    <div class="modal" id="productModal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModal()">
-                <i class="fas fa-times"></i>
-            </button>
-            <div class="modal-grid">
-                <img src="" alt="Product" class="modal-image" id="modalImage" onclick="openImageZoom()" loading="lazy">
-                <div class="modal-info">
-                    <span class="modal-badge" id="modalBadge">Premium Collection</span>
-                    <h2 class="modal-title" id="modalTitle">Product Name</h2>
-                    <p class="modal-description" id="modalDescription">
-                        Product description goes here...
-                    </p>
-                    <ul class="modal-features" id="modalFeatures">
-                        <!-- Features will be inserted here -->
-                    </ul>
-                    <a href="" class="modal-whatsapp" id="modalWhatsapp" target="_blank" rel="noopener">
-                        <i class="fab fa-whatsapp"></i>
-                        Inquire on WhatsApp
-                    </a>
-                </div>
-            </div>
-        </div>
+  <nav class="pg-nav" role="navigation" aria-label="Page navigation">
+    <div class="pg-nav-inner">
+      <a href="index.html" class="pg-nav-back" aria-label="Back to home">
+        <i class="fas fa-arrow-left pg-nav-back-icon" aria-hidden="true"></i>
+        <span>Back to Home</span>
+      </a>
+      <a href="index.html" class="pg-nav-logo" aria-label="Stone Hub Traders home">
+        <span class="pg-nav-logo-name">Stone Hub Traders</span>
+        <span class="pg-nav-logo-sub">Premium Marble &amp; Granite</span>
+      </a>
     </div>
+  </nav>
 
-    <!-- IMAGE ZOOM MODAL -->
-    <div class="image-zoom-modal" id="imageZoomModal">
-        <button class="zoom-back-btn" onclick="closeImageZoom()">
-            <i class="fas fa-arrow-left"></i>
-            Back
+  <header class="pg-hero">
+    <div class="pg-hero-inner">
+      <div>
+        <div class="pg-hero-eyebrow" aria-hidden="true">
+          <span class="pg-hero-eyebrow-label">Decorative Objects &nbsp;·&nbsp; Functional Pieces &nbsp;·&nbsp; Makrana Marble</span>
+        </div>
+
+        <h1 class="pg-hero-title">
+          Urli &amp;<br><em>Handicrafts</em>
+        </h1>
+
+        <p class="pg-hero-tagline">
+          Decorative urli bowls, gift pieces and artisan objects —
+          the quiet craft of Makrana artisans.
+        </p>
+      </div>
+
+      <div class="pg-hero-ghost" aria-hidden="true">
+        <span class="pg-hero-ghost-num">20</span>
+        <span class="pg-hero-ghost-label">Designs</span>
+      </div>
+    </div>
+    <div class="pg-hero-rule" aria-hidden="true"></div>
+  </header>
+
+  <section class="products-section" id="products" aria-label="Urli and handicrafts collection">
+    <div class="products-container">
+
+      <div class="products-meta">
+        <p class="products-count">
+          Showing <strong id="showingCount">0</strong> of <strong>20</strong> designs
+        </p>
+        <div class="products-filter" role="group" aria-label="Filter by type">
+          <button class="filter-pill active" data-filter="all">All</button>
+          <button class="filter-pill" data-filter="premium">Premium</button>
+          <button class="filter-pill" data-filter="decorative">Decorative</button>
+          <button class="filter-pill" data-filter="functional">Functional</button>
+          <button class="filter-pill" data-filter="spiritual">Spiritual</button>
+        </div>
+      </div>
+
+      <div class="products-grid" id="productsGrid" role="list"></div>
+
+      <div class="load-more-section" id="loadMoreSection">
+        <div class="load-progress-wrap">
+          <div class="load-progress-bar" id="progressBar" style="width:0%"></div>
+        </div>
+        <button class="load-more-btn" id="loadMoreBtn" aria-label="Load more designs">
+          Load More Designs
+          <i class="fas fa-arrow-down" aria-hidden="true"></i>
         </button>
-        <div class="zoom-image-container">
-            <img src="" alt="Product Zoom" class="zoom-image" id="zoomImage" loading="lazy">
-        </div>
+        <p class="load-more-info" id="loadMoreInfo"></p>
+      </div>
+
     </div>
+  </section>
 
-    <script>
-        // ==========================================
-        // 🎯 CENTRALIZED CONFIGURATION
-        // ==========================================
-        
-        const WHATSAPP_NUMBER = '917300008825';
-        
-        const PRODUCTS = [
-            {
-                id: 'handicraft-1',
-                title: 'Marble Fruit Bowl Inlay',
-                shortDescription: 'Elegant white marble bowl with colorful semi-precious stone inlay work and floral patterns.',
-                badge: 'Decorative',
-                isPremium: true,
-                image: 'HandiCrafts/handi1.webp',
-                fullDescription: 'This stunning decorative fruit bowl is carved from pristine white marble and features intricate semi-precious stone inlay work. Each floral pattern is meticulously crafted by master artisans, making it perfect as a centerpiece for dining tables. The polished finish adds both functionality and artistic beauty to your home decor.',
-                features: [
-                    'Premium white marble construction',
-                    'Semi-precious stone inlay patterns',
-                    'Hand-carved floral designs',
-                    'Diameter: 12 inches',
-                    'Food-safe polished finish'
-                ]
-            },
-            {
-                id: 'handicraft-2',
-                title: 'Decorative Marble Vase',
-                shortDescription: 'Classic marble vase with hand-carved relief work and traditional motifs for elegant display.',
-                badge: 'Classic',
-                isPremium: false,
-                image: 'HandiCrafts/handi2.webp',
-                fullDescription: 'An elegant marble vase featuring hand-carved relief work and traditional motifs. This versatile piece combines functionality with ornamental beauty, perfect for fresh or dried flowers. Its substantial weight and smooth finish make it a sophisticated addition to any interior space.',
-                features: [
-                    'Hand-carved relief designs',
-                    'Traditional motif patterns',
-                    'Height: 10 inches',
-                    'Stable weighted base',
-                    'Multi-purpose decorative use'
-                ]
-            },
-            {
-                id: 'handicraft-3',
-                title: 'Marble Coaster Set',
-                shortDescription: 'Premium set of marble coasters with natural gold veining and protective cork backing.',
-                badge: 'Practical',
-                isPremium: false,
-                image: 'HandiCrafts/handi.webp',
-                fullDescription: 'Premium set of six marble coasters featuring natural gold-veined patterns and cork backing. Each coaster is individually polished and showcases unique natural veining. Protects surfaces elegantly while adding a touch of luxury to your coffee table or dining experience.',
-                features: [
-                    'Set of 6 matching coasters',
-                    'Natural gold veining patterns',
-                    'Cork backing for protection',
-                    'Diameter: 4 inches each',
-                    'Heat and moisture resistant'
-                ]
-            },
-            {
-                id: 'handicraft-4',
-                title: 'Elephant Statue Inlay',
-                shortDescription: 'Majestic marble elephant with colorful turquoise and coral stone inlay symbolizing prosperity.',
-                badge: 'Artistic',
-                isPremium: true,
-                image: 'HandiCrafts/handi4.webp',
-                fullDescription: 'A majestic marble elephant statue adorned with colorful inlay work featuring turquoise, coral, and lapis lazuli stones. This piece symbolizes strength, wisdom, and good fortune in many cultures. The handcrafted masterpiece showcases exceptional artistry and makes a powerful decorative statement in any space.',
-                features: [
-                    'Handcrafted elephant design',
-                    'Colorful semi-precious stone inlay',
-                    'Symbol of prosperity and wisdom',
-                    'Height: 8 inches',
-                    'Intricate detailing throughout'
-                ]
-            },
-            {
-                id: 'handicraft-5',
-                title: 'Marble Jewelry Box',
-                shortDescription: 'Exquisite jewelry box with pietra dura inlay and velvet-lined compartments for treasures.',
-                badge: 'Luxury',
-                isPremium: true,
-                image: 'HandiCrafts/handi23.webp',
-                fullDescription: 'An exquisite jewelry box featuring pietra dura inlay with delicate floral designs. The interior is lined with velvet compartments for safe storage of precious items. The lid showcases semi-precious stone work in traditional Mughal patterns, making it a treasured keepsake box.',
-                features: [
-                    'Authentic pietra dura inlay work',
-                    'Velvet-lined interior compartments',
-                    'Multiple storage sections',
-                    'Dimensions: 6" x 4" x 3"',
-                    'Lockable with brass key'
-                ]
-            },
-            {
-                id: 'handicraft-6',
-                title: 'Marble Serving Tray',
-                shortDescription: 'Sophisticated serving tray with brass handles, perfect for entertaining and display.',
-                badge: 'Functional',
-                isPremium: false,
-                image: 'HandiCrafts/handi6.webp',
-                fullDescription: 'A sophisticated serving tray crafted from premium marble with elegant brass handles. Perfect for serving drinks, snacks, or as a decorative display piece. The natural stone patterns ensure each tray is unique, combining practicality with timeless elegance for your entertaining needs.',
-                features: [
-                    'Premium marble construction',
-                    'Brass handle accents',
-                    'Anti-slip polished surface',
-                    'Dimensions: 16" x 10"',
-                    'Easy to clean and maintain'
-                ]
-            },
-            {
-                id: 'handicraft-7',
-                title: 'Candle Holders Set',
-                shortDescription: 'Set of three graduated marble candle holders with carved bases for ambient lighting.',
-                badge: 'Ambient',
-                isPremium: false,
-                image: 'HandiCrafts/handi7.webp',
-                fullDescription: 'A beautiful set of three graduated marble candle holders with intricately carved bases. Creates a stunning centerpiece when lit, casting beautiful shadows through the natural stone. Perfect for creating ambiance during dinner parties, meditation spaces, or romantic evenings.',
-                features: [
-                    'Set of 3 graduated holders',
-                    'Three different heights',
-                    'Carved decorative bases',
-                    'Fits standard candles',
-                    'Stable and safe design'
-                ]
-            },
-            {
-                id: 'handicraft-8',
-                title: 'Taj Mahal Miniature',
-                shortDescription: 'Detailed Taj Mahal replica with accurate architectural features and inlay patterns.',
-                badge: 'Souvenir',
-                isPremium: true,
-                image: 'HandiCrafts/handi8.webp',
-                fullDescription: 'A meticulously crafted miniature Taj Mahal replica in white marble with detailed inlay work. Features accurate architectural details including domes, minarets, and authentic pietra dura floral patterns. Perfect as a souvenir or gift representing India\'s magnificent architectural heritage.',
-                features: [
-                    'Authentic architectural details',
-                    'Hand-carved with precision',
-                    'Inlay work patterns throughout',
-                    'Height: 6 inches with base',
-                    'Includes decorative wooden base'
-                ]
-            },
-            {
-                id: 'handicraft-9',
-                title: 'Marble Incense Holder',
-                shortDescription: 'Ornate incense holder with carved lotus design and ash-catching tray for spiritual use.',
-                badge: 'Spiritual',
-                isPremium: false,
-                image: 'HandiCrafts/handi9.webp',
-                fullDescription: 'An ornate marble incense holder featuring a hand-carved lotus design with an integrated ash-catching tray. Perfect for meditation spaces, prayer rooms, or creating a calming atmosphere in any room. The detailed craftsmanship adds spiritual elegance to your daily rituals.',
-                features: [
-                    'Hand-carved lotus motif',
-                    'Integrated ash-catching tray',
-                    'Holds multiple incense sticks',
-                    'Length: 10 inches',
-                    'Easy to clean design'
-                ]
-            },
-            {
-                id: 'handicraft-10',
-                title: 'Marble Bookends Set',
-                shortDescription: 'Elegant bookend pair with carved geometric patterns, combining function and artistry.',
-                badge: 'Functional',
-                isPremium: false,
-                image: 'HandiCrafts/handi10.webp',
-                fullDescription: 'A pair of elegant marble bookends featuring carved geometric patterns and polished edges. These substantial pieces combine functionality with artistic beauty, keeping your books organized while serving as sculptural elements. The natural weight of marble ensures stability for even heavy book collections.',
-                features: [
-                    'Pair of matching bookends',
-                    'Geometric carved patterns',
-                    'Substantial marble weight',
-                    'Height: 7 inches each',
-                    'Non-slip felt base pads'
-                ]
-            },
-            {
-                id: 'handicraft-11',
-                title: 'Decorative Marble Bowl',
-                shortDescription: 'Large decorative bowl with scalloped edges and intricate relief carvings.',
-                badge: 'Elegant',
-                isPremium: true,
-                image: 'HandiCrafts/handi11.webp',
-                fullDescription: 'A large decorative marble bowl featuring scalloped edges and intricate relief carvings throughout. This statement piece works beautifully as a centerpiece, fruit bowl, or decorative accent. The hand-carved details showcase traditional craftsmanship passed down through generations.',
-                features: [
-                    'Scalloped edge design',
-                    'Intricate relief carvings',
-                    'Diameter: 14 inches',
-                    'Polished interior surface',
-                    'Substantial decorative weight'
-                ]
-            },
-            {
-                id: 'handicraft-12',
-                title: 'Marble Pestle & Mortar',
-                shortDescription: 'Traditional kitchen tool carved from single marble block, perfect for grinding spices.',
-                badge: 'Traditional',
-                isPremium: false,
-                image: 'HandiCrafts/handi12.webp',
-                fullDescription: 'A traditional marble pestle and mortar set carved from a single block of premium marble. Essential for grinding fresh spices, herbs, and making pastes. The natural density and weight of marble make it ideal for efficient grinding while adding rustic elegance to your kitchen.',
-                features: [
-                    'Single-block marble construction',
-                    'Traditional grinding surface',
-                    'Bowl diameter: 5 inches',
-                    'Heavy pestle for efficiency',
-                    'Food-safe natural material'
-                ]
-            },
-            {
-                id: 'handicraft-13',
-                title: 'Marble Photo Frame',
-                shortDescription: 'Ornate photo frame with inlay borders and easel back for cherished memories.',
-                badge: 'Keepsake',
-                isPremium: true,
-                image: 'HandiCrafts/handi13.webp',
-                fullDescription: 'An ornate marble photo frame featuring colorful inlay borders and traditional patterns. Holds a standard 4x6 or 5x7 photo and includes an easel back for tabletop display. This elegant frame transforms your cherished memories into works of art worthy of display.',
-                features: [
-                    'Colorful stone inlay borders',
-                    'Holds 5x7 inch photos',
-                    'Easel back for standing',
-                    'Wall-mountable design',
-                    'Protective glass included'
-                ]
-            },
-            {
-                id: 'handicraft-14',
-                title: 'Marble Pen Holder',
-                shortDescription: 'Elegant desk organizer with multiple compartments and carved decorative patterns.',
-                badge: 'Office',
-                isPremium: false,
-                image: 'HandiCrafts/handi14.webp',
-                fullDescription: 'An elegant marble pen holder featuring multiple compartments and carved decorative patterns. This sophisticated desk organizer keeps your workspace tidy while adding a touch of luxury. The substantial marble construction ensures stability and durability for daily use.',
-                features: [
-                    'Multiple compartment design',
-                    'Carved decorative patterns',
-                    'Holds pens, pencils, tools',
-                    'Dimensions: 5" x 4" x 3"',
-                    'Stable weighted base'
-                ]
-            },
-            {
-                id: 'handicraft-15',
-                title: 'Marble Soap Dish',
-                shortDescription: 'Luxury bathroom accessory with drainage grooves and polished finish for daily use.',
-                badge: 'Luxury Bath',
-                isPremium: false,
-                image: 'HandiCrafts/handi15.webp',
-                fullDescription: 'A luxury marble soap dish featuring drainage grooves and a highly polished finish. This elegant bathroom accessory keeps soap dry and accessible while adding sophistication to your bath or powder room. The natural antibacterial properties of marble make it ideal for bathroom use.',
-                features: [
-                    'Drainage grooves design',
-                    'High-polish finish',
-                    'Natural antibacterial marble',
-                    'Dimensions: 5" x 4"',
-                    'Easy to clean and maintain'
-                ]
-            },
-            {
-                id: 'handicraft-16',
-                title: 'Marble Chess Set',
-                shortDescription: 'Handcrafted chess set with detailed pieces and inlaid board for strategic elegance.',
-                badge: 'Game Set',
-                isPremium: true,
-                image: 'HandiCrafts/handi16.webp',
-                fullDescription: 'A handcrafted marble chess set featuring detailed hand-carved pieces and an inlaid board. Each chess piece is individually crafted with precision, while the board features alternating marble squares. This set transforms the classic game into a luxurious centerpiece for your home.',
-                features: [
-                    'Hand-carved chess pieces',
-                    'Inlaid marble board',
-                    'Board size: 16" x 16"',
-                    'Weighted pieces for stability',
-                    'Storage-friendly design'
-                ]
-            },
-            {
-                id: 'handicraft-17',
-                title: 'Marble Rolling Pin',
-                shortDescription: 'Professional-grade baking tool with smooth rolling surface, naturally cool for pastry.',
-                badge: 'Kitchen Pro',
-                isPremium: false,
-                image: 'HandiCrafts/handi17.webp',
-                fullDescription: 'A professional-grade marble rolling pin with a smooth rolling surface that stays naturally cool. Ideal for working with pastry dough, fondant, and other temperature-sensitive preparations. The natural coolness of marble prevents butter from melting, ensuring perfect results every time.',
-                features: [
-                    'Naturally cool surface',
-                    'Smooth rolling action',
-                    'Length: 18 inches',
-                    'Perfect for pastry work',
-                    'Easy-grip handles'
-                ]
-            },
-            {
-                id: 'handicraft-18',
-                title: 'Marble Wine Cooler',
-                shortDescription: 'Elegant wine chiller carved from single block, maintains temperature for hours.',
-                badge: 'Wine Essential',
-                isPremium: true,
-                image: 'HandiCrafts/handi18.webp',
-                fullDescription: 'An elegant marble wine cooler carved from a single block of premium marble. The natural insulating properties of marble keep wine chilled for hours without dilution. This sophisticated piece elevates your wine service while making a stunning statement at dinner parties.',
-                features: [
-                    'Single-block construction',
-                    'Natural temperature retention',
-                    'Fits standard wine bottles',
-                    'Height: 9 inches',
-                    'Condensation-resistant surface'
-                ]
-            },
-            {
-                id: 'handicraft-19',
-                title: 'Marble Clock',
-                shortDescription: 'Decorative table clock with brass accents and inlay work combining function and art.',
-                badge: 'Timepiece',
-                isPremium: true,
-                image: 'HandiCrafts/handi19.webp',
-                fullDescription: 'A decorative marble table clock featuring brass accents and colorful stone inlay work. This functional art piece combines precision timekeeping with traditional craftsmanship. The elegant design makes it perfect for desks, mantles, or bedside tables, adding sophistication to any space.',
-                features: [
-                    'Quartz movement mechanism',
-                    'Brass accent detailing',
-                    'Colorful stone inlay patterns',
-                    'Height: 8 inches',
-                    'Battery-operated precision'
-                ]
-            },
-            {
-                id: 'handicraft-20',
-                title: 'Marble Planter Set',
-                shortDescription: 'Set of three planters with drainage holes, perfect for succulents and small plants.',
-                badge: 'Garden Decor',
-                isPremium: false,
-                image: 'HandiCrafts/handi20.webp',
-                fullDescription: 'A set of three marble planters in graduated sizes, each featuring drainage holes and carved exterior patterns. Perfect for succulents, herbs, or small flowering plants. The natural beauty of marble complements greenery beautifully, creating an elegant indoor garden display.',
-                features: [
-                    'Set of 3 graduated sizes',
-                    'Drainage holes included',
-                    'Carved exterior patterns',
-                    'Sizes: 4", 5", 6" diameter',
-                    'Indoor plant compatible'
-                ]
-            }
-        ];
+  <div class="modal-backdrop" id="modalBackdrop" role="dialog" aria-modal="true" aria-label="Product details">
+    <div class="modal-panel" id="modalPanel">
 
-        // ==========================================
-        // 🔧 OPTIMIZED FUNCTIONS
-        // ==========================================
+      <div class="modal-img-wrap">
+        <img src="" alt="" class="modal-img" id="modalImg" loading="lazy" />
+        <div class="modal-img-hint" aria-hidden="true">
+          <i class="fas fa-search-plus"></i> Click to zoom
+        </div>
+        <button class="modal-close" id="modalClose" aria-label="Close details">
+          <i class="fas fa-times" aria-hidden="true"></i>
+        </button>
+      </div>
 
-        const getWhatsAppURL = (title) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`I'm interested in the ${title}`)}`;
+      <div class="modal-body">
+        <div class="modal-eyebrow">
+          <span class="modal-badge" id="modalBadge"></span>
+        </div>
+        <span class="modal-rule" aria-hidden="true"></span>
+        <h2 class="modal-title" id="modalTitle"></h2>
+        <span class="modal-separator" aria-hidden="true"></span>
+        <p class="modal-desc" id="modalDesc"></p>
 
-        function renderProducts() {
-            const grid = document.getElementById('productsGrid');
-            const fragment = document.createDocumentFragment();
+        <p class="modal-features-head">What's included</p>
+        <ul class="modal-features" id="modalFeatures"></ul>
 
-            PRODUCTS.forEach(product => {
-                const card = document.createElement('div');
-                card.className = 'product-card';
-                card.onclick = (e) => openModal(product.id, e);
+        <div class="modal-actions">
+          <a href="" class="modal-btn modal-btn--wa" id="modalWa"
+             target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            Inquire on WhatsApp
+          </a>
+          <button class="modal-btn modal-btn--share" id="modalShare" aria-label="Share product">
+            <i class="fas fa-share-alt" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
 
-                card.innerHTML = `
-                    <div class="product-image">
-                        ${product.isPremium ? '<span class="premium-badge">Premium</span>' : ''}
-                        <img src="${product.image}" alt="${product.title}" loading="lazy" decoding="async">
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-title">${product.title}</h3>
-                        <p class="product-description">${product.shortDescription}</p>
-                        <div class="product-buttons">
-                            <a href="${getWhatsAppURL(product.title)}" 
-                               class="btn btn-whatsapp" 
-                               target="_blank" 
-                               rel="noopener"
-                               onclick="event.stopPropagation()">
-                                <i class="fab fa-whatsapp"></i>
-                                WhatsApp
-                            </a>
-                            <button class="btn btn-view">
-                                <i class="fas fa-eye"></i>
-                                View Details
-                            </button>
-                        </div>
-                    </div>
-                `;
+    </div>
+  </div>
 
-                fragment.appendChild(card);
-            });
+  <div class="lightbox" id="lightbox" role="dialog" aria-label="Image zoom">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close zoom">
+      <i class="fas fa-times" aria-hidden="true"></i>
+    </button>
+    <img src="" alt="" id="lightboxImg" />
+  </div>
 
-            grid.appendChild(fragment);
-        }
+  <a href="https://wa.me/917976839230?text=Hello%20Stone%20Hub%20Traders%2C%20I%20would%20like%20to%20inquire%20about%20your%20Urli%20%26%20Handicrafts."
+     class="whatsapp-float"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp" aria-hidden="true"></i>
+  </a>
 
-        function openModal(productId, event) {
-            event?.stopPropagation();
-            
-            const product = PRODUCTS.find(p => p.id === productId);
-            if (!product) return;
+  <script>
+  (function () {
+    'use strict';
 
-            const modal = document.getElementById('productModal');
-            
-            document.getElementById('modalTitle').textContent = product.title;
-            document.getElementById('modalBadge').textContent = product.badge;
-            document.getElementById('modalImage').src = product.image;
-            document.getElementById('modalDescription').textContent = product.fullDescription;
-            document.getElementById('modalWhatsapp').href = getWhatsAppURL(product.title);
-            
-            const featuresList = document.getElementById('modalFeatures');
-            featuresList.innerHTML = product.features.map(f => 
-                `<li><i class="fas fa-check-circle"></i> ${f}</li>`
-            ).join('');
-            
-            requestAnimationFrame(() => {
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            });
-        }
+    var PAGE_CONFIG = {
+      waNumber:    '917976839230',
+      waPageHint:  'Urli & Handicrafts',
+      pageSize:    9,
+      totalLabel:  '20'
+    };
 
-        function closeModal() {
-            document.getElementById('productModal').classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
+    var PRODUCTS = [
+      {
+        id: 'handicraft-1',
+        title: 'Marble Fruit Bowl Inlay',
+        badge: 'Decorative',
+        tags: ['decorative', 'premium'],
+        isPremium: true,
+        image: 'HandiCrafts/handi1.webp',
+        shortDesc: 'Elegant white marble bowl with colorful semi-precious stone inlay work and floral patterns.',
+        fullDesc: 'This stunning decorative fruit bowl is carved from pristine white marble and features intricate semi-precious stone inlay work. Each floral pattern is meticulously crafted by master artisans, making it perfect as a centerpiece for dining tables. The polished finish adds both functionality and artistic beauty to your home decor.',
+        features: ['Premium white marble construction', 'Semi-precious stone inlay patterns', 'Hand-carved floral designs', 'Diameter: 12 inches', 'Food-safe polished finish']
+      },
+      {
+        id: 'handicraft-2',
+        title: 'Decorative Marble Vase',
+        badge: 'Classic',
+        tags: ['decorative'],
+        isPremium: false,
+        image: 'HandiCrafts/handi2.webp',
+        shortDesc: 'Classic marble vase with hand-carved relief work and traditional motifs for elegant display.',
+        fullDesc: 'An elegant marble vase featuring hand-carved relief work and traditional motifs. This versatile piece combines functionality with ornamental beauty, perfect for fresh or dried flowers. Its substantial weight and smooth finish make it a sophisticated addition to any interior space.',
+        features: ['Hand-carved relief designs', 'Traditional motif patterns', 'Height: 10 inches', 'Stable weighted base', 'Multi-purpose decorative use']
+      },
+      {
+        id: 'handicraft-3',
+        title: 'Marble Coaster Set',
+        badge: 'Practical',
+        tags: ['functional'],
+        isPremium: false,
+        image: 'HandiCrafts/handi.webp',
+        shortDesc: 'Premium set of marble coasters with natural gold veining and protective cork backing.',
+        fullDesc: 'Premium set of six marble coasters featuring natural gold-veined patterns and cork backing. Each coaster is individually polished and showcases unique natural veining. Protects surfaces elegantly while adding a touch of luxury to your coffee table or dining experience.',
+        features: ['Set of 6 matching coasters', 'Natural gold veining patterns', 'Cork backing for protection', 'Diameter: 4 inches each', 'Heat and moisture resistant']
+      },
+      {
+        id: 'handicraft-4',
+        title: 'Elephant Statue Inlay',
+        badge: 'Artistic',
+        tags: ['decorative', 'premium'],
+        isPremium: true,
+        image: 'HandiCrafts/handi4.webp',
+        shortDesc: 'Majestic marble elephant with colorful turquoise and coral stone inlay symbolizing prosperity.',
+        fullDesc: 'A majestic marble elephant statue adorned with colorful inlay work featuring turquoise, coral, and lapis lazuli stones. This piece symbolizes strength, wisdom, and good fortune in many cultures. The handcrafted masterpiece showcases exceptional artistry and makes a powerful decorative statement in any space.',
+        features: ['Handcrafted elephant design', 'Colorful semi-precious stone inlay', 'Symbol of prosperity and wisdom', 'Height: 8 inches', 'Intricate detailing throughout']
+      },
+      {
+        id: 'handicraft-5',
+        title: 'Marble Jewelry Box',
+        badge: 'Luxury',
+        tags: ['decorative', 'functional', 'premium'],
+        isPremium: true,
+        image: 'HandiCrafts/handi23.webp',
+        shortDesc: 'Exquisite jewelry box with pietra dura inlay and velvet-lined compartments for treasures.',
+        fullDesc: 'An exquisite jewelry box featuring pietra dura inlay with delicate floral designs. The interior is lined with velvet compartments for safe storage of precious items. The lid showcases semi-precious stone work in traditional Mughal patterns, making it a treasured keepsake box.',
+        features: ['Authentic pietra dura inlay work', 'Velvet-lined interior compartments', 'Multiple storage sections', 'Dimensions: 6" x 4" x 3"', 'Lockable with brass key']
+      },
+      {
+        id: 'handicraft-6',
+        title: 'Marble Serving Tray',
+        badge: 'Functional',
+        tags: ['functional'],
+        isPremium: false,
+        image: 'HandiCrafts/handi6.webp',
+        shortDesc: 'Sophisticated serving tray with brass handles, perfect for entertaining and display.',
+        fullDesc: 'A sophisticated serving tray crafted from premium marble with elegant brass handles. Perfect for serving drinks, snacks, or as a decorative display piece. The natural stone patterns ensure each tray is unique, combining practicality with timeless elegance for your entertaining needs.',
+        features: ['Premium marble construction', 'Brass handle accents', 'Anti-slip polished surface', 'Dimensions: 16" x 10"', 'Easy to clean and maintain']
+      },
+      {
+        id: 'handicraft-7',
+        title: 'Candle Holders Set',
+        badge: 'Ambient',
+        tags: ['decorative'],
+        isPremium: false,
+        image: 'HandiCrafts/handi7.webp',
+        shortDesc: 'Set of three graduated marble candle holders with carved bases for ambient lighting.',
+        fullDesc: 'A beautiful set of three graduated marble candle holders with intricately carved bases. Creates a stunning centerpiece when lit, casting beautiful shadows through the natural stone. Perfect for creating ambiance during dinner parties, meditation spaces, or romantic evenings.',
+        features: ['Set of 3 graduated holders', 'Three different heights', 'Carved decorative bases', 'Fits standard candles', 'Stable and safe design']
+      },
+      {
+        id: 'handicraft-8',
+        title: 'Taj Mahal Miniature',
+        badge: 'Souvenir',
+        tags: ['decorative', 'premium'],
+        isPremium: true,
+        image: 'HandiCrafts/handi8.webp',
+        shortDesc: 'Detailed Taj Mahal replica with accurate architectural features and inlay patterns.',
+        fullDesc: "A meticulously crafted miniature Taj Mahal replica in white marble with detailed inlay work. Features accurate architectural details including domes, minarets, and authentic pietra dura floral patterns. Perfect as a souvenir or gift representing India's magnificent architectural heritage.",
+        features: ['Authentic architectural details', 'Hand-carved with precision', 'Inlay work patterns throughout', 'Height: 6 inches with base', 'Includes decorative wooden base']
+      },
+      {
+        id: 'handicraft-9',
+        title: 'Marble Incense Holder',
+        badge: 'Spiritual',
+        tags: ['spiritual'],
+        isPremium: false,
+        image: 'HandiCrafts/handi9.webp',
+        shortDesc: 'Ornate incense holder with carved lotus design and ash-catching tray for spiritual use.',
+        fullDesc: 'An ornate marble incense holder featuring a hand-carved lotus design with an integrated ash-catching tray. Perfect for meditation spaces, prayer rooms, or creating a calming atmosphere in any room. The detailed craftsmanship adds spiritual elegance to your daily rituals.',
+        features: ['Hand-carved lotus motif', 'Integrated ash-catching tray', 'Holds multiple incense sticks', 'Length: 10 inches', 'Easy to clean design']
+      },
+      {
+        id: 'handicraft-10',
+        title: 'Marble Bookends Set',
+        badge: 'Functional',
+        tags: ['functional'],
+        isPremium: false,
+        image: 'HandiCrafts/handi10.webp',
+        shortDesc: 'Elegant bookend pair with carved geometric patterns, combining function and artistry.',
+        fullDesc: 'A pair of elegant marble bookends featuring carved geometric patterns and polished edges. These substantial pieces combine functionality with artistic beauty, keeping your books organized while serving as sculptural elements. The natural weight of marble ensures stability for even heavy book collections.',
+        features: ['Pair of matching bookends', 'Geometric carved patterns', 'Substantial marble weight', 'Height: 7 inches each', 'Non-slip felt base pads']
+      },
+      {
+        id: 'handicraft-11',
+        title: 'Decorative Marble Bowl',
+        badge: 'Elegant',
+        tags: ['decorative', 'premium'],
+        isPremium: true,
+        image: 'HandiCrafts/handi11.webp',
+        shortDesc: 'Large decorative bowl with scalloped edges and intricate relief carvings.',
+        fullDesc: 'A large decorative marble bowl featuring scalloped edges and intricate relief carvings throughout. This statement piece works beautifully as a centerpiece, fruit bowl, or decorative accent. The hand-carved details showcase traditional craftsmanship passed down through generations.',
+        features: ['Scalloped edge design', 'Intricate relief carvings', 'Diameter: 14 inches', 'Polished interior surface', 'Substantial decorative weight']
+      },
+      {
+        id: 'handicraft-12',
+        title: 'Marble Pestle & Mortar',
+        badge: 'Traditional',
+        tags: ['functional'],
+        isPremium: false,
+        image: 'HandiCrafts/handi12.webp',
+        shortDesc: 'Traditional kitchen tool carved from single marble block, perfect for grinding spices.',
+        fullDesc: 'A traditional marble pestle and mortar set carved from a single block of premium marble. Essential for grinding fresh spices, herbs, and making pastes. The natural density and weight of marble make it ideal for efficient grinding while adding rustic elegance to your kitchen.',
+        features: ['Single-block marble construction', 'Traditional grinding surface', 'Bowl diameter: 5 inches', 'Heavy pestle for efficiency', 'Food-safe natural material']
+      },
+      {
+        id: 'handicraft-13',
+        title: 'Marble Photo Frame',
+        badge: 'Keepsake',
+        tags: ['decorative', 'premium'],
+        isPremium: true,
+        image: 'HandiCrafts/handi13.webp',
+        shortDesc: 'Ornate photo frame with inlay borders and easel back for cherished memories.',
+        fullDesc: 'An ornate marble photo frame featuring colorful inlay borders and traditional patterns. Holds a standard 4x6 or 5x7 photo and includes an easel back for tabletop display. This elegant frame transforms your cherished memories into works of art worthy of display.',
+        features: ['Colorful stone inlay borders', 'Holds 5x7 inch photos', 'Easel back for standing', 'Wall-mountable design', 'Protective glass included']
+      },
+      {
+        id: 'handicraft-14',
+        title: 'Marble Pen Holder',
+        badge: 'Office',
+        tags: ['functional'],
+        isPremium: false,
+        image: 'HandiCrafts/handi14.webp',
+        shortDesc: 'Elegant desk organizer with multiple compartments and carved decorative patterns.',
+        fullDesc: 'An elegant marble pen holder featuring multiple compartments and carved decorative patterns. This sophisticated desk organizer keeps your workspace tidy while adding a touch of luxury. The substantial marble construction ensures stability and durability for daily use.',
+        features: ['Multiple compartment design', 'Carved decorative patterns', 'Holds pens, pencils, tools', 'Dimensions: 5" x 4" x 3"', 'Stable weighted base']
+      },
+      {
+        id: 'handicraft-15',
+        title: 'Marble Soap Dish',
+        badge: 'Luxury Bath',
+        tags: ['functional'],
+        isPremium: false,
+        image: 'HandiCrafts/handi15.webp',
+        shortDesc: 'Luxury bathroom accessory with drainage grooves and polished finish for daily use.',
+        fullDesc: 'A luxury marble soap dish featuring drainage grooves and a highly polished finish. This elegant bathroom accessory keeps soap dry and accessible while adding sophistication to your bath or powder room. The natural antibacterial properties of marble make it ideal for bathroom use.',
+        features: ['Drainage grooves design', 'High-polish finish', 'Natural antibacterial marble', 'Dimensions: 5" x 4"', 'Easy to clean and maintain']
+      },
+      {
+        id: 'handicraft-16',
+        title: 'Marble Chess Set',
+        badge: 'Game Set',
+        tags: ['decorative', 'premium'],
+        isPremium: true,
+        image: 'HandiCrafts/handi16.webp',
+        shortDesc: 'Handcrafted chess set with detailed pieces and inlaid board for strategic elegance.',
+        fullDesc: 'A handcrafted marble chess set featuring detailed hand-carved pieces and an inlaid board. Each chess piece is individually crafted with precision, while the board features alternating marble squares. This set transforms the classic game into a luxurious centerpiece for your home.',
+        features: ['Hand-carved chess pieces', 'Inlaid marble board', 'Board size: 16" x 16"', 'Weighted pieces for stability', 'Storage-friendly design']
+      },
+      {
+        id: 'handicraft-17',
+        title: 'Marble Rolling Pin',
+        badge: 'Kitchen Pro',
+        tags: ['functional'],
+        isPremium: false,
+        image: 'HandiCrafts/handi17.webp',
+        shortDesc: 'Professional-grade baking tool with smooth rolling surface, naturally cool for pastry.',
+        fullDesc: 'A professional-grade marble rolling pin with a smooth rolling surface that stays naturally cool. Ideal for working with pastry dough, fondant, and other temperature-sensitive preparations. The natural coolness of marble prevents butter from melting, ensuring perfect results every time.',
+        features: ['Naturally cool surface', 'Smooth rolling action', 'Length: 18 inches', 'Perfect for pastry work', 'Easy-grip handles']
+      },
+      {
+        id: 'handicraft-18',
+        title: 'Marble Wine Cooler',
+        badge: 'Wine Essential',
+        tags: ['functional', 'premium'],
+        isPremium: true,
+        image: 'HandiCrafts/handi18.webp',
+        shortDesc: 'Elegant wine chiller carved from single block, maintains temperature for hours.',
+        fullDesc: 'An elegant marble wine cooler carved from a single block of premium marble. The natural insulating properties of marble keep wine chilled for hours without dilution. This sophisticated piece elevates your wine service while making a stunning statement at dinner parties.',
+        features: ['Single-block construction', 'Natural temperature retention', 'Fits standard wine bottles', 'Height: 9 inches', 'Condensation-resistant surface']
+      },
+      {
+        id: 'handicraft-19',
+        title: 'Marble Clock',
+        badge: 'Timepiece',
+        tags: ['decorative', 'premium'],
+        isPremium: true,
+        image: 'HandiCrafts/handi19.webp',
+        shortDesc: 'Decorative table clock with brass accents and inlay work combining function and art.',
+        fullDesc: 'A decorative marble table clock featuring brass accents and colorful stone inlay work. This functional art piece combines precision timekeeping with traditional craftsmanship. The elegant design makes it perfect for desks, mantles, or bedside tables, adding sophistication to any space.',
+        features: ['Quartz movement mechanism', 'Brass accent detailing', 'Colorful stone inlay patterns', 'Height: 8 inches', 'Battery-operated precision']
+      },
+      {
+        id: 'handicraft-20',
+        title: 'Marble Planter Set',
+        badge: 'Garden Decor',
+        tags: ['decorative'],
+        isPremium: false,
+        image: 'HandiCrafts/handi20.webp',
+        shortDesc: 'Set of three planters with drainage holes, perfect for succulents and small plants.',
+        fullDesc: 'A set of three marble planters in graduated sizes, each featuring drainage holes and carved exterior patterns. Perfect for succulents, herbs, or small flowering plants. The natural beauty of marble complements greenery beautifully, creating an elegant indoor garden display.',
+        features: ['Set of 3 graduated sizes', 'Drainage holes included', 'Carved exterior patterns', 'Sizes: 4", 5", 6" diameter', 'Indoor plant compatible']
+      }
+    ];
 
-        function openImageZoom() {
-            const zoomModal = document.getElementById('imageZoomModal');
-            document.getElementById('zoomImage').src = document.getElementById('modalImage').src;
-            requestAnimationFrame(() => {
-                zoomModal.classList.add('active');
-            });
-        }
+    var PAGE_SIZE   = PAGE_CONFIG.pageSize;
+    var WA_NUMBER   = PAGE_CONFIG.waNumber;
+    var currentPage = 0;
+    var currentFilter = 'all';
+    var filteredProducts = [];
 
-        function closeImageZoom() {
-            document.getElementById('imageZoomModal').classList.remove('active');
-        }
+    function waURL(title) {
+      return 'https://wa.me/' + WA_NUMBER
+        + '?text=' + encodeURIComponent(
+            "Hello Stone Hub Traders, I'm interested in the "
+            + title + ' from your ' + PAGE_CONFIG.waPageHint
+            + ' collection. Please share details and pricing.'
+          );
+    }
 
-        // ==========================================
-        // 🎬 EVENT LISTENERS
-        // ==========================================
+    function esc(str) {
+      var d = document.createElement('div');
+      d.appendChild(document.createTextNode(str));
+      return d.innerHTML;
+    }
 
-        document.getElementById('productModal').addEventListener('click', function(e) {
-            if (e.target === this) closeModal();
-        }, { passive: true });
+    function applyFilter(filter) {
+      currentFilter = filter;
+      currentPage   = 0;
+      filteredProducts = filter === 'all'
+        ? PRODUCTS
+        : PRODUCTS.filter(function (p) { return p.tags.indexOf(filter) !== -1; });
+      document.getElementById('productsGrid').innerHTML = '';
+      renderPage();
+    }
 
-        document.getElementById('imageZoomModal').addEventListener('click', function(e) {
-            if (e.target === this || e.target.classList.contains('zoom-image-container')) {
-                closeImageZoom();
-            }
-        }, { passive: true });
+    function renderPage() {
+      var grid  = document.getElementById('productsGrid');
+      var start = currentPage * PAGE_SIZE;
+      var end   = Math.min(start + PAGE_SIZE, filteredProducts.length);
+      var slice = filteredProducts.slice(start, end);
+      var frag  = document.createDocumentFragment();
 
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeModal();
-                closeImageZoom();
-            }
+      slice.forEach(function (product, idx) {
+        var card = document.createElement('article');
+        card.className = 'product-card fade-up';
+        card.setAttribute('role', 'listitem');
+        card.setAttribute('tabindex', '0');
+        card.style.transitionDelay = (idx % PAGE_SIZE * 0.055) + 's';
+
+        card.innerHTML =
+          '<div class="card-img-wrap">' +
+            '<img class="card-img" src="' + esc(product.image) + '"' +
+              ' alt="' + esc(product.title) + '"' +
+              ' loading="lazy" decoding="async" />' +
+            (product.badge
+              ? '<span class="card-badge">' + esc(product.badge) + '</span>'
+              : '') +
+            (product.isPremium
+              ? '<span class="card-badge-star" aria-label="Premium">' +
+                  '<i class="fas fa-star" aria-hidden="true"></i>' +
+                '</span>'
+              : '') +
+          '</div>' +
+          '<div class="card-body">' +
+            '<span class="card-rule" aria-hidden="true"></span>' +
+            '<h3 class="card-name">' + esc(product.title) + '</h3>' +
+            '<p class="card-desc">' + esc(product.shortDesc) + '</p>' +
+            '<div class="card-actions">' +
+              '<a href="' + waURL(product.title) + '"' +
+                ' class="card-btn card-btn--wa"' +
+                ' target="_blank" rel="noopener noreferrer"' +
+                ' onclick="event.stopPropagation()"' +
+                ' aria-label="WhatsApp inquiry for ' + esc(product.title) + '">' +
+                '<i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp' +
+              '</a>' +
+              '<button class="card-btn card-btn--view"' +
+                ' aria-label="View details for ' + esc(product.title) + '">' +
+                '<i class="fas fa-eye" aria-hidden="true"></i> Details' +
+              '</button>' +
+            '</div>' +
+          '</div>';
+
+        card.addEventListener('click', function (e) {
+          if (e.target.closest('.card-btn--wa')) return;
+          openModal(product.id);
+        });
+        card.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(product.id); }
+        });
+        card.addEventListener('mouseenter', function () {
+          var img = card.querySelector('.card-img');
+          if (img) img.style.willChange = 'transform';
+        });
+        card.addEventListener('mouseleave', function () {
+          var img = card.querySelector('.card-img');
+          if (img) img.style.willChange = '';
         });
 
-        // ==========================================
-        // 🚀 INITIALIZE
-        // ==========================================
-        
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', renderProducts);
-        } else {
-            renderProducts();
-        }
+        frag.appendChild(card);
+      });
 
-        console.log('✅ Premium Handicrafts Collection Page Loaded - 20 Products');
-    </script>
+      grid.appendChild(frag);
+      currentPage++;
+
+      var shown = Math.min(currentPage * PAGE_SIZE, filteredProducts.length);
+      document.getElementById('showingCount').textContent = shown;
+      document.getElementById('progressBar').style.width =
+        (shown / filteredProducts.length * 100) + '%';
+
+      updateLoadMore();
+      scheduleReveal();
+    }
+
+    function updateLoadMore() {
+      var shown   = Math.min(currentPage * PAGE_SIZE, filteredProducts.length);
+      var total   = filteredProducts.length;
+      var btn     = document.getElementById('loadMoreBtn');
+      var info    = document.getElementById('loadMoreInfo');
+
+      if (shown >= total) {
+        btn.disabled = true;
+        btn.textContent = 'All Designs Shown';
+        info.textContent = total + ' of ' + total + ' designs';
+      } else {
+        var rem = total - shown;
+        btn.disabled = false;
+        btn.innerHTML =
+          'Load More Designs <i class="fas fa-arrow-down" aria-hidden="true"></i>';
+        info.textContent = rem + ' more design' + (rem !== 1 ? 's' : '') + ' remaining';
+      }
+    }
+
+    var revealIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          revealIO.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+    function scheduleReveal() {
+      requestAnimationFrame(function () {
+        document.querySelectorAll('.fade-up:not(.visible)').forEach(function (el) {
+          revealIO.observe(el);
+        });
+      });
+    }
+
+    var _activeId = null;
+
+    function openModal(id) {
+      var product = PRODUCTS.find(function (p) { return p.id === id; });
+      if (!product) return;
+      _activeId = id;
+
+      document.getElementById('modalImg').src       = product.image;
+      document.getElementById('modalImg').alt       = product.title;
+      document.getElementById('modalBadge').textContent = product.badge;
+      document.getElementById('modalTitle').textContent = product.title;
+      document.getElementById('modalDesc').textContent  = product.fullDesc;
+      document.getElementById('modalWa').href           = waURL(product.title);
+
+      document.getElementById('modalFeatures').innerHTML =
+        product.features.map(function (f) {
+          return '<li>' + esc(f) + '</li>';
+        }).join('');
+
+      document.getElementById('modalBackdrop').classList.add('open');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('modalClose').focus();
+    }
+
+    function closeModal() {
+      document.getElementById('modalBackdrop').classList.remove('open');
+      document.body.style.overflow = '';
+      _activeId = null;
+    }
+
+    function openLightbox(src, alt) {
+      document.getElementById('lightboxImg').src = src;
+      document.getElementById('lightboxImg').alt = alt || '';
+      document.getElementById('lightbox').classList.add('open');
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+    }
+
+    function shareProduct() {
+      if (!_activeId) return;
+      var p = PRODUCTS.find(function (x) { return x.id === _activeId; });
+      if (!p) return;
+      if (navigator.share) {
+        navigator.share({ title: p.title + ' — Stone Hub Traders', text: p.shortDesc, url: window.location.href }).catch(function(){});
+      } else if (navigator.clipboard) {
+        navigator.clipboard.writeText(window.location.href);
+        var btn = document.getElementById('modalShare');
+        var prev = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-check" aria-hidden="true"></i>';
+        setTimeout(function () { btn.innerHTML = prev; }, 1500);
+      }
+    }
+
+    document.querySelectorAll('.filter-pill').forEach(function (pill) {
+      pill.addEventListener('click', function () {
+        document.querySelectorAll('.filter-pill').forEach(function (p) { p.classList.remove('active'); });
+        pill.classList.add('active');
+        applyFilter(pill.dataset.filter);
+      });
+    });
+
+    document.getElementById('loadMoreBtn').addEventListener('click', renderPage);
+    document.getElementById('modalClose').addEventListener('click', closeModal);
+    document.getElementById('modalBackdrop').addEventListener('click', function (e) {
+      if (e.target === this) closeModal();
+    });
+    document.getElementById('modalImg').addEventListener('click', function () {
+      openLightbox(this.src, this.alt);
+    });
+    document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+    document.getElementById('lightbox').addEventListener('click', function (e) {
+      if (e.target === this) closeLightbox();
+    });
+    document.getElementById('modalShare').addEventListener('click', shareProduct);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') { closeLightbox(); closeModal(); }
+    });
+
+    applyFilter('all');
+
+    console.log('%c STONE HUB TRADERS %c Urli & Handicrafts — ' + PRODUCTS.length + ' designs',
+      'background:#A89070;color:#fff;padding:2px 8px;font-weight:700', 'color:#A89070');
+
+  })();
+  </script>
+
 </body>
 </html>
