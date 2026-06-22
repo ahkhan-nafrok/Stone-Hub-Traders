@@ -53,7 +53,7 @@
       </div>
 
       <div class="pg-hero-ghost" aria-hidden="true">
-        <span class="pg-hero-ghost-num">12</span>
+        <span class="pg-hero-ghost-num">22</span>
         <span class="pg-hero-ghost-label">Designs</span>
       </div>
     </div>
@@ -65,7 +65,7 @@
 
       <div class="products-meta">
         <p class="products-count">
-          Showing <strong id="showingCount">0</strong> of <strong>12</strong> designs
+          Showing <strong id="showingCount">0</strong> of <strong>22</strong> designs
         </p>
         <div class="products-filter" role="group" aria-label="Filter by type">
           <button class="filter-pill active" data-filter="all">All</button>
@@ -152,13 +152,134 @@
     'use strict';
 
     var PAGE_CONFIG = {
-      waNumber:    '917976839230',
-      waPageHint:  'Wash Basin & Bathtub',
-      pageSize:    9,
-      totalLabel:  '12'
+      waNumber:   '917976839230',
+      waPageHint: 'Wash Basin & Bathtub',
+      pageSize:   9,
+      totalLabel: '22'
     };
 
+    /* ── ─── ─── ─── ─── ─── ─── ─── ─── ──
+       PRODUCTS — Bathtubs first (1-10), then Wash Basins (1-12)
+    ── ─── ─── ─── ─── ─── ─── ─── ─── ── */
     var PRODUCTS = [
+
+      /* ────────────────────────────────────
+         BATHTUBS  — bathtub1.webp → bathtub10.webp
+      ──────────────────────────────────── */
+      {
+        id: 'bathtub-1',
+        title: 'Freestanding Marble Bathtub',
+        badge: 'Premium Collection',
+        tags: ['bathtub', 'freestanding', 'premium'],
+        isPremium: true,
+        image: 'wash-basin/bathtub1.webp',
+        shortDesc: 'A grand freestanding bathtub carved from solid Makrana marble, built as the centrepiece of a luxury bathroom.',
+        fullDesc: 'The Freestanding Marble Bathtub is hewn from solid Makrana marble blocks — no fibreglass shell, no composite finish. The stone carries genuine weight and thermal mass, holding warmth longer than any acrylic alternative. Designed to stand unenclosed in the room, it commands the space the way only a piece of solid stone can.',
+        features: ['Solid Makrana marble construction', 'Superior thermal retention', 'Freestanding centrepiece format', 'Natural veining on all exterior surfaces', 'Sealed, water-safe interior finish']
+      },
+      {
+        id: 'bathtub-2',
+        title: 'Carved Stone Soaking Tub',
+        badge: 'Deep Soak',
+        tags: ['bathtub', 'freestanding', 'premium'],
+        isPremium: true,
+        image: 'wash-basin/bathtub2.webp',
+        shortDesc: 'Extra-deep soaking tub with gently curved interior walls, carved for full-body immersion and prolonged soaks.',
+        fullDesc: 'The Carved Stone Soaking Tub prioritises depth over everything else. Interior walls curve inward at the base to cradle the body, and the added stone mass amplifies heat retention beyond a standard tub depth. Suited to dedicated wellness bathrooms and spa installations where the bathing ritual is the main event.',
+        features: ['Extra-deep carved interior', 'Curved ergonomic wall profile', 'High thermal mass for extended soaks', 'Freestanding installation', 'Spa and wellness-grade design']
+      },
+      {
+        id: 'bathtub-3',
+        title: 'Oval Marble Bath',
+        badge: 'Classic Form',
+        tags: ['bathtub', 'freestanding'],
+        isPremium: false,
+        image: 'wash-basin/bathtub3.webp',
+        shortDesc: 'Clean oval silhouette in polished Makrana marble — timeless proportions for any bathroom scale.',
+        fullDesc: 'The Oval Marble Bath is the most versatile form in the collection. The smooth, uninterrupted oval works in both traditional and contemporary bathrooms without demanding a particular style of surrounding. Polished to a high gloss, it reflects light and shows the natural veining of the stone across a continuous curved surface.',
+        features: ['Classic oval silhouette', 'High-gloss polished exterior', 'Continuous curved form, no sharp edges', 'Freestanding installation', 'Suits both traditional and contemporary interiors']
+      },
+      {
+        id: 'bathtub-4',
+        title: 'Roll-Top Marble Bathtub',
+        badge: 'Heritage Form',
+        tags: ['bathtub', 'freestanding', 'premium'],
+        isPremium: true,
+        image: 'wash-basin/bathtub4.webp',
+        shortDesc: 'The Victorian roll-top silhouette reimagined in solid carved marble, combining heritage form with stone permanence.',
+        fullDesc: 'The Roll-Top Marble Bathtub borrows one of the most recognisable silhouettes in bathroom design and executes it in solid Makrana marble instead of the traditional cast iron. The rolled rim, the elevated base, and the classic proportions remain — but the material changes everything about how it feels and lasts.',
+        features: ['Iconic Victorian roll-top silhouette', 'Solid marble — not cast iron or acrylic', 'Raised base profile', 'Custom plinth or claw base options', 'Freestanding heritage centrepiece']
+      },
+      {
+        id: 'bathtub-5',
+        title: 'Classic Stone Bathtub',
+        badge: 'Best Seller',
+        tags: ['bathtub', 'freestanding'],
+        isPremium: false,
+        image: 'wash-basin/bathtub5.webp',
+        shortDesc: 'A straightforward freestanding tub in white Makrana — no carving, no ornamentation, just the stone at its best.',
+        fullDesc: 'The Classic Stone Bathtub makes no argument through ornament. The form is simple, the proportions are balanced, and the polished Makrana marble speaks entirely through its veining and surface quality. For clients who want a freestanding stone tub without carved detailing or elaborate profiles.',
+        features: ['Simple, balanced freestanding form', 'Polished white Makrana marble', 'No carving or applied decoration', 'Natural veining as the sole feature', 'Easy installation, standard plumbing fitment']
+      },
+      {
+        id: 'bathtub-6',
+        title: 'Luxury Marble Soaker',
+        badge: 'Artisan Elite',
+        tags: ['bathtub', 'freestanding', 'premium'],
+        isPremium: true,
+        image: 'wash-basin/bathtub6.webp',
+        shortDesc: 'Master-carved luxury soaking tub with sculpted exterior detailing and an oversized interior volume.',
+        fullDesc: 'The Luxury Marble Soaker sits at the top of the bathtub range. The exterior carries hand-carved detailing — subtle relief work that catches light without becoming decorative noise — while the interior volume is sized for an oversized, fully-immersive soak. A piece that would anchor the most demanding luxury bathroom brief.',
+        features: ['Hand-carved exterior relief detailing', 'Oversized interior volume', 'Master artisan craftsmanship', 'Polished interior, textured exterior', 'Custom sizing available']
+      },
+      {
+        id: 'bathtub-7',
+        title: 'Contemporary Stone Bath',
+        badge: 'Modern Design',
+        tags: ['bathtub', 'freestanding'],
+        isPremium: false,
+        image: 'wash-basin/bathtub7.webp',
+        shortDesc: 'Low-profile rectangular stone bath with clean horizontal lines for a modern, architectural bathroom.',
+        fullDesc: 'The Contemporary Stone Bath is designed for bathrooms where the architecture leads and the fixtures follow. Low profile, rectangular, and finished with a restrained matte hone rather than a high gloss — it sits in a modern bathroom without competing with the spatial design around it.',
+        features: ['Low-profile rectangular form', 'Restrained matte honed finish', 'Clean horizontal lines', 'Contemporary architectural character', 'Freestanding installation']
+      },
+      {
+        id: 'bathtub-8',
+        title: 'Heritage Marble Tub',
+        badge: 'Heritage',
+        tags: ['bathtub', 'freestanding', 'premium'],
+        isPremium: true,
+        image: 'wash-basin/bathtub8.webp',
+        shortDesc: 'Traditional-proportioned marble tub with ornate carved borders and a raised plinth base.',
+        fullDesc: 'The Heritage Marble Tub draws from classical bathroom design — a raised plinth base, ornately carved border running the tub rim, and proportions that reference traditional Indian and European stone craft. It suits heritage homes, palace hotels, and any space where the bathroom is expected to carry historical character.',
+        features: ['Ornate carved rim border', 'Raised carved plinth base', 'Traditional classical proportions', 'Freestanding heritage installation', 'Suited to period and heritage interiors']
+      },
+      {
+        id: 'bathtub-9',
+        title: 'Sculptural Stone Bathtub',
+        badge: 'Sculptural',
+        tags: ['bathtub', 'premium'],
+        isPremium: true,
+        image: 'wash-basin/bathtub9.webp',
+        shortDesc: 'An asymmetric sculptural form that prioritises the bathtub as art object as much as functional fixture.',
+        fullDesc: 'The Sculptural Stone Bathtub departs from conventional bathtub geometry entirely. The form is asymmetric, the walls vary in thickness, and the exterior surface carries the marks of hand-carving rather than machine finishing. It is designed for spaces that want a focal point in the truest sense — something that reads as sculpture first, bathroom fixture second.',
+        features: ['Asymmetric sculptural form', 'Hand-carved exterior surface marks', 'Variable wall thickness', 'Art-object character', 'Bespoke commission basis']
+      },
+      {
+        id: 'bathtub-10',
+        title: 'Premium Marble Bath',
+        badge: 'Premium Collection',
+        tags: ['bathtub', 'freestanding', 'premium'],
+        isPremium: true,
+        image: 'wash-basin/bathtub10.webp',
+        shortDesc: 'The definitive premium marble bath — generous proportions, flawless stone selection, and a mirror-polished finish.',
+        fullDesc: 'The Premium Marble Bath is the collection\'s flagship. Stone is hand-selected for consistent veining and minimal inclusions, the form is sized generously for two, and the finish is polished to a true mirror surface — the kind that only emerges after extended hand-buffing. If the bathtub is the reason for the room, this is the piece.',
+        features: ['Hand-selected premium stone block', 'Generous two-person proportions', 'Mirror-polished interior and exterior', 'Extended hand-buffing process', 'Certificate of stone origin included']
+      },
+
+      /* ────────────────────────────────────
+         WASH BASINS  — washbasin1.webp → washbasin12.webp
+      ──────────────────────────────────── */
       {
         id: 'basin-1',
         title: 'Vessel Sink Bowl',
@@ -291,12 +412,14 @@
         fullDesc: "The Minimalist Rectangular Basin keeps the form as plain as possible — clean rectangular edges, a flat polished interior, no carving or applied detail. It suits vanities where the marble's natural surface should be the only feature.",
         features: ['Clean rectangular form', 'Flat polished interior', 'No carving or applied detail', 'Above or under-counter mounting', 'Suited to minimalist vanities']
       }
+
     ];
 
-    var PAGE_SIZE   = PAGE_CONFIG.pageSize;
-    var WA_NUMBER   = PAGE_CONFIG.waNumber;
-    var currentPage = 0;
-    var currentFilter = 'all';
+    /* ── ─── ─── ─── ENGINE ─── ─── ─── ── */
+    var PAGE_SIZE      = PAGE_CONFIG.pageSize;
+    var WA_NUMBER      = PAGE_CONFIG.waNumber;
+    var currentPage    = 0;
+    var currentFilter  = 'all';
     var filteredProducts = [];
 
     function waURL(title) {
@@ -315,8 +438,8 @@
     }
 
     function applyFilter(filter) {
-      currentFilter = filter;
-      currentPage   = 0;
+      currentFilter    = filter;
+      currentPage      = 0;
       filteredProducts = filter === 'all'
         ? PRODUCTS
         : PRODUCTS.filter(function (p) { return p.tags.indexOf(filter) !== -1; });
@@ -403,13 +526,13 @@
     }
 
     function updateLoadMore() {
-      var shown   = Math.min(currentPage * PAGE_SIZE, filteredProducts.length);
-      var total   = filteredProducts.length;
-      var btn     = document.getElementById('loadMoreBtn');
-      var info    = document.getElementById('loadMoreInfo');
+      var shown = Math.min(currentPage * PAGE_SIZE, filteredProducts.length);
+      var total = filteredProducts.length;
+      var btn   = document.getElementById('loadMoreBtn');
+      var info  = document.getElementById('loadMoreInfo');
 
       if (shown >= total) {
-        btn.disabled = true;
+        btn.disabled    = true;
         btn.textContent = 'All Designs Shown';
         info.textContent = total + ' of ' + total + ' designs';
       } else {
@@ -445,12 +568,12 @@
       if (!product) return;
       _activeId = id;
 
-      document.getElementById('modalImg').src       = product.image;
-      document.getElementById('modalImg').alt       = product.title;
-      document.getElementById('modalBadge').textContent = product.badge;
-      document.getElementById('modalTitle').textContent = product.title;
-      document.getElementById('modalDesc').textContent  = product.fullDesc;
-      document.getElementById('modalWa').href           = waURL(product.title);
+      document.getElementById('modalImg').src              = product.image;
+      document.getElementById('modalImg').alt              = product.title;
+      document.getElementById('modalBadge').textContent    = product.badge;
+      document.getElementById('modalTitle').textContent    = product.title;
+      document.getElementById('modalDesc').textContent     = product.fullDesc;
+      document.getElementById('modalWa').href              = waURL(product.title);
 
       document.getElementById('modalFeatures').innerHTML =
         product.features.map(function (f) {
@@ -473,6 +596,7 @@
       document.getElementById('lightboxImg').alt = alt || '';
       document.getElementById('lightbox').classList.add('open');
     }
+
     function closeLightbox() {
       document.getElementById('lightbox').classList.remove('open');
     }
@@ -485,13 +609,14 @@
         navigator.share({ title: p.title + ' — Stone Hub Traders', text: p.shortDesc, url: window.location.href }).catch(function(){});
       } else if (navigator.clipboard) {
         navigator.clipboard.writeText(window.location.href);
-        var btn = document.getElementById('modalShare');
+        var btn  = document.getElementById('modalShare');
         var prev = btn.innerHTML;
         btn.innerHTML = '<i class="fas fa-check" aria-hidden="true"></i>';
         setTimeout(function () { btn.innerHTML = prev; }, 1500);
       }
     }
 
+    /* ── Events ── */
     document.querySelectorAll('.filter-pill').forEach(function (pill) {
       pill.addEventListener('click', function () {
         document.querySelectorAll('.filter-pill').forEach(function (p) { p.classList.remove('active'); });
@@ -517,6 +642,7 @@
       if (e.key === 'Escape') { closeLightbox(); closeModal(); }
     });
 
+    /* ── Init ── */
     applyFilter('all');
 
     console.log('%c STONE HUB TRADERS %c Wash Basin & Bathtub — ' + PRODUCTS.length + ' designs',
