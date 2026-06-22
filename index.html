@@ -113,48 +113,46 @@
     }
 
     /* Card & subsection titles */
-    h3,
-    .card-title {
-      font-family: 'Montserrat', sans-serif;
-      font-size: clamp(1rem, 1.8vw, 1.4rem) !important;
-      font-weight: 600 !important;
-      line-height: 1.3 !important;
-    }
+   /* WITH this block */
+h3,
+.card-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.1rem, 1.8vw, 1.4rem) !important;
+  font-weight: 600 !important;
+  line-height: 1.3 !important;
+}
 
-    h4 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: clamp(0.9rem, 1.4vw, 1.15rem) !important;
-      font-weight: 600 !important;
-    }
+h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1rem, 1.4vw, 1.15rem) !important;
+  font-weight: 600 !important;
+}
 
-    /* Body: Inter for legibility at small sizes */
-    p,
-    .body-text {
-      font-family: 'Inter', sans-serif;
-      font-size: clamp(0.85rem, 1.1vw, 0.975rem) !important;
-      font-weight: 400 !important;
-      line-height: 1.75 !important;
-      color: var(--text-mid);
-    }
+p,
+.body-text {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.925rem, 1.1vw, 0.975rem) !important;
+  font-weight: 400 !important;
+  line-height: 1.75 !important;
+  color: var(--text-mid);
+}
 
-    /* Labels: the architectural workhorse — tight caps with spacing */
-    .label-text,
-    .eyebrow {
-      font-family: 'Montserrat', sans-serif;
-      font-size: clamp(0.6rem, 0.8vw, 0.7rem) !important;
-      font-weight: 700 !important;
-      letter-spacing: clamp(3px, 0.5vw, 6px) !important;
-      text-transform: uppercase !important;
-      color: var(--gold) !important;
-    }
+.label-text,
+.eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(0.65rem, 0.8vw, 0.7rem) !important;
+  font-weight: 700 !important;
+  letter-spacing: clamp(2.5px, 0.5vw, 6px) !important;
+  text-transform: uppercase !important;
+  color: var(--gold) !important;
+}
 
-    .small-text,
-    .caption {
-      font-family: 'Inter', sans-serif;
-      font-size: clamp(0.72rem, 0.9vw, 0.8rem) !important;
-      line-height: 1.6 !important;
-    }
-
+.small-text,
+.caption {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.78rem, 0.9vw, 0.8rem) !important;
+  line-height: 1.6 !important;
+}
     /* ============================================================
        PAGE LOADER — Architectural Sequential Reveal
        No bounce. No pulse. Just a clean studio-grade ident.
@@ -451,18 +449,19 @@
     /* ============================================================
        RESPONSIVE BREAKPOINTS
     ============================================================ */
-    @media (max-width: 1400px) { html { font-size: 15px; } }
-    @media (max-width: 1200px) { html { font-size: 14px; } }
-    @media (max-width: 991px)  { html { font-size: 14px; }
-      .whatsapp-float { width: 48px; height: 48px; bottom: 22px; left: 22px; }
-      .whatsapp-float i { font-size: 24px; }
-    }
-    @media (max-width: 768px)  { html { font-size: 14px; } }
-    @media (max-width: 576px)  { html { font-size: 13px; }
-      .whatsapp-float { width: 46px; height: 46px; bottom: 18px; left: 18px; }
-      .whatsapp-float i { font-size: 22px; }
-    }
-    @media (max-width: 480px)  { html { font-size: 13px; } }
+/* WITH */
+@media (max-width: 1400px) { html { font-size: 15px; } }
+@media (max-width: 1200px) { html { font-size: 14px; } }
+@media (max-width: 991px)  { html { font-size: 14px; }
+  .whatsapp-float { width: 48px; height: 48px; bottom: 22px; left: 22px; }
+  .whatsapp-float i { font-size: 24px; }
+}
+@media (max-width: 768px)  { html { font-size: 15px; } }
+@media (max-width: 576px)  { html { font-size: 16px; }
+  .whatsapp-float { width: 46px; height: 46px; bottom: 18px; left: 18px; }
+  .whatsapp-float i { font-size: 22px; }
+}
+@media (max-width: 480px)  { html { font-size: 16px; } }
 
     /* ============================================================
        ACCESSIBILITY
@@ -593,75 +592,75 @@
     { name: 'footer',     target: 'footerComponent'     }
   ];
 
-  async function loadComponents() {
-    for (const comp of COMPONENTS) {
-      await loadComponent(comp.name, comp.target);
-      _perf.loaded++;
-    }
+ /* WITH */
+async function loadComponents() {
+  // Fetch all 7 components over the network simultaneously
+  const fetched = await Promise.all(
+    COMPONENTS.map(async comp => {
+      const resp = await fetch(`${comp.name}.html`);
+      return { ...comp, html: await resp.text() };
+    })
+  );
 
-    // Restore scroll AFTER all components have rendered
-    // and the page has reached its full height
-    const savedY = sessionStorage.getItem('sht_scroll_y');
-    if (savedY !== null) {
-      window.scrollTo(0, parseInt(savedY, 10));
-      sessionStorage.removeItem('sht_scroll_y');
-    }
-
-    initGlobal();
+  // Inject sequentially so DOM order and script execution stay predictable
+  for (const comp of fetched) {
+    await injectComponent(comp.name, comp.target, comp.html);
+    _perf.loaded++;
   }
 
-  async function loadComponent(name, targetId) {
-    try {
-      const t0 = performance.now();
-
-      const resp     = await fetch(`${name}.html`);
-      const html     = await resp.text();
-      const temp     = document.createElement('div');
-      temp.innerHTML = html;
-
-      const target = document.getElementById(targetId);
-      if (!target) { console.warn(`⚠ #${targetId} not found`); return; }
-
-      // Inject component styles into <head>
-      temp.querySelectorAll('style').forEach(s => {
-        const el = document.createElement('style');
-        el.setAttribute('data-component', name);
-        el.innerHTML = s.innerHTML;
-        document.head.appendChild(el);
-        s.remove();
-      });
-
-      // Collect scripts before inserting HTML
-      const scripts = [];
-      temp.querySelectorAll('script').forEach(s => {
-        scripts.push(s.innerHTML);
-        s.remove();
-      });
-
-      // Remove redundant font links
-      temp.querySelectorAll('link[href*="fonts.googleapis.com"]').forEach(l => l.remove());
-
-      // Insert HTML
-      target.innerHTML = temp.innerHTML;
-
-      // Let DOM settle, then run scripts
-      await new Promise(r => setTimeout(r, 80));
-      scripts.forEach(code => {
-        if (!code.trim()) return;
-        const el = document.createElement('script');
-        el.setAttribute('data-component', name);
-        el.innerHTML = code;
-        document.body.appendChild(el);
-        setTimeout(() => el.parentNode?.removeChild(el), 500);
-      });
-
-      console.log(`✔ ${name} — ${Math.round(performance.now() - t0)}ms`);
-
-    } catch (err) {
-      console.error(`✖ ${name}:`, err);
-    }
+  const savedY = sessionStorage.getItem('sht_scroll_y');
+  if (savedY !== null) {
+    window.scrollTo(0, parseInt(savedY, 10));
+    sessionStorage.removeItem('sht_scroll_y');
   }
 
+  initGlobal();
+}
+
+/* WITH — renamed, accepts pre-fetched html string */
+async function injectComponent(name, targetId, html) {
+  try {
+    const t0       = performance.now();
+    const temp     = document.createElement('div');
+    temp.innerHTML = html;
+
+    const target = document.getElementById(targetId);
+    if (!target) { console.warn(`⚠ #${targetId} not found`); return; }
+
+    temp.querySelectorAll('style').forEach(s => {
+      const el = document.createElement('style');
+      el.setAttribute('data-component', name);
+      el.innerHTML = s.innerHTML;
+      document.head.appendChild(el);
+      s.remove();
+    });
+
+    const scripts = [];
+    temp.querySelectorAll('script').forEach(s => {
+      scripts.push(s.innerHTML);
+      s.remove();
+    });
+
+    temp.querySelectorAll('link[href*="fonts.googleapis.com"]').forEach(l => l.remove());
+
+    target.innerHTML = temp.innerHTML;
+
+    await new Promise(r => setTimeout(r, 80));
+    scripts.forEach(code => {
+      if (!code.trim()) return;
+      const el = document.createElement('script');
+      el.setAttribute('data-component', name);
+      el.innerHTML = code;
+      document.body.appendChild(el);
+      setTimeout(() => el.parentNode?.removeChild(el), 500);
+    });
+
+    console.log(`✔ ${name} — ${Math.round(performance.now() - t0)}ms`);
+
+  } catch (err) {
+    console.error(`✖ ${name}:`, err);
+  }
+}
   // ──────────────────────────────────────────────
   // GLOBAL INTERACTIONS
   // ──────────────────────────────────────────────
