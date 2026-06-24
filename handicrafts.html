@@ -53,7 +53,7 @@
       </div>
 
       <div class="pg-hero-ghost" aria-hidden="true">
-        <span class="pg-hero-ghost-num">20</span>
+        <span class="pg-hero-ghost-num">30</span>
         <span class="pg-hero-ghost-label">Designs</span>
       </div>
     </div>
@@ -65,7 +65,7 @@
 
       <div class="products-meta">
         <p class="products-count">
-          Showing <strong id="showingCount">0</strong> of <strong>20</strong> designs
+          Showing <strong id="showingCount">0</strong> of <strong>30</strong> designs
         </p>
         <div class="products-filter" role="group" aria-label="Filter by type">
           <button class="filter-pill active" data-filter="all">All</button>
@@ -155,232 +155,342 @@
       waNumber:    '917976839230',
       waPageHint:  'Urli & Handicrafts',
       pageSize:    9,
-      totalLabel:  '20'
+      totalLabel:  '30'
     };
 
-    var PRODUCTS = [
-      {
-        id: 'handicraft-1',
-        title: 'Marble Fruit Bowl Inlay',
-        badge: 'Decorative',
-        tags: ['decorative', 'premium'],
-        isPremium: true,
-        image: 'HandiCrafts/handi1.webp',
-        shortDesc: 'Elegant white marble bowl with colorful semi-precious stone inlay work and floral patterns.',
-        fullDesc: 'This stunning decorative fruit bowl is carved from pristine white marble and features intricate semi-precious stone inlay work. Each floral pattern is meticulously crafted by master artisans, making it perfect as a centerpiece for dining tables. The polished finish adds both functionality and artistic beauty to your home decor.',
-        features: ['Premium white marble construction', 'Semi-precious stone inlay patterns', 'Hand-carved floral designs', 'Diameter: 12 inches', 'Food-safe polished finish']
-      },
-      {
-        id: 'handicraft-2',
-        title: 'Decorative Marble Vase',
-        badge: 'Classic',
-        tags: ['decorative'],
-        isPremium: false,
-        image: 'HandiCrafts/handi2.webp',
-        shortDesc: 'Classic marble vase with hand-carved relief work and traditional motifs for elegant display.',
-        fullDesc: 'An elegant marble vase featuring hand-carved relief work and traditional motifs. This versatile piece combines functionality with ornamental beauty, perfect for fresh or dried flowers. Its substantial weight and smooth finish make it a sophisticated addition to any interior space.',
-        features: ['Hand-carved relief designs', 'Traditional motif patterns', 'Height: 10 inches', 'Stable weighted base', 'Multi-purpose decorative use']
-      },
-      {
-        id: 'handicraft-3',
-        title: 'Marble Coaster Set',
-        badge: 'Practical',
-        tags: ['functional'],
-        isPremium: false,
-        image: 'HandiCrafts/handi.webp',
-        shortDesc: 'Premium set of marble coasters with natural gold veining and protective cork backing.',
-        fullDesc: 'Premium set of six marble coasters featuring natural gold-veined patterns and cork backing. Each coaster is individually polished and showcases unique natural veining. Protects surfaces elegantly while adding a touch of luxury to your coffee table or dining experience.',
-        features: ['Set of 6 matching coasters', 'Natural gold veining patterns', 'Cork backing for protection', 'Diameter: 4 inches each', 'Heat and moisture resistant']
-      },
-      {
-        id: 'handicraft-4',
-        title: 'Elephant Statue Inlay',
-        badge: 'Artistic',
-        tags: ['decorative', 'premium'],
-        isPremium: true,
-        image: 'HandiCrafts/handi4.webp',
-        shortDesc: 'Majestic marble elephant with colorful turquoise and coral stone inlay symbolizing prosperity.',
-        fullDesc: 'A majestic marble elephant statue adorned with colorful inlay work featuring turquoise, coral, and lapis lazuli stones. This piece symbolizes strength, wisdom, and good fortune in many cultures. The handcrafted masterpiece showcases exceptional artistry and makes a powerful decorative statement in any space.',
-        features: ['Handcrafted elephant design', 'Colorful semi-precious stone inlay', 'Symbol of prosperity and wisdom', 'Height: 8 inches', 'Intricate detailing throughout']
-      },
-      {
-        id: 'handicraft-5',
-        title: 'Marble Jewelry Box',
-        badge: 'Luxury',
-        tags: ['decorative', 'functional', 'premium'],
-        isPremium: true,
-        image: 'HandiCrafts/handi23.webp',
-        shortDesc: 'Exquisite jewelry box with pietra dura inlay and velvet-lined compartments for treasures.',
-        fullDesc: 'An exquisite jewelry box featuring pietra dura inlay with delicate floral designs. The interior is lined with velvet compartments for safe storage of precious items. The lid showcases semi-precious stone work in traditional Mughal patterns, making it a treasured keepsake box.',
-        features: ['Authentic pietra dura inlay work', 'Velvet-lined interior compartments', 'Multiple storage sections', 'Dimensions: 6" x 4" x 3"', 'Lockable with brass key']
-      },
-      {
-        id: 'handicraft-6',
-        title: 'Marble Serving Tray',
-        badge: 'Functional',
-        tags: ['functional'],
-        isPremium: false,
-        image: 'HandiCrafts/handi6.webp',
-        shortDesc: 'Sophisticated serving tray with brass handles, perfect for entertaining and display.',
-        fullDesc: 'A sophisticated serving tray crafted from premium marble with elegant brass handles. Perfect for serving drinks, snacks, or as a decorative display piece. The natural stone patterns ensure each tray is unique, combining practicality with timeless elegance for your entertaining needs.',
-        features: ['Premium marble construction', 'Brass handle accents', 'Anti-slip polished surface', 'Dimensions: 16" x 10"', 'Easy to clean and maintain']
-      },
-      {
-        id: 'handicraft-7',
-        title: 'Candle Holders Set',
-        badge: 'Ambient',
-        tags: ['decorative'],
-        isPremium: false,
-        image: 'HandiCrafts/handi7.webp',
-        shortDesc: 'Set of three graduated marble candle holders with carved bases for ambient lighting.',
-        fullDesc: 'A beautiful set of three graduated marble candle holders with intricately carved bases. Creates a stunning centerpiece when lit, casting beautiful shadows through the natural stone. Perfect for creating ambiance during dinner parties, meditation spaces, or romantic evenings.',
-        features: ['Set of 3 graduated holders', 'Three different heights', 'Carved decorative bases', 'Fits standard candles', 'Stable and safe design']
-      },
-      {
-        id: 'handicraft-8',
-        title: 'Taj Mahal Miniature',
-        badge: 'Souvenir',
-        tags: ['decorative', 'premium'],
-        isPremium: true,
-        image: 'HandiCrafts/handi8.webp',
-        shortDesc: 'Detailed Taj Mahal replica with accurate architectural features and inlay patterns.',
-        fullDesc: "A meticulously crafted miniature Taj Mahal replica in white marble with detailed inlay work. Features accurate architectural details including domes, minarets, and authentic pietra dura floral patterns. Perfect as a souvenir or gift representing India's magnificent architectural heritage.",
-        features: ['Authentic architectural details', 'Hand-carved with precision', 'Inlay work patterns throughout', 'Height: 6 inches with base', 'Includes decorative wooden base']
-      },
-      {
-        id: 'handicraft-9',
-        title: 'Marble Incense Holder',
-        badge: 'Spiritual',
-        tags: ['spiritual'],
-        isPremium: false,
-        image: 'HandiCrafts/handi9.webp',
-        shortDesc: 'Ornate incense holder with carved lotus design and ash-catching tray for spiritual use.',
-        fullDesc: 'An ornate marble incense holder featuring a hand-carved lotus design with an integrated ash-catching tray. Perfect for meditation spaces, prayer rooms, or creating a calming atmosphere in any room. The detailed craftsmanship adds spiritual elegance to your daily rituals.',
-        features: ['Hand-carved lotus motif', 'Integrated ash-catching tray', 'Holds multiple incense sticks', 'Length: 10 inches', 'Easy to clean design']
-      },
-      {
-        id: 'handicraft-10',
-        title: 'Marble Bookends Set',
-        badge: 'Functional',
-        tags: ['functional'],
-        isPremium: false,
-        image: 'HandiCrafts/handi10.webp',
-        shortDesc: 'Elegant bookend pair with carved geometric patterns, combining function and artistry.',
-        fullDesc: 'A pair of elegant marble bookends featuring carved geometric patterns and polished edges. These substantial pieces combine functionality with artistic beauty, keeping your books organized while serving as sculptural elements. The natural weight of marble ensures stability for even heavy book collections.',
-        features: ['Pair of matching bookends', 'Geometric carved patterns', 'Substantial marble weight', 'Height: 7 inches each', 'Non-slip felt base pads']
-      },
-      {
-        id: 'handicraft-11',
-        title: 'Decorative Marble Bowl',
-        badge: 'Elegant',
-        tags: ['decorative', 'premium'],
-        isPremium: true,
-        image: 'HandiCrafts/handi11.webp',
-        shortDesc: 'Large decorative bowl with scalloped edges and intricate relief carvings.',
-        fullDesc: 'A large decorative marble bowl featuring scalloped edges and intricate relief carvings throughout. This statement piece works beautifully as a centerpiece, fruit bowl, or decorative accent. The hand-carved details showcase traditional craftsmanship passed down through generations.',
-        features: ['Scalloped edge design', 'Intricate relief carvings', 'Diameter: 14 inches', 'Polished interior surface', 'Substantial decorative weight']
-      },
-      {
-        id: 'handicraft-12',
-        title: 'Marble Pestle & Mortar',
-        badge: 'Traditional',
-        tags: ['functional'],
-        isPremium: false,
-        image: 'HandiCrafts/handi12.webp',
-        shortDesc: 'Traditional kitchen tool carved from single marble block, perfect for grinding spices.',
-        fullDesc: 'A traditional marble pestle and mortar set carved from a single block of premium marble. Essential for grinding fresh spices, herbs, and making pastes. The natural density and weight of marble make it ideal for efficient grinding while adding rustic elegance to your kitchen.',
-        features: ['Single-block marble construction', 'Traditional grinding surface', 'Bowl diameter: 5 inches', 'Heavy pestle for efficiency', 'Food-safe natural material']
-      },
-      {
-        id: 'handicraft-13',
-        title: 'Marble Photo Frame',
-        badge: 'Keepsake',
-        tags: ['decorative', 'premium'],
-        isPremium: true,
-        image: 'HandiCrafts/handi13.webp',
-        shortDesc: 'Ornate photo frame with inlay borders and easel back for cherished memories.',
-        fullDesc: 'An ornate marble photo frame featuring colorful inlay borders and traditional patterns. Holds a standard 4x6 or 5x7 photo and includes an easel back for tabletop display. This elegant frame transforms your cherished memories into works of art worthy of display.',
-        features: ['Colorful stone inlay borders', 'Holds 5x7 inch photos', 'Easel back for standing', 'Wall-mountable design', 'Protective glass included']
-      },
-      {
-        id: 'handicraft-14',
-        title: 'Marble Pen Holder',
-        badge: 'Office',
-        tags: ['functional'],
-        isPremium: false,
-        image: 'HandiCrafts/handi14.webp',
-        shortDesc: 'Elegant desk organizer with multiple compartments and carved decorative patterns.',
-        fullDesc: 'An elegant marble pen holder featuring multiple compartments and carved decorative patterns. This sophisticated desk organizer keeps your workspace tidy while adding a touch of luxury. The substantial marble construction ensures stability and durability for daily use.',
-        features: ['Multiple compartment design', 'Carved decorative patterns', 'Holds pens, pencils, tools', 'Dimensions: 5" x 4" x 3"', 'Stable weighted base']
-      },
-      {
-        id: 'handicraft-15',
-        title: 'Marble Soap Dish',
-        badge: 'Luxury Bath',
-        tags: ['functional'],
-        isPremium: false,
-        image: 'HandiCrafts/handi15.webp',
-        shortDesc: 'Luxury bathroom accessory with drainage grooves and polished finish for daily use.',
-        fullDesc: 'A luxury marble soap dish featuring drainage grooves and a highly polished finish. This elegant bathroom accessory keeps soap dry and accessible while adding sophistication to your bath or powder room. The natural antibacterial properties of marble make it ideal for bathroom use.',
-        features: ['Drainage grooves design', 'High-polish finish', 'Natural antibacterial marble', 'Dimensions: 5" x 4"', 'Easy to clean and maintain']
-      },
-      {
-        id: 'handicraft-16',
-        title: 'Marble Chess Set',
-        badge: 'Game Set',
-        tags: ['decorative', 'premium'],
-        isPremium: true,
-        image: 'HandiCrafts/handi16.webp',
-        shortDesc: 'Handcrafted chess set with detailed pieces and inlaid board for strategic elegance.',
-        fullDesc: 'A handcrafted marble chess set featuring detailed hand-carved pieces and an inlaid board. Each chess piece is individually crafted with precision, while the board features alternating marble squares. This set transforms the classic game into a luxurious centerpiece for your home.',
-        features: ['Hand-carved chess pieces', 'Inlaid marble board', 'Board size: 16" x 16"', 'Weighted pieces for stability', 'Storage-friendly design']
-      },
-      {
-        id: 'handicraft-17',
-        title: 'Marble Rolling Pin',
-        badge: 'Kitchen Pro',
-        tags: ['functional'],
-        isPremium: false,
-        image: 'HandiCrafts/handi17.webp',
-        shortDesc: 'Professional-grade baking tool with smooth rolling surface, naturally cool for pastry.',
-        fullDesc: 'A professional-grade marble rolling pin with a smooth rolling surface that stays naturally cool. Ideal for working with pastry dough, fondant, and other temperature-sensitive preparations. The natural coolness of marble prevents butter from melting, ensuring perfect results every time.',
-        features: ['Naturally cool surface', 'Smooth rolling action', 'Length: 18 inches', 'Perfect for pastry work', 'Easy-grip handles']
-      },
-      {
-        id: 'handicraft-18',
-        title: 'Marble Wine Cooler',
-        badge: 'Wine Essential',
-        tags: ['functional', 'premium'],
-        isPremium: true,
-        image: 'HandiCrafts/handi18.webp',
-        shortDesc: 'Elegant wine chiller carved from single block, maintains temperature for hours.',
-        fullDesc: 'An elegant marble wine cooler carved from a single block of premium marble. The natural insulating properties of marble keep wine chilled for hours without dilution. This sophisticated piece elevates your wine service while making a stunning statement at dinner parties.',
-        features: ['Single-block construction', 'Natural temperature retention', 'Fits standard wine bottles', 'Height: 9 inches', 'Condensation-resistant surface']
-      },
-      {
-        id: 'handicraft-19',
-        title: 'Marble Clock',
-        badge: 'Timepiece',
-        tags: ['decorative', 'premium'],
-        isPremium: true,
-        image: 'HandiCrafts/handi19.webp',
-        shortDesc: 'Decorative table clock with brass accents and inlay work combining function and art.',
-        fullDesc: 'A decorative marble table clock featuring brass accents and colorful stone inlay work. This functional art piece combines precision timekeeping with traditional craftsmanship. The elegant design makes it perfect for desks, mantles, or bedside tables, adding sophistication to any space.',
-        features: ['Quartz movement mechanism', 'Brass accent detailing', 'Colorful stone inlay patterns', 'Height: 8 inches', 'Battery-operated precision']
-      },
-      {
-        id: 'handicraft-20',
-        title: 'Marble Planter Set',
-        badge: 'Garden Decor',
-        tags: ['decorative'],
-        isPremium: false,
-        image: 'HandiCrafts/handi20.webp',
-        shortDesc: 'Set of three planters with drainage holes, perfect for succulents and small plants.',
-        fullDesc: 'A set of three marble planters in graduated sizes, each featuring drainage holes and carved exterior patterns. Perfect for succulents, herbs, or small flowering plants. The natural beauty of marble complements greenery beautifully, creating an elegant indoor garden display.',
-        features: ['Set of 3 graduated sizes', 'Drainage holes included', 'Carved exterior patterns', 'Sizes: 4", 5", 6" diameter', 'Indoor plant compatible']
-      }
-    ];
-
+  var PRODUCTS = [
+  {
+    id: 'urli-1',
+    title: 'Classic Round Urli Bowl',
+    badge: 'Urli',
+    tags: ['decorative'],
+    isPremium: false,
+    image: 'HandiCrafts/urli1.webp',
+    shortDesc: 'Traditional round urli bowl in white Makrana marble, ideal for floating flowers and candles.',
+    fullDesc: 'A timeless classic round urli bowl hand-carved from white Makrana marble. Traditionally used to float flowers, petals, and tea-light candles, this piece adds an ethereal touch to entrances, living rooms, and courtyards. The smooth interior holds water without seepage and the polished rim gives it a refined finish.',
+    features: ['Hand-carved Makrana marble', 'Smooth water-retaining interior', 'Diameter: 12 inches', 'Ideal for floating flowers and candles', 'Polished rim finish']
+  },
+  {
+    id: 'urli-2',
+    title: 'Inlay Urli Bowl',
+    badge: 'Premium Urli',
+    tags: ['decorative', 'premium'],
+    isPremium: true,
+    image: 'HandiCrafts/urli2.webp',
+    shortDesc: 'White marble urli with semi-precious stone inlay borders, a statement centrepiece for any space.',
+    fullDesc: 'This premium urli bowl combines the traditional form with intricate semi-precious stone inlay along the outer rim and base. Crafted by master inlay artisans from Makrana, the floral and geometric patterns elevate this functional bowl into a collector\'s piece. Perfect as an entrance centrepiece or living room focal point.',
+    features: ['Semi-precious stone inlay borders', 'Floral and geometric patterns', 'Diameter: 14 inches', 'Hand-polished Makrana marble', 'Collector-grade artisan work']
+  },
+  {
+    id: 'urli-3',
+    title: 'Shallow Petal Urli',
+    badge: 'Urli',
+    tags: ['decorative'],
+    isPremium: false,
+    image: 'HandiCrafts/urli3.webp',
+    shortDesc: 'Wide, shallow urli designed for petal arrangements and water displays with a low-profile look.',
+    fullDesc: 'A wide shallow urli with a generous diameter and low profile, crafted for sprawling petal and water displays. The broad open surface allows you to create elaborate floating arrangements. Ideal for festival decor, wedding setups, or as a permanent decor element in large living spaces and foyers.',
+    features: ['Wide shallow profile design', 'Generous open surface area', 'Diameter: 16 inches', 'Smooth sealed interior', 'Ideal for festival and wedding decor']
+  },
+  {
+    id: 'urli-4',
+    title: 'Carved Exterior Urli',
+    badge: 'Artistic Urli',
+    tags: ['decorative', 'premium'],
+    isPremium: true,
+    image: 'HandiCrafts/urli4.webp',
+    shortDesc: 'Urli bowl with hand-carved floral relief on the outer surface, combining craft and function.',
+    fullDesc: 'This urli features a richly hand-carved floral and vine relief pattern across its entire outer surface, while the interior remains smooth and water-tight. The contrast between the textured exterior and the clean interior makes it a striking display piece that works equally well filled with water and petals or displayed empty.',
+    features: ['Hand-carved outer relief patterns', 'Smooth water-tight interior', 'Floral and vine motifs', 'Diameter: 13 inches', 'Suitable as dry or water display']
+  },
+  {
+    id: 'urli-5',
+    title: 'Mini Urli Set',
+    badge: 'Set of 3',
+    tags: ['decorative'],
+    isPremium: false,
+    image: 'HandiCrafts/urli5.webp',
+    shortDesc: 'Set of three graduated mini urli bowls, perfect for tabletop arrangements and gifting.',
+    fullDesc: 'A charming set of three graduated mini urli bowls in Makrana marble. Arrange them together on a dining table, coffee table, or console for a layered display. Each bowl is individually polished and water-tight. The set also makes for an elegant gifting option for housewarmings and weddings.',
+    features: ['Set of 3 graduated sizes', 'Sizes: 4", 6", 8" diameter', 'Individually polished bowls', 'Water-tight construction', 'Ideal gift set for occasions']
+  },
+  {
+    id: 'urli-6',
+    title: 'Deep Urli Bowl',
+    badge: 'Functional Urli',
+    tags: ['decorative', 'functional'],
+    isPremium: false,
+    image: 'HandiCrafts/urli6.webp',
+    shortDesc: 'Deep-profile urli with thick walls, suitable for larger floral arrangements and heavier displays.',
+    fullDesc: 'A deep-profile urli with substantial thick walls carved from a single block of Makrana marble. The added depth makes it suitable for more elaborate floral arrangements, pebble and water features, or even as a fruit bowl. Its weight and sturdy base ensure it stays firmly in place on any surface.',
+    features: ['Deep profile thick-wall construction', 'Single-block marble carving', 'Diameter: 12 inches, Depth: 5 inches', 'Multipurpose — floral or fruit display', 'Weighted stable base']
+  },
+  {
+    id: 'urli-7',
+    title: 'Urli with Brass Inlay Rim',
+    badge: 'Premium Urli',
+    tags: ['decorative', 'premium'],
+    isPremium: true,
+    image: 'HandiCrafts/urli7.webp',
+    shortDesc: 'White marble urli accented with an ornate brass inlay rim for a regal, heritage look.',
+    fullDesc: 'A refined urli bowl where the rim is adorned with hand-set brass inlay work in traditional motifs. The combination of cool white Makrana marble and warm brass detailing creates a heritage aesthetic rooted in North Indian craft traditions. A fitting centrepiece for luxury interiors and curated decor spaces.',
+    features: ['Brass inlay rim detailing', 'Traditional motif patterns', 'Diameter: 12 inches', 'Heritage craft combination', 'Luxury interior centrepiece']
+  },
+  {
+    id: 'urli-8',
+    title: 'Oval Urli Bowl',
+    badge: 'Urli',
+    tags: ['decorative'],
+    isPremium: false,
+    image: 'HandiCrafts/urli8.webp',
+    shortDesc: 'Oval-form urli in smooth Makrana marble, a contemporary take on the traditional bowl.',
+    fullDesc: 'A contemporary oval urli that retains all the traditional qualities of the classic form while offering a modern silhouette. The elongated shape works particularly well on rectangular dining tables, console tables, and sideboards. Smooth polished interior holds water securely for floating displays.',
+    features: ['Oval contemporary form', 'Smooth polished interior', 'Dimensions: 16" x 10"', 'Suitable for water and dry displays', 'Modern yet traditional aesthetic']
+  },
+  {
+    id: 'urli-9',
+    title: 'Urli with Pedestal Base',
+    badge: 'Elevated Urli',
+    tags: ['decorative', 'premium'],
+    isPremium: true,
+    image: 'HandiCrafts/urli9.webp',
+    shortDesc: 'Elevated urli on a carved marble pedestal base, adding height and drama to any display.',
+    fullDesc: 'A full urli-and-pedestal set carved from Makrana marble, designed to elevate your floral or candle display literally and visually. The carved pedestal base adds height and grandeur, making it ideal for larger rooms, hotel lobbies, or event centrepieces. The bowl and base are crafted as a unified piece for stability.',
+    features: ['Integrated carved pedestal base', 'Unified single-piece construction', 'Total height: 10 inches', 'Bowl diameter: 12 inches', 'Ideal for large rooms and events']
+  },
+  {
+    id: 'urli-10',
+    title: 'Lotus Carved Urli',
+    badge: 'Spiritual Urli',
+    tags: ['decorative', 'spiritual'],
+    isPremium: false,
+    image: 'HandiCrafts/urli10.webp',
+    shortDesc: 'Urli bowl with hand-carved lotus petal exterior, carrying spiritual symbolism and natural beauty.',
+    fullDesc: 'A devotional urli bowl whose outer surface is hand-carved with lotus petals radiating from the base. The lotus symbolises purity and spiritual awakening across Indian traditions, making this piece as meaningful as it is beautiful. Place it in a pooja room, meditation corner, or entrance with floating marigolds for a sacred display.',
+    features: ['Hand-carved lotus petal exterior', 'Spiritual symbolism in design', 'Diameter: 11 inches', 'Smooth water-tight interior', 'Ideal for pooja and meditation spaces']
+  },
+  // ── existing handicrafts below (unchanged) ──
+  {
+    id: 'handicraft-1',
+    title: 'Marble Fruit Bowl Inlay',
+    badge: 'Decorative',
+    tags: ['decorative', 'premium'],
+    isPremium: true,
+    image: 'HandiCrafts/handi1.webp',
+    shortDesc: 'Elegant white marble bowl with colorful semi-precious stone inlay work and floral patterns.',
+    fullDesc: 'This stunning decorative fruit bowl is carved from pristine white marble and features intricate semi-precious stone inlay work. Each floral pattern is meticulously crafted by master artisans, making it perfect as a centerpiece for dining tables. The polished finish adds both functionality and artistic beauty to your home decor.',
+    features: ['Premium white marble construction', 'Semi-precious stone inlay patterns', 'Hand-carved floral designs', 'Diameter: 12 inches', 'Food-safe polished finish']
+  },
+  {
+    id: 'handicraft-2',
+    title: 'Decorative Marble Vase',
+    badge: 'Classic',
+    tags: ['decorative'],
+    isPremium: false,
+    image: 'HandiCrafts/handi2.webp',
+    shortDesc: 'Classic marble vase with hand-carved relief work and traditional motifs for elegant display.',
+    fullDesc: 'An elegant marble vase featuring hand-carved relief work and traditional motifs. This versatile piece combines functionality with ornamental beauty, perfect for fresh or dried flowers. Its substantial weight and smooth finish make it a sophisticated addition to any interior space.',
+    features: ['Hand-carved relief designs', 'Traditional motif patterns', 'Height: 10 inches', 'Stable weighted base', 'Multi-purpose decorative use']
+  },
+  {
+    id: 'handicraft-3',
+    title: 'Marble Coaster Set',
+    badge: 'Practical',
+    tags: ['functional'],
+    isPremium: false,
+    image: 'HandiCrafts/handi.webp',
+    shortDesc: 'Premium set of marble coasters with natural gold veining and protective cork backing.',
+    fullDesc: 'Premium set of six marble coasters featuring natural gold-veined patterns and cork backing. Each coaster is individually polished and showcases unique natural veining. Protects surfaces elegantly while adding a touch of luxury to your coffee table or dining experience.',
+    features: ['Set of 6 matching coasters', 'Natural gold veining patterns', 'Cork backing for protection', 'Diameter: 4 inches each', 'Heat and moisture resistant']
+  },
+  {
+    id: 'handicraft-4',
+    title: 'Elephant Statue Inlay',
+    badge: 'Artistic',
+    tags: ['decorative', 'premium'],
+    isPremium: true,
+    image: 'HandiCrafts/handi4.webp',
+    shortDesc: 'Majestic marble elephant with colorful turquoise and coral stone inlay symbolizing prosperity.',
+    fullDesc: 'A majestic marble elephant statue adorned with colorful inlay work featuring turquoise, coral, and lapis lazuli stones. This piece symbolizes strength, wisdom, and good fortune in many cultures. The handcrafted masterpiece showcases exceptional artistry and makes a powerful decorative statement in any space.',
+    features: ['Handcrafted elephant design', 'Colorful semi-precious stone inlay', 'Symbol of prosperity and wisdom', 'Height: 8 inches', 'Intricate detailing throughout']
+  },
+  {
+    id: 'handicraft-5',
+    title: 'Marble Jewelry Box',
+    badge: 'Luxury',
+    tags: ['decorative', 'functional', 'premium'],
+    isPremium: true,
+    image: 'HandiCrafts/handi23.webp',
+    shortDesc: 'Exquisite jewelry box with pietra dura inlay and velvet-lined compartments for treasures.',
+    fullDesc: 'An exquisite jewelry box featuring pietra dura inlay with delicate floral designs. The interior is lined with velvet compartments for safe storage of precious items. The lid showcases semi-precious stone work in traditional Mughal patterns, making it a treasured keepsake box.',
+    features: ['Authentic pietra dura inlay work', 'Velvet-lined interior compartments', 'Multiple storage sections', 'Dimensions: 6" x 4" x 3"', 'Lockable with brass key']
+  },
+  {
+    id: 'handicraft-6',
+    title: 'Marble Serving Tray',
+    badge: 'Functional',
+    tags: ['functional'],
+    isPremium: false,
+    image: 'HandiCrafts/handi6.webp',
+    shortDesc: 'Sophisticated serving tray with brass handles, perfect for entertaining and display.',
+    fullDesc: 'A sophisticated serving tray crafted from premium marble with elegant brass handles. Perfect for serving drinks, snacks, or as a decorative display piece. The natural stone patterns ensure each tray is unique, combining practicality with timeless elegance for your entertaining needs.',
+    features: ['Premium marble construction', 'Brass handle accents', 'Anti-slip polished surface', 'Dimensions: 16" x 10"', 'Easy to clean and maintain']
+  },
+  {
+    id: 'handicraft-7',
+    title: 'Candle Holders Set',
+    badge: 'Ambient',
+    tags: ['decorative'],
+    isPremium: false,
+    image: 'HandiCrafts/handi7.webp',
+    shortDesc: 'Set of three graduated marble candle holders with carved bases for ambient lighting.',
+    fullDesc: 'A beautiful set of three graduated marble candle holders with intricately carved bases. Creates a stunning centerpiece when lit, casting beautiful shadows through the natural stone. Perfect for creating ambiance during dinner parties, meditation spaces, or romantic evenings.',
+    features: ['Set of 3 graduated holders', 'Three different heights', 'Carved decorative bases', 'Fits standard candles', 'Stable and safe design']
+  },
+  {
+    id: 'handicraft-8',
+    title: 'Taj Mahal Miniature',
+    badge: 'Souvenir',
+    tags: ['decorative', 'premium'],
+    isPremium: true,
+    image: 'HandiCrafts/handi8.webp',
+    shortDesc: 'Detailed Taj Mahal replica with accurate architectural features and inlay patterns.',
+    fullDesc: "A meticulously crafted miniature Taj Mahal replica in white marble with detailed inlay work. Features accurate architectural details including domes, minarets, and authentic pietra dura floral patterns. Perfect as a souvenir or gift representing India's magnificent architectural heritage.",
+    features: ['Authentic architectural details', 'Hand-carved with precision', 'Inlay work patterns throughout', 'Height: 6 inches with base', 'Includes decorative wooden base']
+  },
+  {
+    id: 'handicraft-9',
+    title: 'Marble Incense Holder',
+    badge: 'Spiritual',
+    tags: ['spiritual'],
+    isPremium: false,
+    image: 'HandiCrafts/handi9.webp',
+    shortDesc: 'Ornate incense holder with carved lotus design and ash-catching tray for spiritual use.',
+    fullDesc: 'An ornate marble incense holder featuring a hand-carved lotus design with an integrated ash-catching tray. Perfect for meditation spaces, prayer rooms, or creating a calming atmosphere in any room. The detailed craftsmanship adds spiritual elegance to your daily rituals.',
+    features: ['Hand-carved lotus motif', 'Integrated ash-catching tray', 'Holds multiple incense sticks', 'Length: 10 inches', 'Easy to clean design']
+  },
+  {
+    id: 'handicraft-10',
+    title: 'Marble Bookends Set',
+    badge: 'Functional',
+    tags: ['functional'],
+    isPremium: false,
+    image: 'HandiCrafts/handi10.webp',
+    shortDesc: 'Elegant bookend pair with carved geometric patterns, combining function and artistry.',
+    fullDesc: 'A pair of elegant marble bookends featuring carved geometric patterns and polished edges. These substantial pieces combine functionality with artistic beauty, keeping your books organized while serving as sculptural elements. The natural weight of marble ensures stability for even heavy book collections.',
+    features: ['Pair of matching bookends', 'Geometric carved patterns', 'Substantial marble weight', 'Height: 7 inches each', 'Non-slip felt base pads']
+  },
+  {
+    id: 'handicraft-11',
+    title: 'Decorative Marble Bowl',
+    badge: 'Elegant',
+    tags: ['decorative', 'premium'],
+    isPremium: true,
+    image: 'HandiCrafts/handi11.webp',
+    shortDesc: 'Large decorative bowl with scalloped edges and intricate relief carvings.',
+    fullDesc: 'A large decorative marble bowl featuring scalloped edges and intricate relief carvings throughout. This statement piece works beautifully as a centerpiece, fruit bowl, or decorative accent. The hand-carved details showcase traditional craftsmanship passed down through generations.',
+    features: ['Scalloped edge design', 'Intricate relief carvings', 'Diameter: 14 inches', 'Polished interior surface', 'Substantial decorative weight']
+  },
+  {
+    id: 'handicraft-12',
+    title: 'Marble Pestle & Mortar',
+    badge: 'Traditional',
+    tags: ['functional'],
+    isPremium: false,
+    image: 'HandiCrafts/handi12.webp',
+    shortDesc: 'Traditional kitchen tool carved from single marble block, perfect for grinding spices.',
+    fullDesc: 'A traditional marble pestle and mortar set carved from a single block of premium marble. Essential for grinding fresh spices, herbs, and making pastes. The natural density and weight of marble make it ideal for efficient grinding while adding rustic elegance to your kitchen.',
+    features: ['Single-block marble construction', 'Traditional grinding surface', 'Bowl diameter: 5 inches', 'Heavy pestle for efficiency', 'Food-safe natural material']
+  },
+  {
+    id: 'handicraft-13',
+    title: 'Marble Photo Frame',
+    badge: 'Keepsake',
+    tags: ['decorative', 'premium'],
+    isPremium: true,
+    image: 'HandiCrafts/handi13.webp',
+    shortDesc: 'Ornate photo frame with inlay borders and easel back for cherished memories.',
+    fullDesc: 'An ornate marble photo frame featuring colorful inlay borders and traditional patterns. Holds a standard 4x6 or 5x7 photo and includes an easel back for tabletop display. This elegant frame transforms your cherished memories into works of art worthy of display.',
+    features: ['Colorful stone inlay borders', 'Holds 5x7 inch photos', 'Easel back for standing', 'Wall-mountable design', 'Protective glass included']
+  },
+  {
+    id: 'handicraft-14',
+    title: 'Marble Pen Holder',
+    badge: 'Office',
+    tags: ['functional'],
+    isPremium: false,
+    image: 'HandiCrafts/handi14.webp',
+    shortDesc: 'Elegant desk organizer with multiple compartments and carved decorative patterns.',
+    fullDesc: 'An elegant marble pen holder featuring multiple compartments and carved decorative patterns. This sophisticated desk organizer keeps your workspace tidy while adding a touch of luxury. The substantial marble construction ensures stability and durability for daily use.',
+    features: ['Multiple compartment design', 'Carved decorative patterns', 'Holds pens, pencils, tools', 'Dimensions: 5" x 4" x 3"', 'Stable weighted base']
+  },
+  {
+    id: 'handicraft-15',
+    title: 'Marble Soap Dish',
+    badge: 'Luxury Bath',
+    tags: ['functional'],
+    isPremium: false,
+    image: 'HandiCrafts/handi15.webp',
+    shortDesc: 'Luxury bathroom accessory with drainage grooves and polished finish for daily use.',
+    fullDesc: 'A luxury marble soap dish featuring drainage grooves and a highly polished finish. This elegant bathroom accessory keeps soap dry and accessible while adding sophistication to your bath or powder room. The natural antibacterial properties of marble make it ideal for bathroom use.',
+    features: ['Drainage grooves design', 'High-polish finish', 'Natural antibacterial marble', 'Dimensions: 5" x 4"', 'Easy to clean and maintain']
+  },
+  {
+    id: 'handicraft-16',
+    title: 'Marble Chess Set',
+    badge: 'Game Set',
+    tags: ['decorative', 'premium'],
+    isPremium: true,
+    image: 'HandiCrafts/handi16.webp',
+    shortDesc: 'Handcrafted chess set with detailed pieces and inlaid board for strategic elegance.',
+    fullDesc: 'A handcrafted marble chess set featuring detailed hand-carved pieces and an inlaid board. Each chess piece is individually crafted with precision, while the board features alternating marble squares. This set transforms the classic game into a luxurious centerpiece for your home.',
+    features: ['Hand-carved chess pieces', 'Inlaid marble board', 'Board size: 16" x 16"', 'Weighted pieces for stability', 'Storage-friendly design']
+  },
+  {
+    id: 'handicraft-17',
+    title: 'Marble Rolling Pin',
+    badge: 'Kitchen Pro',
+    tags: ['functional'],
+    isPremium: false,
+    image: 'HandiCrafts/handi17.webp',
+    shortDesc: 'Professional-grade baking tool with smooth rolling surface, naturally cool for pastry.',
+    fullDesc: 'A professional-grade marble rolling pin with a smooth rolling surface that stays naturally cool. Ideal for working with pastry dough, fondant, and other temperature-sensitive preparations. The natural coolness of marble prevents butter from melting, ensuring perfect results every time.',
+    features: ['Naturally cool surface', 'Smooth rolling action', 'Length: 18 inches', 'Perfect for pastry work', 'Easy-grip handles']
+  },
+  {
+    id: 'handicraft-18',
+    title: 'Marble Wine Cooler',
+    badge: 'Wine Essential',
+    tags: ['functional', 'premium'],
+    isPremium: true,
+    image: 'HandiCrafts/handi18.webp',
+    shortDesc: 'Elegant wine chiller carved from single block, maintains temperature for hours.',
+    fullDesc: 'An elegant marble wine cooler carved from a single block of premium marble. The natural insulating properties of marble keep wine chilled for hours without dilution. This sophisticated piece elevates your wine service while making a stunning statement at dinner parties.',
+    features: ['Single-block construction', 'Natural temperature retention', 'Fits standard wine bottles', 'Height: 9 inches', 'Condensation-resistant surface']
+  },
+  {
+    id: 'handicraft-19',
+    title: 'Marble Clock',
+    badge: 'Timepiece',
+    tags: ['decorative', 'premium'],
+    isPremium: true,
+    image: 'HandiCrafts/handi19.webp',
+    shortDesc: 'Decorative table clock with brass accents and inlay work combining function and art.',
+    fullDesc: 'A decorative marble table clock featuring brass accents and colorful stone inlay work. This functional art piece combines precision timekeeping with traditional craftsmanship. The elegant design makes it perfect for desks, mantles, or bedside tables, adding sophistication to any space.',
+    features: ['Quartz movement mechanism', 'Brass accent detailing', 'Colorful stone inlay patterns', 'Height: 8 inches', 'Battery-operated precision']
+  },
+  {
+    id: 'handicraft-20',
+    title: 'Marble Planter Set',
+    badge: 'Garden Decor',
+    tags: ['decorative'],
+    isPremium: false,
+    image: 'HandiCrafts/handi20.webp',
+    shortDesc: 'Set of three planters with drainage holes, perfect for succulents and small plants.',
+    fullDesc: 'A set of three marble planters in graduated sizes, each featuring drainage holes and carved exterior patterns. Perfect for succulents, herbs, or small flowering plants. The natural beauty of marble complements greenery beautifully, creating an elegant indoor garden display.',
+    features: ['Set of 3 graduated sizes', 'Drainage holes included', 'Carved exterior patterns', 'Sizes: 4", 5", 6" diameter', 'Indoor plant compatible']
+  }
+];
     var PAGE_SIZE   = PAGE_CONFIG.pageSize;
     var WA_NUMBER   = PAGE_CONFIG.waNumber;
     var currentPage = 0;
