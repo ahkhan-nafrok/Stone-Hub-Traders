@@ -1,0 +1,401 @@
+<!--
+  Stone Hub Traders — faq.html
+  FAQ Component | Domain: https://www.stonehubtraders.in
+  ──────────────────────────────────────────────────────
+  HOW TO USE:
+  1. Save this file as faq.html in your root directory
+     (same level as index.html, navbar.html, footer.html)
+
+  2. In index.html, add to your COMPONENTS array BEFORE the footer entry:
+       { name: "faq", target: "faqComponent" },
+
+  3. In index.html <main>, add BEFORE </main>:
+       <section id="faqComponent" aria-label="Frequently Asked Questions"></section>
+
+  That's it — your component loader will inject this automatically.
+  ──────────────────────────────────────────────────────
+-->
+
+<style>
+  /* ── FAQ Section ────────────────────────────────────── */
+  .faq-section {
+    padding: 80px 20px;
+    background: #FAFAF8;
+    font-family: inherit;
+  }
+
+  .faq-container {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .faq-eyebrow {
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #A89070;
+    margin-bottom: 12px;
+  }
+
+  .faq-heading {
+    text-align: center;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0 0 16px;
+    line-height: 1.25;
+  }
+
+  .faq-subheading {
+    text-align: center;
+    font-size: 0.95rem;
+    color: #666;
+    margin: 0 0 56px;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ── Accordion ──────────────────────────────────────── */
+  .faq-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid #E8E4DC;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid #E8E4DC;
+  }
+
+  .faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 22px 0;
+    text-align: left;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #1a1a1a;
+    line-height: 1.4;
+    transition: color 0.2s ease;
+  }
+
+  .faq-question:hover {
+    color: #A89070;
+  }
+
+  .faq-question[aria-expanded="true"] {
+    color: #A89070;
+  }
+
+  .faq-icon {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 1.5px solid #A89070;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, background 0.2s ease;
+    color: #A89070;
+  }
+
+  .faq-question[aria-expanded="true"] .faq-icon {
+    background: #A89070;
+    color: #fff;
+    transform: rotate(45deg);
+  }
+
+  .faq-icon svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .faq-answer {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.35s ease, padding 0.35s ease;
+  }
+
+  .faq-answer.open {
+    max-height: 400px;
+  }
+
+  .faq-answer-inner {
+    padding: 0 0 22px;
+    font-size: 0.925rem;
+    color: #555;
+    line-height: 1.75;
+  }
+
+  /* ── CTA strip ──────────────────────────────────────── */
+  .faq-cta {
+    margin-top: 52px;
+    text-align: center;
+  }
+
+  .faq-cta p {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 20px;
+  }
+
+  .faq-cta a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #A89070;
+    color: #fff;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 3px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .faq-cta a:hover {
+    background: #8B7355;
+    transform: translateY(-1px);
+  }
+
+  .faq-cta a svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  @media (max-width: 600px) {
+    .faq-section {
+      padding: 60px 16px;
+    }
+    .faq-question {
+      font-size: 0.925rem;
+      padding: 18px 0;
+    }
+  }
+</style>
+
+<section class="faq-section" aria-labelledby="faq-heading">
+  <div class="faq-container">
+
+    <p class="faq-eyebrow">Have Questions?</p>
+    <h2 class="faq-heading" id="faq-heading">Frequently Asked Questions</h2>
+    <p class="faq-subheading">Everything you need to know about our Makrana marble products, custom sizing, and international shipping.</p>
+
+    <ul class="faq-list" role="list">
+
+      <li class="faq-item">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-a1" id="faq-q1">
+          What is Makrana marble and why is it special?
+          <span class="faq-icon" aria-hidden="true">
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-answer" id="faq-a1" role="region" aria-labelledby="faq-q1">
+          <div class="faq-answer-inner">
+            Makrana marble is quarried exclusively from Makrana, Rajasthan, India — the same source used to build the Taj Mahal. Its pure white colour, fine crystalline structure, and exceptional durability make it the finest carving marble in India. It polishes to a depth that reveals natural veining and accepts intricate hand-carving with a precision no alternative material can match.
+          </div>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-a2" id="faq-q2">
+          What products does Stone Hub Traders offer?
+          <span class="faq-icon" aria-hidden="true">
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-answer" id="faq-a2" role="region" aria-labelledby="faq-q2">
+          <div class="faq-answer-inner">
+            Stone Hub Traders offers eight collections: Home Mandirs (27 designs), Inlay Works &amp; Pietra Dura (16 designs), Wall Cladding (13 designs), Marble Table Tops (10 designs), Urli &amp; Handicrafts (30 designs), Marble Fountains (11 designs), Wash Basins &amp; Bathtubs (22 designs), and Marble Fireplaces (13 designs). All products are available in custom sizes.
+          </div>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-a3" id="faq-q3">
+          Does Stone Hub Traders ship marble products internationally?
+          <span class="faq-icon" aria-hidden="true">
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-answer" id="faq-a3" role="region" aria-labelledby="faq-q3">
+          <div class="faq-answer-inner">
+            Yes. Stone Hub Traders exports to clients across 12+ countries including UAE (Dubai), USA, UK, Australia, and Tanzania. We handle all packaging, custom wooden crating, and international freight coordination for safe delivery. Contact us on WhatsApp at +91 7976839230 for a country-specific shipping quote.
+          </div>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-a4" id="faq-q4">
+          How long does it take to make a custom marble mandir?
+          <span class="faq-icon" aria-hidden="true">
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-answer" id="faq-a4" role="region" aria-labelledby="faq-q4">
+          <div class="faq-answer-inner">
+            Standard marble mandir designs take 4–8 weeks. Designs with detailed pillar carving or jaali work require 3–6 months. Artisan elite pieces with complex geometric or pietra dura inlay work take 6–8 months. We confirm a specific timeline after reviewing your size and design brief.
+          </div>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-a5" id="faq-q5">
+          Can I get custom sizes for mandirs, tabletops, and other products?
+          <span class="faq-icon" aria-hidden="true">
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-answer" id="faq-a5" role="region" aria-labelledby="faq-q5">
+          <div class="faq-answer-inner">
+            Every product we make is built to your exact measurements. Mandirs range from 2.5ft to 7ft height. Dining tables, wall cladding panels, basins, bathtubs, and fountains are crafted to match your space precisely. Share your dimensions via WhatsApp at +91 7976839230 for a detailed custom quote.
+          </div>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-a6" id="faq-q6">
+          How do I get a price quote for a marble product?
+          <span class="faq-icon" aria-hidden="true">
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-answer" id="faq-a6" role="region" aria-labelledby="faq-q6">
+          <div class="faq-answer-inner">
+            WhatsApp us directly at +91 7976839230 — it is the fastest route. Share the product you need, your preferred design, size, and delivery location. Our team typically responds within a few hours with pricing, lead time, and shipping details.
+          </div>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-a7" id="faq-q7">
+          Is Makrana marble suitable for outdoor use?
+          <span class="faq-icon" aria-hidden="true">
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-answer" id="faq-a7" role="region" aria-labelledby="faq-q7">
+          <div class="faq-answer-inner">
+            Yes, when correctly sealed. We offer dedicated exterior-grade products including garden fountains, outdoor fireplaces, exterior facade cladding, and outdoor mandirs — all treated with weather-resistant sealants rated for rain, UV exposure, and temperature fluctuation. Always specify outdoor use when enquiring.
+          </div>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-a8" id="faq-q8">
+          What is the difference between polished and honed marble finishes?
+          <span class="faq-icon" aria-hidden="true">
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-answer" id="faq-a8" role="region" aria-labelledby="faq-q8">
+          <div class="faq-answer-inner">
+            Polished marble has a high-gloss mirror-like finish that brings out the depth of natural veining — standard for mandirs, tabletops, and decorative pieces. Honed marble is ground to a smooth, matte surface that feels more tactile and subdued — preferred for wall cladding and contemporary minimalist interiors. Both finishes are available across our full range.
+          </div>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-a9" id="faq-q9">
+          How do I care for and maintain marble products?
+          <span class="faq-icon" aria-hidden="true">
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-answer" id="faq-a9" role="region" aria-labelledby="faq-q9">
+          <div class="faq-answer-inner">
+            Clean marble with a soft cloth and a pH-neutral cleaner. Avoid acidic products such as vinegar, lemon juice, or bleach. Mandirs and decorative pieces need only regular dusting. Bathtubs, basins, and tabletops come sealed from our workshop — reseal every 2–3 years. Outdoor marble should be resealed every 1–2 years depending on exposure.
+          </div>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-a10" id="faq-q10">
+          How many years of experience does Stone Hub Traders have?
+          <span class="faq-icon" aria-hidden="true">
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-answer" id="faq-a10" role="region" aria-labelledby="faq-q10">
+          <div class="faq-answer-inner">
+            Stone Hub Traders has over 70 years of marble craftsmanship experience, spanning three generations of master artisans based in Makrana, Rajasthan. We have completed 15,000+ projects for residential, commercial, hospitality, and sacred spaces across India and 12+ countries worldwide.
+          </div>
+        </div>
+      </li>
+
+    </ul>
+
+    <div class="faq-cta">
+      <p>Still have questions? We respond on WhatsApp within a few hours.</p>
+      <a href="https://wa.me/917976839230?text=Hi%2C%20I%20have%20a%20question%20about%20your%20marble%20products"
+         target="_blank" rel="noopener noreferrer" aria-label="Chat with Stone Hub Traders on WhatsApp">
+        <!-- WhatsApp icon -->
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        WhatsApp Us
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  (function () {
+    'use strict';
+
+    var questions = document.querySelectorAll('.faq-question');
+
+    questions.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var expanded = this.getAttribute('aria-expanded') === 'true';
+        var answerId = this.getAttribute('aria-controls');
+        var answer   = document.getElementById(answerId);
+
+        // Close all others
+        questions.forEach(function (other) {
+          if (other !== btn) {
+            other.setAttribute('aria-expanded', 'false');
+            var otherAnswer = document.getElementById(other.getAttribute('aria-controls'));
+            if (otherAnswer) otherAnswer.classList.remove('open');
+          }
+        });
+
+        // Toggle this one
+        this.setAttribute('aria-expanded', String(!expanded));
+        if (answer) answer.classList.toggle('open', !expanded);
+      });
+    });
+  })();
+</script>
