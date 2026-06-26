@@ -6,16 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="Stone Hub Traders — Premium Makrana Marble & Granite with 70+ years of excellence. Custom Mandirs, Jaali Work, and Architectural Installations." />
-  <meta name="keywords" content="makrana marble, granite dealers, marble temple, custom mandir, marble flooring, jaali work, premium marble, architectural marble" />
-  <meta name="author" content="Stone Hub Traders" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Stone Hub Traders — Premium Marble & Granite" />
-  <meta property="og:description" content="70+ years of excellence in premium stone craftsmanship." />
-  <meta property="og:type" content="website" />
-
   <!-- Preconnect for Performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -29,8 +19,379 @@
     rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
 
-  <title>Stone Hub Traders — Premium Marble & Granite | 70+ Years of Excellence</title>
+ <!--
+  ╔══════════════════════════════════════════════════════════════════╗
+  ║  STONE HUB TRADERS — INDEX.HTML SEO HEAD                         ║
+  ║  Domain: https://www.stonehubtraders.in                    ║
+  ╠══════════════════════════════════════════════════════════════════╣
+  ║  CHECKLIST:                                                       ║
+  ║  [A] Replace <title> and all existing <meta> tags in <head>       ║
+  ║  [B] Add BOTH <script> blocks before </head>                      ║
+  ║  [C] Create faq.html file (download separately)                   ║
+  ║  [D] In index.html COMPONENTS array, add before footer entry:     ║
+  ║       add:  name: "faq", target: "faqComponent"                   ║
+  ║  [E] In index.html <main>, add before </main>:                    ║
+  ║       <section id="faqComponent" aria-label="FAQ"></section>      ║
+  ║  Keep: preconnects, font links, stylesheet links, <style> block   ║
+  ╚══════════════════════════════════════════════════════════════════╝
+-->
 
+
+<!-- ═══════════════════════════════════════════════════════════════
+     [A]  REPLACE EXISTING <title> AND <meta> TAGS
+═══════════════════════════════════════════════════════════════ -->
+
+<title>Stone Hub Traders — Premium Makrana Marble and Granite | Rajasthan | 70+ Years</title>
+
+<meta name="description"  content="Stone Hub Traders — Premium Makrana marble and granite craftsmen from Rajasthan with 70+ years of heritage. Custom home mandirs, pietra dura inlay, wall cladding, fountains, fireplaces, bathtubs and more. 15,000+ projects across 12+ countries." />
+<meta name="keywords"     content="makrana marble, granite dealers india, marble temple mandir, custom marble mandir, pietra dura inlay marble, marble wall cladding, marble fountain india, marble fireplace, marble bathtub, jaali work, stone hub traders, rajasthan marble crafts, marble inlay work, makrana stone, luxury marble india" />
+<meta name="author"       content="Stone Hub Traders" />
+<meta name="robots"       content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="theme-color"  content="#A89070" />
+
+<link rel="canonical" href="https://www.stonehubtraders.in/" />
+
+<!-- Geo — Makrana, Rajasthan, India -->
+<meta name="geo.region"    content="IN-RJ" />
+<meta name="geo.placename" content="Makrana, Rajasthan, India" />
+<meta name="geo.position"  content="27.0453;74.7197" />
+<meta name="ICBM"          content="27.0453, 74.7197" />
+
+<!-- hreflang — serves India, UAE, USA, UK, Australia, Tanzania -->
+<link rel="alternate" hreflang="en" href="https://www.stonehubtraders.in/" />
+<link rel="alternate" hreflang="en-IN" href="https://www.stonehubtraders.in/" />
+<link rel="alternate" hreflang="en-AE" href="https://www.stonehubtraders.in/" />
+<link rel="alternate" hreflang="en-US" href="https://www.stonehubtraders.in/" />
+<link rel="alternate" hreflang="en-GB" href="https://www.stonehubtraders.in/" />
+<link rel="alternate" hreflang="en-AU" href="https://www.stonehubtraders.in/" />
+<link rel="alternate" hreflang="x-default" href="https://www.stonehubtraders.in/" />
+
+<!-- Open Graph — WhatsApp, Facebook, LinkedIn share previews -->
+<meta property="og:type"             content="website" />
+<meta property="og:url"              content="https://www.stonehubtraders.in/" />
+<meta property="og:title"            content="Stone Hub Traders — Premium Makrana Marble and Granite | 70+ Years" />
+<meta property="og:description"      content="Three generations of master artisans from Makrana, Rajasthan. Home mandirs, inlay works, wall cladding, fountains, fireplaces and bathtubs. 15,000+ projects across 12+ countries." />
+<meta property="og:image"            content="https://www.stonehubtraders.in/assets/og-image.jpg" />
+<meta property="og:image:width"      content="1200" />
+<meta property="og:image:height"     content="630" />
+<meta property="og:image:alt"        content="Stone Hub Traders — Premium Makrana Marble craftsmanship from Rajasthan, India" />
+<meta property="og:site_name"        content="Stone Hub Traders" />
+<meta property="og:locale"           content="en_IN" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="en_GB" />
+<meta property="og:locale:alternate" content="en_AE" />
+
+<!-- Twitter / X Card -->
+<meta name="twitter:card"        content="summary_large_image" />
+<meta name="twitter:title"       content="Stone Hub Traders — Premium Makrana Marble and Granite" />
+<meta name="twitter:description" content="70+ years of heritage. Custom mandirs, pietra dura inlay, wall cladding, fountains and more from Makrana, Rajasthan. 15,000+ projects." />
+<meta name="twitter:image"       content="https://www.stonehubtraders.in/assets/og-image.jpg" />
+<meta name="twitter:image:alt"   content="Stone Hub Traders — Premium Marble Craftsmanship Rajasthan India" />
+
+<!-- Performance: preload hero image (update path to your actual hero image) -->
+<link rel="preload" as="image" href="https://www.stonehubtraders.in/assets/hero-bg.jpg" type="image/jpeg" />
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     [B]  ADD BOTH SCRIPT BLOCKS BEFORE </head>
+         Block 1: Organization + LocalBusiness + WebSite + WebPage
+         Block 2: FAQPage (10 questions — triggers Google FAQ rich results)
+═══════════════════════════════════════════════════════════════ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.stonehubtraders.in/#organization",
+      "name": "Stone Hub Traders",
+      "url": "https://www.stonehubtraders.in",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.stonehubtraders.in/assets/logo.png",
+        "width": 200,
+        "height": 200
+      },
+      "description": "Stone Hub Traders is a premium Makrana marble and granite craftsman based in Makrana, Rajasthan, India, with over 70 years of heritage spanning three generations.",
+      "foundingDate": "1955",
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "India"
+        },
+        {
+          "@type": "Country",
+          "name": "United Arab Emirates"
+        },
+        {
+          "@type": "Country",
+          "name": "United States"
+        },
+        {
+          "@type": "Country",
+          "name": "United Kingdom"
+        },
+        {
+          "@type": "Country",
+          "name": "Australia"
+        },
+        {
+          "@type": "Country",
+          "name": "Tanzania"
+        }
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-7976839230",
+        "contactType": "customer service",
+        "availableLanguage": [
+          "English",
+          "Hindi"
+        ]
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Stone Hub Traders Product Catalogue",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "Home Mandirs — 27 designs"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "Inlay Works and Pietra Dura — 16 designs"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "Wall Cladding — 13 designs"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "Marble Table Tops — 10 designs"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "Urli and Handicrafts — 30 designs"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "Marble Fountains — 11 designs"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "Wash Basins and Bathtubs — 22 designs"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "Marble Fireplaces — 13 designs"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": [
+        "LocalBusiness",
+        "HomeAndConstructionBusiness"
+      ],
+      "@id": "https://www.stonehubtraders.in/#localbusiness",
+      "name": "Stone Hub Traders",
+      "image": "https://www.stonehubtraders.in/assets/og-image.jpg",
+      "description": "Premium Makrana marble and granite craftsmen with 70+ years of heritage. 15,000+ projects across India and 12+ countries.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Makrana",
+        "addressLocality": "Makrana",
+        "addressRegion": "Rajasthan",
+        "postalCode": "341505",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 27.0453,
+        "longitude": 74.7197
+      },
+      "telephone": "+91-7976839230",
+      "url": "https://www.stonehubtraders.in",
+      "priceRange": "INR INR INR",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
+          "opens": "09:00",
+          "closes": "18:30"
+        }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "150",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "parentOrganization": {
+        "@id": "https://www.stonehubtraders.in/#organization"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.stonehubtraders.in/#website",
+      "url": "https://www.stonehubtraders.in",
+      "name": "Stone Hub Traders",
+      "description": "Premium Makrana Marble and Granite — 70+ Years of Excellence",
+      "inLanguage": "en-IN",
+      "publisher": {
+        "@id": "https://www.stonehubtraders.in/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.stonehubtraders.in/#webpage",
+      "url": "https://www.stonehubtraders.in",
+      "name": "Stone Hub Traders — Premium Makrana Marble and Granite | 70+ Years",
+      "description": "Stone Hub Traders: premium Makrana marble craftsmen from Rajasthan with 70+ years of heritage. Custom mandirs, inlay works, wall cladding, fountains, fireplaces, bathtubs and more.",
+      "isPartOf": {
+        "@id": "https://www.stonehubtraders.in/#website"
+      },
+      "about": {
+        "@id": "https://www.stonehubtraders.in/#organization"
+      },
+      "inLanguage": "en-IN",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.stonehubtraders.in/"
+          }
+        ]
+      }
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Makrana marble and why is it special?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Makrana marble is quarried exclusively from Makrana, Rajasthan, India — the same source used to build the Taj Mahal. Its pure white colour, fine crystalline structure, and exceptional durability make it the finest carving marble in India. It polishes to a depth that reveals natural veining and accepts intricate hand-carving with a precision no alternative material can match."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What products does Stone Hub Traders offer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Stone Hub Traders offers eight collections: Home Mandirs (27 designs), Inlay Works and Pietra Dura (16 designs), Wall Cladding (13 designs), Marble Table Tops (10 designs), Urli and Handicrafts (30 designs), Marble Fountains (11 designs), Wash Basins and Bathtubs (22 designs), and Marble Fireplaces (13 designs). All products are available in custom sizes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Stone Hub Traders ship marble products internationally?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Stone Hub Traders exports to clients across 12+ countries including UAE (Dubai), USA, UK, Australia, and Tanzania. We handle all packaging, custom wooden crating, and international freight coordination for safe delivery. Contact us on WhatsApp at +91 7976839230 for a country-specific shipping quote."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does it take to make a custom marble mandir?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Standard marble mandir designs take 4 to 8 weeks. Designs with detailed pillar carving or jaali work require 3 to 6 months. Artisan elite pieces with complex geometric or pietra dura inlay work take 6 to 8 months. We confirm a specific timeline after reviewing your size and design brief."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I get custom sizes for mandirs, tabletops, and other products?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every product we make is built to your exact measurements. Mandirs range from 2.5ft to 7ft height. Dining tables, wall cladding panels, basins, bathtubs, and fountains are crafted to match your space precisely. Share your dimensions via WhatsApp at +91 7976839230 for a detailed custom quote."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I get a price quote for a marble product?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "WhatsApp us directly at +91 7976839230 — it is the fastest route. Share the product you need, your preferred design, size, and delivery location. Our team typically responds within a few hours with pricing, lead time, and shipping details."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Makrana marble suitable for outdoor use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, when correctly sealed. We offer dedicated exterior-grade products including garden fountains, outdoor fireplaces, exterior facade cladding, and outdoor mandirs, all treated with weather-resistant sealants rated for rain, UV exposure, and temperature fluctuation. Always specify outdoor use when enquiring."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between polished and honed marble finishes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Polished marble has a high-gloss mirror-like finish that brings out the depth of natural veining, standard for mandirs, tabletops, and decorative pieces. Honed marble is ground to a smooth, matte surface that feels more tactile and subdued, preferred for wall cladding and contemporary minimalist interiors. Both finishes are available across our range."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I care for and maintain marble products?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Clean marble with a soft cloth and a pH-neutral cleaner. Avoid acidic products such as vinegar, lemon juice, or bleach. Mandirs and decorative pieces need only regular dusting. Bathtubs, basins, and tabletops come sealed from our workshop and should be resealed every 2 to 3 years. Outdoor marble should be resealed every 1 to 2 years."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many years of experience does Stone Hub Traders have?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Stone Hub Traders has over 70 years of marble craftsmanship experience, spanning three generations of master artisans based in Makrana, Rajasthan. We have completed 15,000+ projects for residential, commercial, hospitality, and sacred spaces across India and 12+ countries worldwide."
+      }
+    }
+  ]
+}
+</script>
   <style>
     /* ============================================================
        DESIGN TOKENS — STONE HUB TRADERS
